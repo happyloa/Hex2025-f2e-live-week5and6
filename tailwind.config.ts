@@ -177,6 +177,8 @@ export default <Partial<Config>>{
       },
       maxWidth: {
         container: "1296px",
+        "container-md": "1076px",
+        "container-sm": "856px",
       },
       boxShadow: {
         shadow: "0 0 16px 0 #0000001F",
