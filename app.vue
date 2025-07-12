@@ -4,5 +4,6 @@
   >
     <NuxtRouteAnnouncer />
     <NuxtPage />
+    <LayoutFooter />
   </div>
 </template>
