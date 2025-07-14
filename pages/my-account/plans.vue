@@ -5,4 +5,10 @@ useSeoMeta({
 });
 </script>
 
-<template><p>職旅計畫頁</p></template>
+<template>
+  <section class="bg-neutral-100 px-3 py-12 md:py-20">
+    <div class="max-w-container-md mx-auto">
+      <CommonMemberNav />
+    </div>
+  </section>
+</template>
