@@ -62,70 +62,70 @@ export default <Partial<Config>>{
             fontWeight: "700",
           },
         ],
-        h1: [
+        t5: [
           "3rem",
           {
             lineHeight: "1.2",
             fontWeight: "700",
           },
         ],
-        "h1-sm": [
+        "t5-sm": [
           "2rem",
           {
             lineHeight: "1.2",
             fontWeight: "700",
           },
         ],
-        h2: [
+        t4: [
           "2rem",
           {
             lineHeight: "1.2",
             fontWeight: "700",
           },
         ],
-        "h2-sm": [
+        "t4-sm": [
           "1.75rem",
           {
             lineHeight: "1.2",
             fontWeight: "700",
           },
         ],
-        h3: [
+        t3: [
           "1.75rem",
           {
             lineHeight: "1.2",
             fontWeight: "700",
           },
         ],
-        "h3-sm": [
+        "t3-sm": [
           "1.5rem",
           {
             lineHeight: "1.2",
             fontWeight: "700",
           },
         ],
-        h4: [
+        t2: [
           "1.5rem",
           {
             lineHeight: "1.2",
             fontWeight: "700",
           },
         ],
-        "h4-sm": [
+        "t2-sm": [
           "1.25rem",
           {
             lineHeight: "1.2",
             fontWeight: "700",
           },
         ],
-        h5: [
+        t: [
           "1.25rem",
           {
             lineHeight: "1.2",
             fontWeight: "700",
           },
         ],
-        "h5-sm": [
+        "t-sm": [
           "1.125rem",
           {
             lineHeight: "1.2",
