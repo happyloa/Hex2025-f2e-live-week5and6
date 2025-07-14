@@ -10,7 +10,7 @@ onMounted(() => {
 
 <template>
   <div
-    class="text-body-md text-neutral selection:bg-secondary-400 selection:text-white"
+    class="text-body-md-sm text-neutral selection:bg-secondary-400 selection:text-white md:text-body-md"
   >
     <NuxtRouteAnnouncer />
     <NuxtPage />
