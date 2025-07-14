@@ -7,9 +7,9 @@ useSeoMeta({
 
 <template>
   <section class="bg-neutral-100 px-3 py-12 md:py-20">
-    <div class="max-w-container-md mx-auto">
+    <div class="mx-auto max-w-container-md">
       <CommonMemberNav />
-      <div class="shadow-shadow rounded-3xl bg-white p-6 md:p-12"></div>
+      <div class="rounded-3xl bg-white p-6 shadow-shadow md:p-12"></div>
     </div>
   </section>
 </template>
