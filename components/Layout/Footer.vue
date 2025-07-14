@@ -49,7 +49,7 @@
           </li>
         </ul>
       </nav>
-      <p class="text-body-sm text-center text-neutral-600">
+      <p class="text-center text-body-sm text-neutral-600">
         Copyright © 2025 職旅 workway. All rights reserved.
       </p>
     </div>
