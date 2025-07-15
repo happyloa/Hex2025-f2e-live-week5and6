@@ -129,7 +129,7 @@ function closeModal() {
                 text="修改密碼"
                 hasIcon
                 isOutlined
-                @click.prevent="isChangePasswordOpen = true"
+                @click="isChangePasswordOpen = true"
               />
             </div>
             <!-- 信箱欄位 -->

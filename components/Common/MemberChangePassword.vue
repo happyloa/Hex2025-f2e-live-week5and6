@@ -80,7 +80,7 @@ const passwordAgain = ref("");
           </div>
           <!-- 按鈕 -->
           <footer class="flex justify-end px-6 py-4">
-            <AtomButton text="更新密碼" hasIcon @click.prevent="onClose" />
+            <AtomButton text="更新密碼" hasIcon @click="onClose" />
           </footer>
         </div>
       </section>
