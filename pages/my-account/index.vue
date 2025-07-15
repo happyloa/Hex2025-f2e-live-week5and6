@@ -17,6 +17,14 @@ const isChangePasswordOpen = ref(false);
 function closeModal() {
   isChangePasswordOpen.value = false;
 }
+
+function clearFields() {
+  name.value = "";
+  birthDate.value = "";
+  email.value = "";
+  phone.value = "";
+  address.value = "";
+}
 </script>
 
 <template>
@@ -133,19 +141,21 @@ function closeModal() {
               />
             </div>
             <!-- 信箱欄位 -->
-            <div class="relative">
-              <input
-                v-model="email"
-                type="email"
-                id="email"
-                placeholder=" "
-                class="peer block w-full rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-6 focus:outline-none"
-              />
-              <label
-                for="email"
-                class="pointer-events-none absolute left-3 top-4 z-10 -translate-y-1/2 text-body-sm text-neutral-600 duration-100 peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-body-md peer-placeholder-shown:text-neutral peer-focus:top-4 peer-focus:text-body-sm peer-focus:text-neutral-600"
-                >信箱</label
-              >
+            <div>
+              <div class="relative">
+                <input
+                  v-model="email"
+                  type="email"
+                  id="email"
+                  placeholder=" "
+                  class="peer block w-full rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-6 focus:outline-none"
+                />
+                <label
+                  for="email"
+                  class="pointer-events-none absolute left-3 top-4 z-10 -translate-y-1/2 text-body-sm text-neutral-600 duration-100 peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-body-md peer-placeholder-shown:text-neutral peer-focus:top-4 peer-focus:text-body-sm peer-focus:text-neutral-600"
+                  >信箱</label
+                >
+              </div>
               <p class="px-2 text-body-sm text-neutral-600">
                 盡量勿使用Yahoo或Hotmail郵件信箱，以免因擋信、漏信
               </p>
@@ -191,6 +201,7 @@ function closeModal() {
             hasIcon
             isOutlined
             class="w-full md:w-auto"
+            @click="clearFields()"
           />
           <AtomButton text="儲存更新" hasIcon class="w-full md:w-auto" />
         </div>
