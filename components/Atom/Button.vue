@@ -54,7 +54,7 @@ const btnClass = computed(() => {
   let paddingClass, colorClass, textClass;
 
   if (size.value === "md") {
-    paddingClass = hasIcon.value ? "py-3 pl-5 pr-3" : "py-3 px-5";
+    paddingClass = hasIcon.value ? "py-3 pl-5 pr-3" : "p-3 md:px-5";
     colorClass = isOutlined.value
       ? "border border-neutral-300 hover:bg-neutral-200"
       : "bg-neutral text-white hover:bg-secondary hover:text-neutral";
