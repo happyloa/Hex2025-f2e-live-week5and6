@@ -1,0 +1,44 @@
+[
+  {
+    "consultPlan": "職涯定位-職涯探索包｜6/6堂",
+    "date": "2025/11/11",
+    "period": "60分鐘",
+    "method": "視訊",
+    "status": "等待上課"
+  },
+  {
+    "consultPlan": "職涯定位-職涯探索包｜5/6堂",
+    "date": "2025/10/10",
+    "period": "60分鐘",
+    "method": "視訊",
+    "status": "等待上課"
+  },
+  {
+    "consultPlan": "職涯定位-職涯探索包｜4/6堂",
+    "date": "2025/09/09",
+    "period": "60分鐘",
+    "method": "視訊",
+    "status": "已完成"
+  },
+  {
+    "consultPlan": "職涯定位-職涯探索包｜3/6堂",
+    "date": "2025/08/08",
+    "period": "60分鐘",
+    "method": "面對面",
+    "status": "已完成"
+  },
+  {
+    "consultPlan": "職涯定位-職涯探索包｜2/6堂",
+    "date": "2025/07/07",
+    "period": "60分鐘",
+    "method": "面對面",
+    "status": "已完成"
+  },
+  {
+    "consultPlan": "職涯定位-職涯探索包｜1/6堂",
+    "date": "2025/06/06",
+    "period": "90分鐘",
+    "method": "面對面",
+    "status": "已完成"
+  }
+]
