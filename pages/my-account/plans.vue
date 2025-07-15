@@ -39,6 +39,10 @@ const backgroundAndStrengths = ref("");
 const professionalSkills = ref("");
 const languageSkills = ref("");
 const certifications = ref("");
+
+// 教育背景相關欄位
+const educationBackground = ref("");
+const professionalTrainings = ref("");
 </script>
 
 <template>
@@ -908,6 +912,49 @@ const certifications = ref("");
             </textarea>
           </div>
         </section>
+        <!-- 教育背景 -->
+        <section class="mb-6 flex flex-col gap-4 md:mb-12 md:flex-row md:gap-6">
+          <aside
+            class="top-[100px] flex max-w-[300px] flex-1 flex-row justify-between gap-2 md:sticky md:flex-col md:gap-3 md:self-start"
+          >
+            <h2 class="text-t2-sm !font-medium md:text-t2">教育背景</h2>
+            <p class="text-neutral-600">欄位皆為選填</p>
+          </aside>
+          <div class="flex-1 space-y-4 md:space-y-6">
+            <!-- 學歷背景 -->
+            <textarea
+              v-model="educationBackground"
+              id="educationBackground"
+              class="w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 py-4 placeholder:text-neutral focus:outline-none"
+              placeholder="學歷背景（最多500字）"
+              rows="5"
+              maxlength="500"
+            >
+            </textarea>
+            <!-- 專業培訓與工作坊 -->
+            <textarea
+              v-model="professionalTrainings"
+              id="professionalTrainings"
+              class="w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 py-4 placeholder:text-neutral focus:outline-none"
+              placeholder="專業培訓與工作坊（最多500字）"
+              rows="5"
+              maxlength="500"
+            >
+            </textarea>
+          </div>
+        </section>
+        <!-- 按鈕 -->
+        <div
+          class="flex flex-col-reverse justify-center gap-4 md:flex-row md:gap-6"
+        >
+          <AtomButton
+            text="匯出 PDF"
+            hasIcon
+            isOutlined
+            class="w-full md:w-auto"
+          />
+          <AtomButton text="儲存更新" hasIcon class="w-full md:w-auto" />
+        </div>
       </div>
     </div>
   </section>
