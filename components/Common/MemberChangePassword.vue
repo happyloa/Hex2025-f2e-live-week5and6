@@ -58,7 +58,7 @@ const passwordAgain = ref("");
               />
               <label
                 for="password"
-                class="pointer-events-none absolute left-3 top-3 z-10 -translate-y-1/2 text-body-sm text-neutral-600 duration-100 peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-body-md peer-placeholder-shown:text-neutral peer-focus:top-3 peer-focus:text-body-sm peer-focus:text-neutral-600"
+                class="pointer-events-none absolute left-3 top-4 z-10 -translate-y-1/2 text-body-sm text-neutral-600 duration-100 peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-body-md peer-placeholder-shown:text-neutral peer-focus:top-4 peer-focus:text-body-sm peer-focus:text-neutral-600"
                 >新密碼</label
               >
             </div>
@@ -73,7 +73,7 @@ const passwordAgain = ref("");
               />
               <label
                 for="passwordAgain"
-                class="pointer-events-none absolute left-3 top-3 z-10 -translate-y-1/2 text-body-sm text-neutral-600 duration-100 peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-body-md peer-placeholder-shown:text-neutral peer-focus:top-3 peer-focus:text-body-sm peer-focus:text-neutral-600"
+                class="pointer-events-none absolute left-3 top-4 z-10 -translate-y-1/2 text-body-sm text-neutral-600 duration-100 peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-body-md peer-placeholder-shown:text-neutral peer-focus:top-4 peer-focus:text-body-sm peer-focus:text-neutral-600"
                 >再次輸入新密碼</label
               >
             </div>
