@@ -83,7 +83,7 @@ function clearFields() {
             <div>
               <p class="mb-2">性別</p>
               <div class="flex gap-4 px-2 md:gap-6">
-                <label class="inline-flex cursor-pointer items-center gap-1">
+                <label class="flex cursor-pointer items-center gap-1">
                   <input
                     type="radio"
                     name="gender"
@@ -93,7 +93,7 @@ function clearFields() {
                   />
                   <span>女性</span>
                 </label>
-                <label class="inline-flex cursor-pointer items-center gap-1">
+                <label class="flex cursor-pointer items-center gap-1">
                   <input
                     type="radio"
                     name="gender"
@@ -103,7 +103,7 @@ function clearFields() {
                   />
                   <span>男性</span>
                 </label>
-                <label class="inline-flex cursor-pointer items-center gap-1">
+                <label class="flex cursor-pointer items-center gap-1">
                   <input
                     type="radio"
                     name="gender"
