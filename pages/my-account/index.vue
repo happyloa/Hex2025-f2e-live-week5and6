@@ -24,7 +24,7 @@ function closeModal() {
     <div class="mx-auto max-w-container-md">
       <CommonMemberNav />
       <div class="rounded-3xl bg-white p-6 shadow-shadow md:p-12">
-        <div class="mb-6 flex flex-col gap-4 md:mb-12 md:flex-row md:gap-6">
+        <div class="mb-20 flex flex-col gap-4 md:mb-12 md:flex-row md:gap-6">
           <aside class="max-w-[300px] flex-1">
             <h1 class="text-t2-sm !font-medium md:text-t2">個人資料</h1>
           </aside>
@@ -181,6 +181,18 @@ function closeModal() {
               >
             </div>
           </main>
+        </div>
+        <!-- 按鈕 -->
+        <div
+          class="flex flex-col-reverse justify-center gap-4 md:flex-row md:gap-6"
+        >
+          <AtomButton
+            text="重新填寫"
+            hasIcon
+            isOutlined
+            class="w-full md:w-auto"
+          />
+          <AtomButton text="儲存更新" hasIcon class="w-full md:w-auto" />
         </div>
       </div>
     </div>
