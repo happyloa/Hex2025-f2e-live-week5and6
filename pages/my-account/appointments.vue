@@ -69,9 +69,7 @@ onMounted(async () => {
             </h2>
           </li>
         </ul>
-        <div
-          class="mb-4 flex items-center justify-between gap-3 md:mb-6"
-        >
+        <div class="mb-4 flex items-center justify-between gap-3 md:mb-6">
           <div class="flex gap-2">
             <AtomButton text="全部預約" />
             <AtomButton text="已完成" isOutlined />
@@ -139,7 +137,7 @@ onMounted(async () => {
               :key="idx"
               :class="[
                 idx % 2 === 1 ? 'bg-neutral-200' : '', // 雙數列底色
-                'border-b border-neutral-300',
+                'border-b border-neutral-300 transition hover:bg-primary-200',
                 item.status === '已完成' ? 'text-neutral-500' : '',
               ]"
             >
@@ -169,7 +167,7 @@ onMounted(async () => {
               :key="idx"
               :class="[
                 idx % 2 === 1 ? 'bg-neutral-200' : '', // 雙數列底色
-                'border-b border-neutral-300 px-2 text-body-sm',
+                'border-b border-neutral-300 px-2 text-body-sm transition hover:bg-primary-200',
                 item.status === '已完成'
                   ? 'text-neutral-500'
                   : 'text-neutral-600',
