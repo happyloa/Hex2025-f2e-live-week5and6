@@ -36,7 +36,7 @@ function clearFields() {
           <aside class="max-w-[300px] flex-1">
             <h1 class="text-t2-sm !font-medium md:text-t2">個人資料</h1>
           </aside>
-          <main class="flex flex-1 flex-col gap-4 md:gap-6">
+          <main class="flex-1 space-y-4 md:space-y-6">
             <!-- 個人頭像 -->
             <div class="flex items-end gap-4">
               <img
