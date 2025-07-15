@@ -80,26 +80,7 @@ const passwordAgain = ref("");
           </div>
           <!-- 按鈕 -->
           <footer class="flex justify-end px-6 py-4">
-            <button
-              type="button"
-              class="flex items-center gap-1 rounded-2xl bg-neutral px-5 py-3 text-white transition hover:bg-secondary hover:text-neutral"
-              @click="onClose"
-            >
-              更新密碼
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 20 20"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                class="size-5"
-              >
-                <path
-                  d="m8.667 5 5 5-5 5L7.5 13.833 11.333 10 7.5 6.167z"
-                  fill="currentColor"
-                />
-              </svg>
-            </button>
+            <AtomButton text="更新密碼" hasIcon @click.prevent="onClose" />
           </footer>
         </div>
       </section>

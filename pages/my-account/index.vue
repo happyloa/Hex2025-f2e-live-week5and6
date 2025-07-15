@@ -125,25 +125,12 @@ function closeModal() {
             <!-- 修改密碼 -->
             <div>
               <p class="mb-2">密碼</p>
-              <button
-                type="button"
-                class="flex items-center rounded-2xl border border-neutral-200 bg-white p-3 transition duration-300 hover:bg-neutral-200 md:gap-1 md:px-5"
-                @click="isChangePasswordOpen = true"
-              >
-                修改密碼
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="m8.667 5 5 5-5 5L7.5 13.833 11.333 10 7.5 6.167z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </button>
+              <AtomButton
+                text="修改密碼"
+                hasIcon
+                isOutlined
+                @click.prevent="isChangePasswordOpen = true"
+              />
             </div>
             <!-- 信箱欄位 -->
             <div class="relative">
