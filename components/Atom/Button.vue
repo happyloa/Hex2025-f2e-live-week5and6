@@ -75,12 +75,16 @@ const btnClass = computed(() => {
 const iconSizeClass = computed(() => {
   return size.value === "lg" ? "size-7" : "size-5";
 });
+
+// 判斷是否為連結
+const isLink = computed(() => !!to.value && to.value !== "#");
+const component = computed(() => (isLink.value ? "NuxtLink" : "button"));
 </script>
 
 <template>
-  <NuxtLink
-    :to="to"
-    :target="target"
+  <component
+    :is="component"
+    v-bind="isLink ? { to, target } : { type: 'button' }"
     class="flex w-fit items-center justify-center gap-1 whitespace-nowrap rounded-2xl transition"
     :class="btnClass"
   >
@@ -99,5 +103,5 @@ const iconSizeClass = computed(() => {
         fill="currentColor"
       />
     </svg>
-  </NuxtLink>
+  </component>
 </template>
