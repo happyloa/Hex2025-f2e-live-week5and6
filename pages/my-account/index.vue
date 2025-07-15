@@ -34,7 +34,7 @@ function closeModal() {
               <img
                 src="/public/images/member/avatar.webp"
                 alt="個人頭像"
-                class="rounded-full"
+                class="rounded-full border border-neutral-300"
               />
               <button
                 type="button"
