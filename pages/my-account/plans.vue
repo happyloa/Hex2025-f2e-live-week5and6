@@ -25,6 +25,15 @@ function selectedJobTenure(period) {
   jobTenure.value = period;
   showJobTenureDropdown.value = false;
 }
+
+// 職涯規劃相關欄位
+const shortTermGoal = ref("1 年短期職涯目標（最多 300 字）");
+const mediumAndLongTermGoal = ref("1-3 年中長期職涯願景（最多 300 字）");
+const idealWorkMode = ref("固定辦公室工作");
+const desiredIncome = ref("");
+const encounteredCareerChallenge = ref([]);
+const desiredAssistanceAndResources = ref([]);
+const interestedServices = ref([]);
 </script>
 
 <template>
@@ -32,6 +41,7 @@ function selectedJobTenure(period) {
     <div class="mx-auto max-w-container-md">
       <CommonMemberNav />
       <div class="rounded-3xl bg-white p-6 shadow-shadow md:p-12">
+        <!-- 職旅計劃概況 -->
         <section
           class="mb-6 flex flex-col gap-4 border-b border-neutral-300 pb-6 md:mb-12 md:flex-row md:gap-6 md:pb-12"
         >
@@ -57,7 +67,7 @@ function selectedJobTenure(period) {
                     name="careerStatus"
                     value="全職上班族"
                     v-model="careerStatus"
-                    class="form-radio size-5 accent-primary"
+                    class="size-5 accent-primary"
                   />
                   <span>全職上班族</span>
                 </label>
@@ -67,7 +77,7 @@ function selectedJobTenure(period) {
                     name="careerStatus"
                     value="兼職工作者"
                     v-model="careerStatus"
-                    class="form-radio size-5 accent-primary"
+                    class="size-5 accent-primary"
                   />
                   <span>兼職工作者</span>
                 </label>
@@ -77,7 +87,7 @@ function selectedJobTenure(period) {
                     name="careerStatus"
                     value="自由工作者/接案者"
                     v-model="careerStatus"
-                    class="form-radio size-5 accent-primary"
+                    class="size-5 accent-primary"
                   />
                   <span>自由工作者/接案者</span>
                 </label>
@@ -87,7 +97,7 @@ function selectedJobTenure(period) {
                     name="careerStatus"
                     value="數位遊牧者"
                     v-model="careerStatus"
-                    class="form-radio size-5 accent-primary"
+                    class="size-5 accent-primary"
                   />
                   <span>數位遊牧者</span>
                 </label>
@@ -97,7 +107,7 @@ function selectedJobTenure(period) {
                     name="careerStatus"
                     value="創業者/企業主"
                     v-model="careerStatus"
-                    class="form-radio size-5 accent-primary"
+                    class="size-5 accent-primary"
                   />
                   <span>創業者/企業主</span>
                 </label>
@@ -107,7 +117,7 @@ function selectedJobTenure(period) {
                     name="careerStatus"
                     value="待業中"
                     v-model="careerStatus"
-                    class="form-radio size-5 accent-primary"
+                    class="size-5 accent-primary"
                   />
                   <span>待業中</span>
                 </label>
@@ -117,7 +127,7 @@ function selectedJobTenure(period) {
                     name="careerStatus"
                     value="其他"
                     v-model="careerStatus"
-                    class="form-radio size-5 accent-primary"
+                    class="size-5 accent-primary"
                   />
                   <span>其他</span>
                 </label>
@@ -291,7 +301,7 @@ function selectedJobTenure(period) {
                     name="monthlyIncome"
                     value="3 萬以下"
                     v-model="monthlyIncome"
-                    class="form-radio size-5 accent-primary"
+                    class="size-5 accent-primary"
                   />
                   <span>3 萬以下</span>
                 </label>
@@ -301,7 +311,7 @@ function selectedJobTenure(period) {
                     name="monthlyIncome"
                     value="3-5 萬"
                     v-model="monthlyIncome"
-                    class="form-radio size-5 accent-primary"
+                    class="size-5 accent-primary"
                   />
                   <span>3-5 萬</span>
                 </label>
@@ -311,7 +321,7 @@ function selectedJobTenure(period) {
                     name="monthlyIncome"
                     value="5-8 萬"
                     v-model="monthlyIncome"
-                    class="form-radio size-5 accent-primary"
+                    class="size-5 accent-primary"
                   />
                   <span>5-8 萬</span>
                 </label>
@@ -321,7 +331,7 @@ function selectedJobTenure(period) {
                     name="monthlyIncome"
                     value="8-12 萬"
                     v-model="monthlyIncome"
-                    class="form-radio size-5 accent-primary"
+                    class="size-5 accent-primary"
                   />
                   <span>8-12 萬</span>
                 </label>
@@ -331,7 +341,7 @@ function selectedJobTenure(period) {
                     name="monthlyIncome"
                     value="12-20 萬"
                     v-model="monthlyIncome"
-                    class="form-radio size-5 accent-primary"
+                    class="size-5 accent-primary"
                   />
                   <span>12-20 萬</span>
                 </label>
@@ -341,7 +351,7 @@ function selectedJobTenure(period) {
                     name="monthlyIncome"
                     value="20 萬以上"
                     v-model="monthlyIncome"
-                    class="form-radio size-5 accent-primary"
+                    class="size-5 accent-primary"
                   />
                   <span>20 萬以上</span>
                 </label>
@@ -396,7 +406,367 @@ function selectedJobTenure(period) {
             </div>
           </div>
         </section>
+        <!-- 職涯規劃 -->
+        <section
+          class="mb-6 flex flex-col gap-4 border-b border-neutral-300 pb-6 md:mb-12 md:flex-row md:gap-6 md:pb-12"
+        >
+          <aside
+            class="flex max-w-[300px] flex-1 flex-row justify-between gap-2 md:flex-col md:gap-3 md:self-start"
+          >
+            <h2 class="text-t2-sm !font-medium md:text-t2">職涯規劃</h2>
+            <p class="flex items-center gap-1 text-neutral-600">
+              欄位皆為<span
+                class="whitespace-nowrap rounded-xl bg-danger px-2 py-1 text-body-sm !font-medium leading-[1.2] text-white"
+                >必填</span
+              >
+            </p>
+          </aside>
+          <div class="flex-1 space-y-4 md:space-y-6">
+            <!-- 1 年短期職涯目標 -->
+            <textarea
+              v-model="shortTermGoal"
+              id="shortTermGoal"
+              class="w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 py-4 focus:outline-none"
+              rows="5"
+              maxlength="300"
+            >
+            </textarea>
+            <!-- 1-3 年中長期職涯願景 -->
+            <textarea
+              v-model="mediumAndLongTermGoal"
+              id="mediumAndLongTermGoal"
+              class="w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 py-4 focus:outline-none"
+              rows="5"
+              maxlength="300"
+            >
+            </textarea>
+            <!-- 理想工作模式 -->
+            <div>
+              <p class="mb-2">理想工作模式</p>
+              <div
+                class="flex flex-wrap gap-x-4 gap-y-2 px-2 text-body-sm md:gap-x-6"
+              >
+                <label class="flex cursor-pointer items-center gap-1">
+                  <input
+                    type="radio"
+                    name="idealWorkMode"
+                    value="固定辦公室工作"
+                    v-model="idealWorkMode"
+                    class="size-5 accent-primary"
+                  />
+                  <span>固定辦公室工作</span>
+                </label>
+                <label class="flex cursor-pointer items-center gap-1">
+                  <input
+                    type="radio"
+                    name="idealWorkMode"
+                    value="混合式工作(辦公室+遠端)"
+                    v-model="idealWorkMode"
+                    class="size-5 accent-primary"
+                  />
+                  <span>混合式工作(辦公室+遠端)</span>
+                </label>
+                <label class="flex cursor-pointer items-center gap-1">
+                  <input
+                    type="radio"
+                    name="idealWorkMode"
+                    value="完全遠端工作(固定地點)"
+                    v-model="idealWorkMode"
+                    class="size-5 accent-primary"
+                  />
+                  <span>完全遠端工作(固定地點)</span>
+                </label>
+                <label class="flex cursor-pointer items-center gap-1">
+                  <input
+                    type="radio"
+                    name="idealWorkMode"
+                    value="數位遊牧(邊工作邊旅行)"
+                    v-model="idealWorkMode"
+                    class="size-5 accent-primary"
+                  />
+                  <span>數位遊牧(邊工作邊旅行)</span>
+                </label>
+                <label class="flex cursor-pointer items-center gap-1">
+                  <input
+                    type="radio"
+                    name="idealWorkMode"
+                    value="其他(請說明)"
+                    v-model="idealWorkMode"
+                    class="size-5 accent-primary"
+                  />
+                  <span>其他(請說明)</span>
+                </label>
+              </div>
+            </div>
+            <!-- 目標薪資/收入 -->
+            <div class="relative">
+              <input
+                v-model="desiredIncome"
+                type="text"
+                id="desiredIncome"
+                placeholder=" "
+                class="peer block w-full rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-6 focus:outline-none"
+              />
+              <label
+                for="desiredIncome"
+                class="pointer-events-none absolute left-3 top-4 z-10 -translate-y-1/2 text-body-sm text-neutral-600 duration-100 peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-body-md peer-placeholder-shown:text-neutral peer-focus:top-4 peer-focus:text-body-sm peer-focus:text-neutral-600"
+                >目標薪資/收入</label
+              >
+            </div>
+            <!-- 目前面臨的職涯挑戰 -->
+            <div>
+              <p class="mb-2">目前面臨的職涯挑戰</p>
+              <div
+                class="flex flex-wrap gap-x-4 gap-y-2 text-body-sm md:gap-x-6 md:px-2"
+              >
+                <label class="flex cursor-pointer items-center gap-1">
+                  <input
+                    type="checkbox"
+                    name="encounteredCareerChallenge"
+                    value="方向不明確"
+                    v-model="encounteredCareerChallenge"
+                    class="custom-checkbox"
+                  />
+                  <span>方向不明確</span>
+                </label>
+                <label class="flex cursor-pointer items-center gap-1">
+                  <input
+                    type="checkbox"
+                    name="encounteredCareerChallenge"
+                    value="技能需要提升"
+                    v-model="encounteredCareerChallenge"
+                    class="custom-checkbox"
+                  />
+                  <span>技能需要提升</span>
+                </label>
+                <label class="flex cursor-pointer items-center gap-1">
+                  <input
+                    type="checkbox"
+                    name="encounteredCareerChallenge"
+                    value="收入不穩定"
+                    v-model="encounteredCareerChallenge"
+                    class="custom-checkbox"
+                  />
+                  <span>收入不穩定</span>
+                </label>
+                <label class="flex cursor-pointer items-center gap-1">
+                  <input
+                    type="checkbox"
+                    name="encounteredCareerChallenge"
+                    value="客戶開發困難"
+                    v-model="encounteredCareerChallenge"
+                    class="custom-checkbox"
+                  />
+                  <span>客戶開發困難</span>
+                </label>
+                <label class="flex cursor-pointer items-center gap-1">
+                  <input
+                    type="checkbox"
+                    name="encounteredCareerChallenge"
+                    value="時間管理問題"
+                    v-model="encounteredCareerChallenge"
+                    class="custom-checkbox"
+                  />
+                  <span>時間管理問題</span>
+                </label>
+                <label class="flex cursor-pointer items-center gap-1">
+                  <input
+                    type="checkbox"
+                    name="encounteredCareerChallenge"
+                    value="工作生活失衡"
+                    v-model="encounteredCareerChallenge"
+                    class="custom-checkbox"
+                  />
+                  <span>工作生活失衡</span>
+                </label>
+                <label class="flex cursor-pointer items-center gap-1">
+                  <input
+                    type="checkbox"
+                    name="encounteredCareerChallenge"
+                    value="缺乏人脈資源"
+                    v-model="encounteredCareerChallenge"
+                    class="custom-checkbox"
+                  />
+                  <span>缺乏人脈資源</span>
+                </label>
+                <label class="flex cursor-pointer items-center gap-1">
+                  <input
+                    type="checkbox"
+                    name="encounteredCareerChallenge"
+                    value="其他(請說明)"
+                    v-model="encounteredCareerChallenge"
+                    class="custom-checkbox"
+                  />
+                  <span>其他(請說明)</span>
+                </label>
+              </div>
+            </div>
+            <!-- 期望獲得的協助與資源 -->
+            <div>
+              <p class="mb-2">期望獲得的協助與資源</p>
+              <div
+                class="flex flex-wrap gap-x-4 gap-y-2 text-body-sm md:gap-x-6 md:px-2"
+              >
+                <label class="flex cursor-pointer items-center gap-1">
+                  <input
+                    type="checkbox"
+                    name="desiredAssistanceAndResources"
+                    value="職涯方向指導"
+                    v-model="desiredAssistanceAndResources"
+                    class="custom-checkbox"
+                  />
+                  <span>職涯方向指導</span>
+                </label>
+                <label class="flex cursor-pointer items-center gap-1">
+                  <input
+                    type="checkbox"
+                    name="desiredAssistanceAndResources"
+                    value="專業技能提升建議"
+                    v-model="desiredAssistanceAndResources"
+                    class="custom-checkbox"
+                  />
+                  <span>專業技能提升建議</span>
+                </label>
+                <label class="flex cursor-pointer items-center gap-1">
+                  <input
+                    type="checkbox"
+                    name="desiredAssistanceAndResources"
+                    value="個人品牌建立"
+                    v-model="desiredAssistanceAndResources"
+                    class="custom-checkbox"
+                  />
+                  <span>個人品牌建立</span>
+                </label>
+                <label class="flex cursor-pointer items-center gap-1">
+                  <input
+                    type="checkbox"
+                    name="desiredAssistanceAndResources"
+                    value="接案策略與定價"
+                    v-model="desiredAssistanceAndResources"
+                    class="custom-checkbox"
+                  />
+                  <span>接案策略與定價</span>
+                </label>
+                <label class="flex cursor-pointer items-center gap-1">
+                  <input
+                    type="checkbox"
+                    name="desiredAssistanceAndResources"
+                    value="客戶開發方法"
+                    v-model="desiredAssistanceAndResources"
+                    class="custom-checkbox"
+                  />
+                  <span>客戶開發方法</span>
+                </label>
+                <label class="flex cursor-pointer items-center gap-1">
+                  <input
+                    type="checkbox"
+                    name="desiredAssistanceAndResources"
+                    value="財務規劃"
+                    v-model="desiredAssistanceAndResources"
+                    class="custom-checkbox"
+                  />
+                  <span>財務規劃</span>
+                </label>
+                <label class="flex cursor-pointer items-center gap-1">
+                  <input
+                    type="checkbox"
+                    name="desiredAssistanceAndResources"
+                    value="時間管理系統"
+                    v-model="desiredAssistanceAndResources"
+                    class="custom-checkbox"
+                  />
+                  <span>時間管理系統</span>
+                </label>
+                <label class="flex cursor-pointer items-center gap-1">
+                  <input
+                    type="checkbox"
+                    name="desiredAssistanceAndResources"
+                    value="工作生活平衡"
+                    v-model="desiredAssistanceAndResources"
+                    class="custom-checkbox"
+                  />
+                  <span>工作生活平衡</span>
+                </label>
+                <label class="flex cursor-pointer items-center gap-1">
+                  <input
+                    type="checkbox"
+                    name="desiredAssistanceAndResources"
+                    value="其他(請說明)"
+                    v-model="desiredAssistanceAndResources"
+                    class="custom-checkbox"
+                  />
+                  <span>其他(請說明)</span>
+                </label>
+              </div>
+            </div>
+            <!-- 感興趣的服務方案 -->
+            <div>
+              <p class="mb-2">感興趣的服務方案</p>
+              <div
+                class="flex flex-wrap gap-x-4 gap-y-2 text-body-sm md:gap-x-6 md:px-2"
+              >
+                <label class="flex cursor-pointer items-center gap-1">
+                  <input
+                    type="checkbox"
+                    name="interestedServices"
+                    value="探索定位"
+                    v-model="interestedServices"
+                    class="custom-checkbox"
+                  />
+                  <span>探索定位</span>
+                </label>
+                <label class="flex cursor-pointer items-center gap-1">
+                  <input
+                    type="checkbox"
+                    name="interestedServices"
+                    value="客製化方案"
+                    v-model="interestedServices"
+                    class="custom-checkbox"
+                  />
+                  <span>客製化方案</span>
+                </label>
+                <label class="flex cursor-pointer items-center gap-1">
+                  <input
+                    type="checkbox"
+                    name="interestedServices"
+                    value="實戰指導"
+                    v-model="interestedServices"
+                    class="custom-checkbox"
+                  />
+                  <span>實戰指導</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   </section>
 </template>
+
+<style scoped>
+/* 客製化 checkbox 樣式 */
+.custom-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: #fcfcfd;
+  border: 1px solid #d1d9e1; /* Tailwind 的 border-neutral-300 */
+  border-radius: 4px;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  cursor: pointer;
+  vertical-align: middle;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+.custom-checkbox:checked {
+  background-color: #4a69e8; /* 你的 primary 色，自己換掉 */
+  border-color: #4a69e8;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 20 20' fill='white' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.629 15.071a1 1 0 0 1-1.414 0l-4.243-4.242a1 1 0 0 1 1.414-1.415l3.536 3.536 7.071-7.07a1 1 0 0 1 1.414 1.414l-7.778 7.777z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+}
+</style>
