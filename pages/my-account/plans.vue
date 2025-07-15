@@ -9,9 +9,7 @@ const careerStatus = ref("全職上班族");
 const industry = ref("");
 const jobTenure = ref("");
 const monthlyIncome = ref("3 萬以下");
-const careerSummary = ref(
-  "職業摘要（簡短描述您的專業背景和核心競爭力最多 300 字）",
-);
+const careerSummary = ref("");
 const workCase = ref("");
 
 const showIndustriesDropdown = ref(false);
@@ -27,8 +25,8 @@ function selectedJobTenure(period) {
 }
 
 // 職涯規劃相關欄位
-const shortTermGoal = ref("1 年短期職涯目標（最多 300 字）");
-const mediumAndLongTermGoal = ref("1-3 年中長期職涯願景（最多 300 字）");
+const shortTermGoal = ref("");
+const mediumAndLongTermGoal = ref("");
 const idealWorkMode = ref("固定辦公室工作");
 const desiredIncome = ref("");
 const encounteredCareerChallenge = ref([]);
@@ -37,10 +35,10 @@ const interestedServices = ref([]);
 
 // 專業技能區塊相關欄位
 const coreProfessions = ref([]);
-const backgroundAndStrengths = ref("專業背景和核心競爭力（最多300字）");
-const professionalSkills = ref("專業技能（最多300字）");
-const languageSkills = ref("語文能力（最多300字）");
-const certifications = ref("資格證照（最多300字）");
+const backgroundAndStrengths = ref("");
+const professionalSkills = ref("");
+const languageSkills = ref("");
+const certifications = ref("");
 </script>
 
 <template>
@@ -368,7 +366,8 @@ const certifications = ref("資格證照（最多300字）");
             <textarea
               v-model="careerSummary"
               id="careerSummary"
-              class="w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 py-4 focus:outline-none"
+              class="w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 py-4 placeholder:text-neutral focus:outline-none"
+              placeholder="職業摘要（簡短描述您的專業背景和核心競爭力最多 300 字）"
               rows="5"
               maxlength="300"
             >
@@ -433,7 +432,8 @@ const certifications = ref("資格證照（最多300字）");
             <textarea
               v-model="shortTermGoal"
               id="shortTermGoal"
-              class="w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 py-4 focus:outline-none"
+              class="w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 py-4 placeholder:text-neutral focus:outline-none"
+              placeholder="1 年短期職涯目標（最多 300 字）"
               rows="5"
               maxlength="300"
             >
@@ -442,7 +442,8 @@ const certifications = ref("資格證照（最多300字）");
             <textarea
               v-model="mediumAndLongTermGoal"
               id="mediumAndLongTermGoal"
-              class="w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 py-4 focus:outline-none"
+              class="w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 py-4 placeholder:text-neutral focus:outline-none"
+              placeholder="1-3 年中長期職涯願景（最多 300 字）"
               rows="5"
               maxlength="300"
             >
@@ -869,7 +870,8 @@ const certifications = ref("資格證照（最多300字）");
             <textarea
               v-model="backgroundAndStrengths"
               id="backgroundAndStrengths"
-              class="w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 py-4 focus:outline-none"
+              class="w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 py-4 placeholder:text-neutral focus:outline-none"
+              placeholder="專業背景和核心競爭力（最多300字）"
               rows="5"
               maxlength="300"
             >
@@ -878,7 +880,8 @@ const certifications = ref("資格證照（最多300字）");
             <textarea
               v-model="professionalSkills"
               id="professionalSkills"
-              class="w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 py-4 focus:outline-none"
+              class="w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 py-4 placeholder:text-neutral focus:outline-none"
+              placeholder="專業技能（最多300字）"
               rows="5"
               maxlength="300"
             >
@@ -887,7 +890,8 @@ const certifications = ref("資格證照（最多300字）");
             <textarea
               v-model="languageSkills"
               id="languageSkills"
-              class="w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 py-4 focus:outline-none"
+              class="w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 py-4 placeholder:text-neutral focus:outline-none"
+              placeholder="語文能力（最多300字）"
               rows="5"
               maxlength="300"
             >
@@ -896,7 +900,8 @@ const certifications = ref("資格證照（最多300字）");
             <textarea
               v-model="certifications"
               id="certifications"
-              class="w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 py-4 focus:outline-none"
+              class="w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 py-4 placeholder:text-neutral focus:outline-none"
+              placeholder="資格證照（最多300字）"
               rows="5"
               maxlength="300"
             >
