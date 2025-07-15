@@ -34,6 +34,13 @@ const desiredIncome = ref("");
 const encounteredCareerChallenge = ref([]);
 const desiredAssistanceAndResources = ref([]);
 const interestedServices = ref([]);
+
+// 專業技能區塊相關欄位
+const coreProfessions = ref([]);
+const backgroundAndStrengths = ref("專業背景和核心競爭力（最多300字）");
+const professionalSkills = ref("專業技能（最多300字）");
+const languageSkills = ref("語文能力（最多300字）");
+const certifications = ref("資格證照（最多300字）");
 </script>
 
 <template>
@@ -46,7 +53,7 @@ const interestedServices = ref([]);
           class="mb-6 flex flex-col gap-4 border-b border-neutral-300 pb-6 md:mb-12 md:flex-row md:gap-6 md:pb-12"
         >
           <aside
-            class="flex max-w-[300px] flex-1 flex-row justify-between gap-2 md:flex-col md:gap-3 md:self-start"
+            class="top-[100px] flex max-w-[300px] flex-1 flex-row justify-between gap-2 md:sticky md:flex-col md:gap-3 md:self-start"
           >
             <h1 class="text-t2-sm !font-medium md:text-t2">職旅計劃概況</h1>
             <p class="flex items-center gap-1 text-neutral-600">
@@ -411,7 +418,7 @@ const interestedServices = ref([]);
           class="mb-6 flex flex-col gap-4 border-b border-neutral-300 pb-6 md:mb-12 md:flex-row md:gap-6 md:pb-12"
         >
           <aside
-            class="flex max-w-[300px] flex-1 flex-row justify-between gap-2 md:flex-col md:gap-3 md:self-start"
+            class="top-[100px] flex max-w-[300px] flex-1 flex-row justify-between gap-2 md:sticky md:flex-col md:gap-3 md:self-start"
           >
             <h2 class="text-t2-sm !font-medium md:text-t2">職涯規劃</h2>
             <p class="flex items-center gap-1 text-neutral-600">
@@ -737,6 +744,163 @@ const interestedServices = ref([]);
                 </label>
               </div>
             </div>
+          </div>
+        </section>
+        <!-- 專業技能區塊 -->
+        <section
+          class="mb-6 flex flex-col gap-4 border-b border-neutral-300 pb-6 md:mb-12 md:flex-row md:gap-6 md:pb-12"
+        >
+          <aside
+            class="top-[100px] flex max-w-[300px] flex-1 flex-row justify-between gap-2 md:sticky md:flex-col md:gap-3 md:self-start"
+          >
+            <h2 class="text-t2-sm !font-medium md:text-t2">專業技能區塊</h2>
+            <p class="text-neutral-600">欄位皆為選填</p>
+          </aside>
+          <div class="flex-1 space-y-4 md:space-y-6">
+            <!-- 核心專業領域 -->
+            <div>
+              <p class="mb-2">核心專業領域</p>
+              <div
+                class="flex flex-wrap gap-x-4 gap-y-2 text-body-sm md:gap-x-6 md:px-2"
+              >
+                <label class="flex cursor-pointer items-center gap-1">
+                  <input
+                    type="checkbox"
+                    name="coreProfessions"
+                    value="設計/創意"
+                    v-model="coreProfessions"
+                    class="custom-checkbox"
+                  />
+                  <span>設計/創意</span>
+                </label>
+                <label class="flex cursor-pointer items-center gap-1">
+                  <input
+                    type="checkbox"
+                    name="coreProfessions"
+                    value="科技/程式開發"
+                    v-model="coreProfessions"
+                    class="custom-checkbox"
+                  />
+                  <span>科技/程式開發</span>
+                </label>
+                <label class="flex cursor-pointer items-center gap-1">
+                  <input
+                    type="checkbox"
+                    name="coreProfessions"
+                    value="行銷/公關"
+                    v-model="coreProfessions"
+                    class="custom-checkbox"
+                  />
+                  <span>行銷/公關</span>
+                </label>
+                <label class="flex cursor-pointer items-center gap-1">
+                  <input
+                    type="checkbox"
+                    name="coreProfessions"
+                    value="內容創作/寫作"
+                    v-model="coreProfessions"
+                    class="custom-checkbox"
+                  />
+                  <span>內容創作/寫作</span>
+                </label>
+                <label class="flex cursor-pointer items-center gap-1">
+                  <input
+                    type="checkbox"
+                    name="coreProfessions"
+                    value="顧問/諮詢"
+                    v-model="coreProfessions"
+                    class="custom-checkbox"
+                  />
+                  <span>顧問/諮詢</span>
+                </label>
+                <label class="flex cursor-pointer items-center gap-1">
+                  <input
+                    type="checkbox"
+                    name="coreProfessions"
+                    value="商業/管理"
+                    v-model="coreProfessions"
+                    class="custom-checkbox"
+                  />
+                  <span>商業/管理</span>
+                </label>
+                <label class="flex cursor-pointer items-center gap-1">
+                  <input
+                    type="checkbox"
+                    name="coreProfessions"
+                    value="財務/會計"
+                    v-model="coreProfessions"
+                    class="custom-checkbox"
+                  />
+                  <span>財務/會計</span>
+                </label>
+                <label class="flex cursor-pointer items-center gap-1">
+                  <input
+                    type="checkbox"
+                    name="coreProfessions"
+                    value="教育/培訓"
+                    v-model="coreProfessions"
+                    class="custom-checkbox"
+                  />
+                  <span>教育/培訓</span>
+                </label>
+                <label class="flex cursor-pointer items-center gap-1">
+                  <input
+                    type="checkbox"
+                    name="coreProfessions"
+                    value="法律/合規"
+                    v-model="coreProfessions"
+                    class="custom-checkbox"
+                  />
+                  <span>法律/合規</span>
+                </label>
+                <label class="flex cursor-pointer items-center gap-1">
+                  <input
+                    type="checkbox"
+                    name="coreProfessions"
+                    value="健康/醫療"
+                    v-model="coreProfessions"
+                    class="custom-checkbox"
+                  />
+                  <span>健康/醫療</span>
+                </label>
+              </div>
+            </div>
+            <!-- 專業背景和核心競爭力 -->
+            <textarea
+              v-model="backgroundAndStrengths"
+              id="backgroundAndStrengths"
+              class="w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 py-4 focus:outline-none"
+              rows="5"
+              maxlength="300"
+            >
+            </textarea>
+            <!-- 專業技能 -->
+            <textarea
+              v-model="professionalSkills"
+              id="professionalSkills"
+              class="w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 py-4 focus:outline-none"
+              rows="5"
+              maxlength="300"
+            >
+            </textarea>
+            <!-- 語文能力 -->
+            <textarea
+              v-model="languageSkills"
+              id="languageSkills"
+              class="w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 py-4 focus:outline-none"
+              rows="5"
+              maxlength="300"
+            >
+            </textarea>
+            <!-- 資格證照 -->
+            <textarea
+              v-model="certifications"
+              id="certifications"
+              class="w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 py-4 focus:outline-none"
+              rows="5"
+              maxlength="300"
+            >
+            </textarea>
           </div>
         </section>
       </div>
