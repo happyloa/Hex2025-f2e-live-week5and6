@@ -89,7 +89,7 @@ function clearFields() {
                     name="gender"
                     value="女性"
                     v-model="gender"
-                    class="form-radio size-5 accent-primary"
+                    class="size-5 accent-primary"
                   />
                   <span>女性</span>
                 </label>
@@ -99,7 +99,7 @@ function clearFields() {
                     name="gender"
                     value="男性"
                     v-model="gender"
-                    class="form-radio size-5 accent-primary"
+                    class="size-5 accent-primary"
                   />
                   <span>男性</span>
                 </label>
@@ -109,7 +109,7 @@ function clearFields() {
                     name="gender"
                     value="不願透露"
                     v-model="gender"
-                    class="form-radio size-5 accent-primary"
+                    class="size-5 accent-primary"
                   />
                   <span>不願透露</span>
                 </label>
