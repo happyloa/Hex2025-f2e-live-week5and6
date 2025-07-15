@@ -42,7 +42,7 @@ function clearFields() {
               <img
                 src="/public/images/member/avatar.webp"
                 alt="個人頭像"
-                class="rounded-full border border-neutral-300"
+                class="size-[120px] rounded-full border border-neutral-300"
               />
               <button
                 type="button"
