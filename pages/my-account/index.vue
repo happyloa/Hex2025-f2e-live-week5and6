@@ -4,6 +4,10 @@ useSeoMeta({
   ogTitle: "個人資料 | 2025 切版直播班 - 職涯諮詢媒合 W5&W6",
 });
 
+definePageMeta({
+  layout: "member",
+});
+
 // 表單欄位
 const name = ref("Mokumaru");
 const gender = ref("女性");

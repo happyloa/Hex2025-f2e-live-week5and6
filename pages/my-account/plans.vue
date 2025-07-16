@@ -4,6 +4,10 @@ useSeoMeta({
   ogTitle: "職旅計畫 | 2025 切版直播班 - 職涯諮詢媒合 W5&W6",
 });
 
+definePageMeta({
+  layout: "member",
+});
+
 // 職旅計劃概況相關欄位、變數、方法
 const careerStatus = ref("全職上班族");
 const industry = ref("");

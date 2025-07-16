@@ -4,6 +4,10 @@ useSeoMeta({
   ogTitle: "預約紀錄 | 2025 切版直播班 - 職涯諮詢媒合 W5&W6",
 });
 
+definePageMeta({
+  layout: "member",
+});
+
 const appointments = ref([]);
 const showDropdown = ref(false); // dropdown 開關
 const sortOrder = ref("desc"); // "desc" 新到舊（預設），"asc" 舊到新
