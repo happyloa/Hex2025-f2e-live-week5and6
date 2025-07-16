@@ -1,6 +1,8 @@
 <script setup>
 const isLoggedIn = ref(false);
 
+const showMobileNav = ref(false);
+
 onMounted(async () => {
   await nextTick();
   // 取 sessionStorage isLoggedIn 值
@@ -10,7 +12,7 @@ onMounted(async () => {
 
 <template>
   <header
-    class="sticky top-0 z-50 border-b border-neutral-300 bg-white px-3 py-3.5 md:p-3"
+    class="sticky top-0 z-40 border-b border-neutral-300 bg-white px-3 py-3.5 md:p-3"
   >
     <div class="mx-auto flex max-w-container items-center justify-between">
       <NuxtLink to="/"
@@ -76,6 +78,7 @@ onMounted(async () => {
             viewBox="0 0 24 24"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            @click="showMobileNav = true"
           >
             <path
               d="M3 18v-1.5h18V18zm0-5.25v-1.5h18v1.5zM3 7.5V6h18v1.5z"
@@ -86,4 +89,40 @@ onMounted(async () => {
       </div>
     </div>
   </header>
+
+  <!-- 手機版 Modal 導覽選單 -->
+  <LayoutMobileNav v-model:show="showMobileNav">
+    <ul class="space-y-6 text-center">
+      <li>
+        <NuxtLink
+          to="/plans"
+          class="block p-4"
+          :class="$route.path === '/plans' ? 'bg-neutral-200' : ''"
+          >服務方案</NuxtLink
+        >
+      </li>
+      <li>
+        <NuxtLink
+          to="/about"
+          class="block p-4"
+          :class="$route.path === '/about' ? 'bg-neutral-200' : ''"
+          >關於職旅</NuxtLink
+        >
+      </li>
+      <li>
+        <NuxtLink
+          to="/contact"
+          class="block p-4"
+          :class="$route.path === '/contact' ? 'bg-neutral-200' : ''"
+          >聯絡我們</NuxtLink
+        >
+      </li>
+    </ul>
+    <AtomButton
+      v-if="!isLoggedIn"
+      text="登入/註冊"
+      size="lg"
+      class="mt-auto w-full"
+    />
+  </LayoutMobileNav>
 </template>
