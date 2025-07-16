@@ -169,7 +169,7 @@ const professionalTrainings = ref("");
               </button>
               <div
                 v-if="showIndustriesDropdown"
-                class="absolute right-0 top-16 z-50 w-full rounded-xl bg-white py-2 shadow-shadow"
+                class="absolute right-0 top-16 z-30 w-full rounded-xl bg-white py-2 shadow-shadow"
               >
                 <ul>
                   <li
@@ -261,7 +261,7 @@ const professionalTrainings = ref("");
               </button>
               <div
                 v-if="showJobTenureDropdown"
-                class="absolute right-0 top-16 z-50 w-full rounded-xl bg-white py-2 shadow-shadow"
+                class="absolute right-0 top-16 z-30 w-full rounded-xl bg-white py-2 shadow-shadow"
               >
                 <ul>
                   <li
