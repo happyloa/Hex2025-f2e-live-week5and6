@@ -68,6 +68,21 @@ onMounted(async () => {
           isOutlined
           class="px-4 py-2 md:px-6"
         />
+        <!-- 手機版選單開關 -->
+        <button type="button" class="block p-2.5 md:hidden">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3 18v-1.5h18V18zm0-5.25v-1.5h18v1.5zM3 7.5V6h18v1.5z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
       </div>
     </div>
   </header>
