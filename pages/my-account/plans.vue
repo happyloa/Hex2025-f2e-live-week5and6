@@ -394,7 +394,7 @@ const professionalTrainings = ref("");
                 type="text"
                 id="workCase"
                 placeholder=" "
-                class="peer block w-full rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-6 focus:outline-none"
+                class="peer block w-full rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] focus:outline-none"
               />
               <label
                 for="workCase"
@@ -542,7 +542,7 @@ const professionalTrainings = ref("");
                 type="text"
                 id="desiredIncome"
                 placeholder=" "
-                class="peer block w-full rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-6 focus:outline-none"
+                class="peer block w-full rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] focus:outline-none"
               />
               <label
                 for="desiredIncome"
