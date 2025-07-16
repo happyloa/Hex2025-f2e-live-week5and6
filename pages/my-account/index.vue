@@ -75,7 +75,7 @@ function clearFields() {
                 type="text"
                 id="name"
                 placeholder=" "
-                class="peer block w-full rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] focus:outline-none"
+                class="peer block w-full rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] focus:border-primary focus:outline-none"
               />
               <label
                 for="name"
@@ -126,7 +126,7 @@ function clearFields() {
                 type="text"
                 id="birthDate"
                 placeholder=" "
-                class="peer block w-full rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] focus:outline-none"
+                class="peer block w-full rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] focus:border-primary focus:outline-none"
               />
               <label
                 for="birthDate"
@@ -152,7 +152,7 @@ function clearFields() {
                   type="email"
                   id="email"
                   placeholder=" "
-                  class="peer block w-full rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] focus:outline-none"
+                  class="peer block w-full rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] focus:border-primary focus:outline-none"
                 />
                 <label
                   for="email"
@@ -171,7 +171,7 @@ function clearFields() {
                 type="tel"
                 id="phone"
                 placeholder=" "
-                class="peer block w-full rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] focus:outline-none"
+                class="peer block w-full rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] focus:border-primary focus:outline-none"
               />
               <label
                 for="phone"
@@ -186,7 +186,7 @@ function clearFields() {
                 type="text"
                 id="address"
                 placeholder=" "
-                class="peer block w-full rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] focus:outline-none"
+                class="peer block w-full rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] focus:border-primary focus:outline-none"
               />
               <label
                 for="address"
