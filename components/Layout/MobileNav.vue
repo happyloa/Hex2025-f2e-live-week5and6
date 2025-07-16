@@ -28,7 +28,7 @@ watch(route, () => close());
     <Transition name="fade">
       <nav
         v-if="show"
-        class="fixed inset-0 z-50 block bg-white px-6 pb-6 pt-[84px] md:hidden"
+        class="fixed inset-0 z-50 flex flex-col justify-between gap-6 bg-white px-6 pb-6 pt-[84px] md:hidden"
       >
         <button
           class="absolute right-6 top-6 p-2.5"
