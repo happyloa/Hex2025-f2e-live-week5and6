@@ -16,6 +16,19 @@ function selectedCareerStatus(status) {
   careerStatus.value = status;
   showCareerStatusDropdown.value = false;
 }
+
+// 諮詢需求相關欄位
+const consultTopics = ref([]);
+const wantedProfession = ref("");
+const currentChallenge = ref("");
+const yourGoal = ref("");
+
+const showWantedProfessionDropdown = ref(false);
+
+function selectedWantedProfession(pro) {
+  wantedProfession.value = pro;
+  showWantedProfessionDropdown.value = false;
+}
 </script>
 
 <template>
@@ -129,7 +142,7 @@ function selectedCareerStatus(status) {
               </button>
               <div
                 v-if="showCareerStatusDropdown"
-                class="absolute right-0 top-16 z-50 w-full rounded-xl bg-white py-2 shadow-shadow"
+                class="absolute right-0 top-16 z-30 w-full rounded-xl bg-white py-2 shadow-shadow"
               >
                 <ul>
                   <li
@@ -194,7 +207,185 @@ function selectedCareerStatus(status) {
             </div>
           </div>
         </section>
+        <!-- 諮詢需求 -->
+        <section
+          class="mb-6 flex flex-col gap-4 border-b border-neutral-300 pb-6 md:mb-12 md:flex-row md:gap-6 md:pb-12"
+        >
+          <aside
+            class="top-[100px] flex max-w-[300px] flex-1 flex-row justify-between gap-2 md:sticky md:flex-col md:gap-3 md:self-start"
+          >
+            <h2 class="text-t2-sm !font-medium md:text-t2">諮詢需求</h2>
+            <p class="flex items-center gap-1 text-neutral-600">
+              欄位皆為<span
+                class="whitespace-nowrap rounded-xl bg-danger px-2 py-1 text-body-sm !font-medium leading-[1.2] text-white"
+                >必填</span
+              >
+            </p>
+          </aside>
+          <div class="flex-1 space-y-4 md:space-y-6">
+            <!-- 諮詢主題 -->
+            <div>
+              <p class="mb-2">諮詢主題</p>
+              <div
+                class="mb-2 flex flex-wrap gap-x-4 gap-y-2 text-body-sm md:gap-x-6 md:px-2"
+              >
+                <label class="flex cursor-pointer items-center gap-1">
+                  <input
+                    type="checkbox"
+                    name="consultTopics"
+                    value="職涯探索與方向"
+                    v-model="consultTopics"
+                    class="custom-checkbox"
+                  />
+                  <span>職涯探索與方向</span>
+                </label>
+                <label class="flex cursor-pointer items-center gap-1">
+                  <input
+                    type="checkbox"
+                    name="consultTopics"
+                    value="接案與技能變現"
+                    v-model="consultTopics"
+                    class="custom-checkbox"
+                  />
+                  <span>接案與技能變現</span>
+                </label>
+                <label class="flex cursor-pointer items-center gap-1">
+                  <input
+                    type="checkbox"
+                    name="consultTopics"
+                    value="品牌與內容經營"
+                    v-model="consultTopics"
+                    class="custom-checkbox"
+                  />
+                  <span>品牌與內容經營</span>
+                </label>
+                <label class="flex cursor-pointer items-center gap-1">
+                  <input
+                    type="checkbox"
+                    name="consultTopics"
+                    value="遠端工作與數位游牧"
+                    v-model="consultTopics"
+                    class="custom-checkbox"
+                  />
+                  <span>遠端工作與數位游牧</span>
+                </label>
+                <label class="flex cursor-pointer items-center gap-1">
+                  <input
+                    type="checkbox"
+                    name="consultTopics"
+                    value="收入與時間管理"
+                    v-model="consultTopics"
+                    class="custom-checkbox"
+                  />
+                  <span>收入與時間管理</span>
+                </label>
+                <label class="flex cursor-pointer items-center gap-1">
+                  <input
+                    type="checkbox"
+                    name="consultTopics"
+                    value="其他（請填寫下題）"
+                    v-model="consultTopics"
+                    class="custom-checkbox"
+                  />
+                  <span>其他（請填寫下題）</span>
+                </label>
+              </div>
+              <p class="px-2 text-body-sm text-neutral-600">
+                可複選，讓我們更了解你的狀況，安排最適合的顧問與建議。
+              </p>
+            </div>
+            <!-- 期望諮詢的專家 -->
+            <div class="relative">
+              <button
+                type="button"
+                class="flex w-full items-center justify-between gap-3 rounded-lg border border-neutral-300 px-3 py-4 text-body-md"
+                @click="
+                  showWantedProfessionDropdown = !showWantedProfessionDropdown
+                "
+              >
+                {{
+                  wantedProfession !== "" ? wantedProfession : "期望諮詢的專家"
+                }}
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="m10 12.812-5-5 1.167-1.166L10 10.479l3.833-3.833L15 7.812z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </button>
+              <div
+                v-if="showWantedProfessionDropdown"
+                class="absolute right-0 top-16 z-30 w-full rounded-xl bg-white py-2 shadow-shadow"
+              >
+                <ul>
+                  <li
+                    class="cursor-pointer px-6 py-2 transition duration-300 hover:bg-neutral-200"
+                    :class="{
+                      'bg-neutral-200': wantedProfession === '專家1',
+                    }"
+                    @click="selectedWantedProfession('專家1')"
+                  >
+                    專家1
+                  </li>
+                  <li
+                    class="cursor-pointer px-6 py-2 transition duration-300 hover:bg-neutral-200"
+                    :class="{
+                      'bg-neutral-200': wantedProfession === '專家2',
+                    }"
+                    @click="selectedWantedProfession('專家2')"
+                  >
+                    專家2
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- 您目前面臨的主要挑戰 -->
+            <div class="relative">
+              <textarea
+                v-model="currentChallenge"
+                id="currentChallenge"
+                class="focus:shadow-focus peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] transition focus:border-primary focus:outline-none"
+                placeholder=" "
+                rows="5"
+                maxlength="300"
+              >
+              </textarea>
+              <label
+                for="currentChallenge"
+                class="pointer-events-none absolute left-3 top-1 z-10 text-body-sm text-neutral-600 duration-100 peer-placeholder-shown:top-4 peer-placeholder-shown:text-body-md peer-placeholder-shown:text-neutral peer-focus:top-1 peer-focus:text-body-sm peer-focus:text-neutral-600"
+                >您目前面臨的主要挑戰
+              </label>
+            </div>
+            <!-- 期望達成的目標 -->
+            <div class="relative">
+              <textarea
+                v-model="yourGoal"
+                id="yourGoal"
+                class="focus:shadow-focus peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] transition focus:border-primary focus:outline-none"
+                placeholder=" "
+                rows="5"
+                maxlength="300"
+              >
+              </textarea>
+              <label
+                for="yourGoal"
+                class="pointer-events-none absolute left-3 top-1 z-10 text-body-sm text-neutral-600 duration-100 peer-placeholder-shown:top-4 peer-placeholder-shown:text-body-md peer-placeholder-shown:text-neutral peer-focus:top-1 peer-focus:text-body-sm peer-focus:text-neutral-600"
+                >期望達成的目標
+              </label>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   </section>
 </template>
+
+<style scoped>
+@import "@/assets/css/custom-checkbox.css";
+</style>
