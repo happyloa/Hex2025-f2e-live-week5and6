@@ -375,7 +375,7 @@ const professionalTrainings = ref("");
               <textarea
                 v-model="careerSummary"
                 id="careerSummary"
-                class="peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] placeholder:text-neutral focus:outline-none"
+                class="peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] focus:outline-none"
                 placeholder=" "
                 rows="5"
                 maxlength="300"
@@ -448,7 +448,7 @@ const professionalTrainings = ref("");
               <textarea
                 v-model="shortTermGoal"
                 id="shortTermGoal"
-                class="peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] placeholder:text-neutral focus:outline-none"
+                class="peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] focus:outline-none"
                 placeholder=" "
                 rows="5"
                 maxlength="300"
@@ -465,7 +465,7 @@ const professionalTrainings = ref("");
               <textarea
                 v-model="mediumAndLongTermGoal"
                 id="mediumAndLongTermGoal"
-                class="peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] placeholder:text-neutral focus:outline-none"
+                class="peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] focus:outline-none"
                 placeholder=" "
                 rows="5"
                 maxlength="300"
@@ -900,7 +900,7 @@ const professionalTrainings = ref("");
               <textarea
                 v-model="backgroundAndStrengths"
                 id="backgroundAndStrengths"
-                class="peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] placeholder:text-neutral focus:outline-none"
+                class="peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] focus:outline-none"
                 placeholder=" "
                 rows="5"
                 maxlength="300"
@@ -917,7 +917,7 @@ const professionalTrainings = ref("");
               <textarea
                 v-model="professionalSkills"
                 id="professionalSkills"
-                class="peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] placeholder:text-neutral focus:outline-none"
+                class="peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] focus:outline-none"
                 placeholder=" "
                 rows="5"
                 maxlength="300"
@@ -934,7 +934,7 @@ const professionalTrainings = ref("");
               <textarea
                 v-model="languageSkills"
                 id="languageSkills"
-                class="peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] placeholder:text-neutral focus:outline-none"
+                class="peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] focus:outline-none"
                 placeholder=" "
                 rows="5"
                 maxlength="300"
@@ -951,7 +951,7 @@ const professionalTrainings = ref("");
               <textarea
                 v-model="certifications"
                 id="certifications"
-                class="peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] placeholder:text-neutral focus:outline-none"
+                class="peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] focus:outline-none"
                 placeholder=" "
                 rows="5"
                 maxlength="300"
@@ -979,7 +979,7 @@ const professionalTrainings = ref("");
               <textarea
                 v-model="educationBackground"
                 id="educationBackground"
-                class="peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] placeholder:text-neutral focus:outline-none"
+                class="peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] focus:outline-none"
                 placeholder=" "
                 rows="5"
                 maxlength="500"
@@ -996,7 +996,7 @@ const professionalTrainings = ref("");
               <textarea
                 v-model="professionalTrainings"
                 id="professionalTrainings"
-                class="peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] placeholder:text-neutral focus:outline-none"
+                class="peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] focus:outline-none"
                 placeholder=" "
                 rows="5"
                 maxlength="500"
