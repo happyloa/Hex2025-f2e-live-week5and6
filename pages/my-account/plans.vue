@@ -371,15 +371,22 @@ const professionalTrainings = ref("");
               </div>
             </div>
             <!-- 職業摘要 -->
-            <textarea
-              v-model="careerSummary"
-              id="careerSummary"
-              class="w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 py-4 placeholder:text-neutral focus:outline-none"
-              placeholder="職業摘要（簡短描述您的專業背景和核心競爭力最多 300 字）"
-              rows="5"
-              maxlength="300"
-            >
-            </textarea>
+            <div class="relative">
+              <textarea
+                v-model="careerSummary"
+                id="careerSummary"
+                class="peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] placeholder:text-neutral focus:outline-none"
+                placeholder=" "
+                rows="5"
+                maxlength="300"
+              >
+              </textarea>
+              <label
+                for="careerSummary"
+                class="pointer-events-none absolute left-3 top-1 z-10 text-body-sm text-neutral-600 duration-100 peer-placeholder-shown:top-4 peer-placeholder-shown:text-body-md peer-placeholder-shown:text-neutral peer-focus:top-1 peer-focus:text-body-sm peer-focus:text-neutral-600"
+                >職業摘要（簡短描述您的專業背景和核心競爭力最多 300 字）
+              </label>
+            </div>
             <!-- 作品案例展示 -->
             <div class="relative">
               <input
@@ -437,25 +444,39 @@ const professionalTrainings = ref("");
           </aside>
           <div class="flex-1 space-y-4 md:space-y-6">
             <!-- 1 年短期職涯目標 -->
-            <textarea
-              v-model="shortTermGoal"
-              id="shortTermGoal"
-              class="w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 py-4 placeholder:text-neutral focus:outline-none"
-              placeholder="1 年短期職涯目標（最多 300 字）"
-              rows="5"
-              maxlength="300"
-            >
-            </textarea>
+            <div class="relative">
+              <textarea
+                v-model="shortTermGoal"
+                id="shortTermGoal"
+                class="peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] placeholder:text-neutral focus:outline-none"
+                placeholder=" "
+                rows="5"
+                maxlength="300"
+              >
+              </textarea>
+              <label
+                for="shortTermGoal"
+                class="pointer-events-none absolute left-3 top-1 z-10 text-body-sm text-neutral-600 duration-100 peer-placeholder-shown:top-4 peer-placeholder-shown:text-body-md peer-placeholder-shown:text-neutral peer-focus:top-1 peer-focus:text-body-sm peer-focus:text-neutral-600"
+                >1 年短期職涯目標（最多 300 字）
+              </label>
+            </div>
             <!-- 1-3 年中長期職涯願景 -->
-            <textarea
-              v-model="mediumAndLongTermGoal"
-              id="mediumAndLongTermGoal"
-              class="w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 py-4 placeholder:text-neutral focus:outline-none"
-              placeholder="1-3 年中長期職涯願景（最多 300 字）"
-              rows="5"
-              maxlength="300"
-            >
-            </textarea>
+            <div class="relative">
+              <textarea
+                v-model="mediumAndLongTermGoal"
+                id="mediumAndLongTermGoal"
+                class="peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] placeholder:text-neutral focus:outline-none"
+                placeholder=" "
+                rows="5"
+                maxlength="300"
+              >
+              </textarea>
+              <label
+                for="mediumAndLongTermGoal"
+                class="pointer-events-none absolute left-3 top-1 z-10 text-body-sm text-neutral-600 duration-100 peer-placeholder-shown:top-4 peer-placeholder-shown:text-body-md peer-placeholder-shown:text-neutral peer-focus:top-1 peer-focus:text-body-sm peer-focus:text-neutral-600"
+                >1-3 年中長期職涯願景（最多 300 字）
+              </label>
+            </div>
             <!-- 理想工作模式 -->
             <div>
               <p class="mb-2">理想工作模式</p>
@@ -875,45 +896,73 @@ const professionalTrainings = ref("");
               </div>
             </div>
             <!-- 專業背景和核心競爭力 -->
-            <textarea
-              v-model="backgroundAndStrengths"
-              id="backgroundAndStrengths"
-              class="w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 py-4 placeholder:text-neutral focus:outline-none"
-              placeholder="專業背景和核心競爭力（最多300字）"
-              rows="5"
-              maxlength="300"
-            >
-            </textarea>
+            <div class="relative">
+              <textarea
+                v-model="backgroundAndStrengths"
+                id="backgroundAndStrengths"
+                class="peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] placeholder:text-neutral focus:outline-none"
+                placeholder=" "
+                rows="5"
+                maxlength="300"
+              >
+              </textarea>
+              <label
+                for="backgroundAndStrengths"
+                class="pointer-events-none absolute left-3 top-1 z-10 text-body-sm text-neutral-600 duration-100 peer-placeholder-shown:top-4 peer-placeholder-shown:text-body-md peer-placeholder-shown:text-neutral peer-focus:top-1 peer-focus:text-body-sm peer-focus:text-neutral-600"
+                >專業背景和核心競爭力（最多300字）
+              </label>
+            </div>
             <!-- 專業技能 -->
-            <textarea
-              v-model="professionalSkills"
-              id="professionalSkills"
-              class="w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 py-4 placeholder:text-neutral focus:outline-none"
-              placeholder="專業技能（最多300字）"
-              rows="5"
-              maxlength="300"
-            >
-            </textarea>
+            <div class="relative">
+              <textarea
+                v-model="professionalSkills"
+                id="professionalSkills"
+                class="peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] placeholder:text-neutral focus:outline-none"
+                placeholder=" "
+                rows="5"
+                maxlength="300"
+              >
+              </textarea>
+              <label
+                for="professionalSkills"
+                class="pointer-events-none absolute left-3 top-1 z-10 text-body-sm text-neutral-600 duration-100 peer-placeholder-shown:top-4 peer-placeholder-shown:text-body-md peer-placeholder-shown:text-neutral peer-focus:top-1 peer-focus:text-body-sm peer-focus:text-neutral-600"
+                >專業技能（最多300字）
+              </label>
+            </div>
             <!-- 語文能力 -->
-            <textarea
-              v-model="languageSkills"
-              id="languageSkills"
-              class="w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 py-4 placeholder:text-neutral focus:outline-none"
-              placeholder="語文能力（最多300字）"
-              rows="5"
-              maxlength="300"
-            >
-            </textarea>
+            <div class="relative">
+              <textarea
+                v-model="languageSkills"
+                id="languageSkills"
+                class="peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] placeholder:text-neutral focus:outline-none"
+                placeholder=" "
+                rows="5"
+                maxlength="300"
+              >
+              </textarea>
+              <label
+                for="languageSkills"
+                class="pointer-events-none absolute left-3 top-1 z-10 text-body-sm text-neutral-600 duration-100 peer-placeholder-shown:top-4 peer-placeholder-shown:text-body-md peer-placeholder-shown:text-neutral peer-focus:top-1 peer-focus:text-body-sm peer-focus:text-neutral-600"
+                >語文能力（最多300字）
+              </label>
+            </div>
             <!-- 資格證照 -->
-            <textarea
-              v-model="certifications"
-              id="certifications"
-              class="w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 py-4 placeholder:text-neutral focus:outline-none"
-              placeholder="資格證照（最多300字）"
-              rows="5"
-              maxlength="300"
-            >
-            </textarea>
+            <div class="relative">
+              <textarea
+                v-model="certifications"
+                id="certifications"
+                class="peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] placeholder:text-neutral focus:outline-none"
+                placeholder=" "
+                rows="5"
+                maxlength="300"
+              >
+              </textarea>
+              <label
+                for="certifications"
+                class="pointer-events-none absolute left-3 top-1 z-10 text-body-sm text-neutral-600 duration-100 peer-placeholder-shown:top-4 peer-placeholder-shown:text-body-md peer-placeholder-shown:text-neutral peer-focus:top-1 peer-focus:text-body-sm peer-focus:text-neutral-600"
+                >資格證照（最多300字）
+              </label>
+            </div>
           </div>
         </section>
         <!-- 教育背景 -->
@@ -926,25 +975,39 @@ const professionalTrainings = ref("");
           </aside>
           <div class="flex-1 space-y-4 md:space-y-6">
             <!-- 學歷背景 -->
-            <textarea
-              v-model="educationBackground"
-              id="educationBackground"
-              class="w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 py-4 placeholder:text-neutral focus:outline-none"
-              placeholder="學歷背景（最多500字）"
-              rows="5"
-              maxlength="500"
-            >
-            </textarea>
+            <div class="relative">
+              <textarea
+                v-model="educationBackground"
+                id="educationBackground"
+                class="peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] placeholder:text-neutral focus:outline-none"
+                placeholder=" "
+                rows="5"
+                maxlength="500"
+              >
+              </textarea>
+              <label
+                for="educationBackground"
+                class="pointer-events-none absolute left-3 top-1 z-10 text-body-sm text-neutral-600 duration-100 peer-placeholder-shown:top-4 peer-placeholder-shown:text-body-md peer-placeholder-shown:text-neutral peer-focus:top-1 peer-focus:text-body-sm peer-focus:text-neutral-600"
+                >學歷背景（最多500字）
+              </label>
+            </div>
             <!-- 專業培訓與工作坊 -->
-            <textarea
-              v-model="professionalTrainings"
-              id="professionalTrainings"
-              class="w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 py-4 placeholder:text-neutral focus:outline-none"
-              placeholder="專業培訓與工作坊（最多500字）"
-              rows="5"
-              maxlength="500"
-            >
-            </textarea>
+            <div class="relative">
+              <textarea
+                v-model="professionalTrainings"
+                id="professionalTrainings"
+                class="peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] placeholder:text-neutral focus:outline-none"
+                placeholder=" "
+                rows="5"
+                maxlength="500"
+              >
+              </textarea>
+              <label
+                for="professionalTrainings"
+                class="pointer-events-none absolute left-3 top-1 z-10 text-body-sm text-neutral-600 duration-100 peer-placeholder-shown:top-4 peer-placeholder-shown:text-body-md peer-placeholder-shown:text-neutral peer-focus:top-1 peer-focus:text-body-sm peer-focus:text-neutral-600"
+                >專業培訓與工作坊（最多500字）
+              </label>
+            </div>
           </div>
         </section>
         <!-- 按鈕 -->
