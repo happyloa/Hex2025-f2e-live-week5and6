@@ -182,6 +182,7 @@ export default <Partial<Config>>{
       },
       boxShadow: {
         shadow: "0 0 16px 0 #0000001F",
+        focus: "0 0 0px 4px #D2D9F9",
       },
     },
   },
