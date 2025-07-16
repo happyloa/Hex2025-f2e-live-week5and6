@@ -54,7 +54,7 @@ const passwordAgain = ref("");
                 type="password"
                 id="password"
                 placeholder=" "
-                class="peer block w-full rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] focus:outline-none"
+                class="focus:shadow-focus peer block w-full rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] transition focus:border-primary focus:outline-none"
               />
               <label
                 for="password"
@@ -69,7 +69,7 @@ const passwordAgain = ref("");
                 type="password"
                 id="passwordAgain"
                 placeholder=" "
-                class="peer block w-full rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] focus:outline-none"
+                class="focus:shadow-focus peer block w-full rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] transition focus:border-primary focus:outline-none"
               />
               <label
                 for="passwordAgain"
