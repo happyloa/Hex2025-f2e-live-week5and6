@@ -383,7 +383,7 @@ const professionalTrainings = ref("");
               </textarea>
               <label
                 for="careerSummary"
-                class="pointer-events-none absolute left-3 top-1 z-10 text-body-sm text-neutral-600 duration-100 peer-placeholder-shown:top-4 peer-placeholder-shown:text-body-md peer-placeholder-shown:text-neutral peer-focus:top-1 peer-focus:text-body-sm peer-focus:text-neutral-600"
+                class="pointer-events-none absolute left-3 top-1 z-10 block w-[calc(100%-24px)] overflow-hidden text-ellipsis whitespace-nowrap text-body-sm text-neutral-600 duration-100 peer-placeholder-shown:top-4 peer-placeholder-shown:text-body-md peer-placeholder-shown:text-neutral peer-focus:top-1 peer-focus:text-body-sm peer-focus:text-neutral-600"
                 >職業摘要（簡短描述您的專業背景和核心競爭力最多 300 字）
               </label>
             </div>
