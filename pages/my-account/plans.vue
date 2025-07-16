@@ -379,8 +379,7 @@ const professionalTrainings = ref("");
                 placeholder=" "
                 rows="5"
                 maxlength="300"
-              >
-              </textarea>
+              ></textarea>
               <label
                 for="careerSummary"
                 class="pointer-events-none absolute left-3 top-1 z-10 block w-[calc(100%-24px)] overflow-hidden text-ellipsis whitespace-nowrap text-body-sm text-neutral-600 duration-100 peer-placeholder-shown:top-4 peer-placeholder-shown:text-body-md peer-placeholder-shown:text-neutral peer-focus:top-1 peer-focus:text-body-sm peer-focus:text-neutral-600"
@@ -452,8 +451,7 @@ const professionalTrainings = ref("");
                 placeholder=" "
                 rows="5"
                 maxlength="300"
-              >
-              </textarea>
+              ></textarea>
               <label
                 for="shortTermGoal"
                 class="pointer-events-none absolute left-3 top-1 z-10 text-body-sm text-neutral-600 duration-100 peer-placeholder-shown:top-4 peer-placeholder-shown:text-body-md peer-placeholder-shown:text-neutral peer-focus:top-1 peer-focus:text-body-sm peer-focus:text-neutral-600"
@@ -469,8 +467,7 @@ const professionalTrainings = ref("");
                 placeholder=" "
                 rows="5"
                 maxlength="300"
-              >
-              </textarea>
+              ></textarea>
               <label
                 for="mediumAndLongTermGoal"
                 class="pointer-events-none absolute left-3 top-1 z-10 text-body-sm text-neutral-600 duration-100 peer-placeholder-shown:top-4 peer-placeholder-shown:text-body-md peer-placeholder-shown:text-neutral peer-focus:top-1 peer-focus:text-body-sm peer-focus:text-neutral-600"
@@ -904,8 +901,7 @@ const professionalTrainings = ref("");
                 placeholder=" "
                 rows="5"
                 maxlength="300"
-              >
-              </textarea>
+              ></textarea>
               <label
                 for="backgroundAndStrengths"
                 class="pointer-events-none absolute left-3 top-1 z-10 text-body-sm text-neutral-600 duration-100 peer-placeholder-shown:top-4 peer-placeholder-shown:text-body-md peer-placeholder-shown:text-neutral peer-focus:top-1 peer-focus:text-body-sm peer-focus:text-neutral-600"
@@ -921,8 +917,7 @@ const professionalTrainings = ref("");
                 placeholder=" "
                 rows="5"
                 maxlength="300"
-              >
-              </textarea>
+              ></textarea>
               <label
                 for="professionalSkills"
                 class="pointer-events-none absolute left-3 top-1 z-10 text-body-sm text-neutral-600 duration-100 peer-placeholder-shown:top-4 peer-placeholder-shown:text-body-md peer-placeholder-shown:text-neutral peer-focus:top-1 peer-focus:text-body-sm peer-focus:text-neutral-600"
@@ -938,8 +933,7 @@ const professionalTrainings = ref("");
                 placeholder=" "
                 rows="5"
                 maxlength="300"
-              >
-              </textarea>
+              ></textarea>
               <label
                 for="languageSkills"
                 class="pointer-events-none absolute left-3 top-1 z-10 text-body-sm text-neutral-600 duration-100 peer-placeholder-shown:top-4 peer-placeholder-shown:text-body-md peer-placeholder-shown:text-neutral peer-focus:top-1 peer-focus:text-body-sm peer-focus:text-neutral-600"
@@ -955,8 +949,7 @@ const professionalTrainings = ref("");
                 placeholder=" "
                 rows="5"
                 maxlength="300"
-              >
-              </textarea>
+              ></textarea>
               <label
                 for="certifications"
                 class="pointer-events-none absolute left-3 top-1 z-10 text-body-sm text-neutral-600 duration-100 peer-placeholder-shown:top-4 peer-placeholder-shown:text-body-md peer-placeholder-shown:text-neutral peer-focus:top-1 peer-focus:text-body-sm peer-focus:text-neutral-600"
@@ -983,8 +976,7 @@ const professionalTrainings = ref("");
                 placeholder=" "
                 rows="5"
                 maxlength="500"
-              >
-              </textarea>
+              ></textarea>
               <label
                 for="educationBackground"
                 class="pointer-events-none absolute left-3 top-1 z-10 text-body-sm text-neutral-600 duration-100 peer-placeholder-shown:top-4 peer-placeholder-shown:text-body-md peer-placeholder-shown:text-neutral peer-focus:top-1 peer-focus:text-body-sm peer-focus:text-neutral-600"
@@ -1000,8 +992,7 @@ const professionalTrainings = ref("");
                 placeholder=" "
                 rows="5"
                 maxlength="500"
-              >
-              </textarea>
+              ></textarea>
               <label
                 for="professionalTrainings"
                 class="pointer-events-none absolute left-3 top-1 z-10 text-body-sm text-neutral-600 duration-100 peer-placeholder-shown:top-4 peer-placeholder-shown:text-body-md peer-placeholder-shown:text-neutral peer-focus:top-1 peer-focus:text-body-sm peer-focus:text-neutral-600"
