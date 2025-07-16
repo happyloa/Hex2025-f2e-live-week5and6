@@ -13,7 +13,10 @@ onMounted(() => {
     class="text-body-md-sm text-neutral selection:bg-secondary-400 selection:text-white md:text-body-md"
   >
     <NuxtRouteAnnouncer />
-    <NuxtPage />
-    <LayoutFooter />
+    <NuxtLayout>
+      <LayoutHeader />
+      <NuxtPage />
+      <LayoutFooter />
+    </NuxtLayout>
   </div>
 </template>
