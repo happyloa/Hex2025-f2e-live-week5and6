@@ -37,7 +37,7 @@ function clearFields() {
       <CommonMemberNav />
       <div class="rounded-3xl bg-white p-6 shadow-shadow md:p-12">
         <div class="mb-20 flex flex-col gap-4 md:mb-12 md:flex-row md:gap-6">
-          <aside class="max-w-[300px] flex-1">
+          <aside class="flex-1 md:max-w-[300px]">
             <h1 class="text-t2-sm !font-medium md:text-t2">個人資料</h1>
           </aside>
           <main class="flex-1 space-y-4 md:space-y-6">

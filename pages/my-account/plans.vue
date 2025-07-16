@@ -59,7 +59,7 @@ const professionalTrainings = ref("");
           class="mb-6 flex flex-col gap-4 border-b border-neutral-300 pb-6 md:mb-12 md:flex-row md:gap-6 md:pb-12"
         >
           <aside
-            class="top-[100px] flex max-w-[300px] flex-1 flex-row justify-between gap-2 md:sticky md:flex-col md:gap-3 md:self-start"
+            class="top-[100px] flex flex-1 flex-row justify-between gap-2 md:sticky md:max-w-[300px] md:flex-col md:gap-3 md:self-start"
           >
             <h1 class="text-t2-sm !font-medium md:text-t2">職旅計劃概況</h1>
             <p class="flex items-center gap-1 text-neutral-600">
@@ -432,7 +432,7 @@ const professionalTrainings = ref("");
           class="mb-6 flex flex-col gap-4 border-b border-neutral-300 pb-6 md:mb-12 md:flex-row md:gap-6 md:pb-12"
         >
           <aside
-            class="top-[100px] flex max-w-[300px] flex-1 flex-row justify-between gap-2 md:sticky md:flex-col md:gap-3 md:self-start"
+            class="top-[100px] flex flex-1 flex-row justify-between gap-2 md:sticky md:max-w-[300px] md:flex-col md:gap-3 md:self-start"
           >
             <h2 class="text-t2-sm !font-medium md:text-t2">職涯規劃</h2>
             <p class="flex items-center gap-1 text-neutral-600">
@@ -781,7 +781,7 @@ const professionalTrainings = ref("");
           class="mb-6 flex flex-col gap-4 border-b border-neutral-300 pb-6 md:mb-12 md:flex-row md:gap-6 md:pb-12"
         >
           <aside
-            class="top-[100px] flex max-w-[300px] flex-1 flex-row justify-between gap-2 md:sticky md:flex-col md:gap-3 md:self-start"
+            class="top-[100px] flex flex-1 flex-row justify-between gap-2 md:sticky md:max-w-[300px] md:flex-col md:gap-3 md:self-start"
           >
             <h2 class="text-t2-sm !font-medium md:text-t2">專業技能區塊</h2>
             <p class="text-neutral-600">欄位皆為選填</p>
@@ -968,7 +968,7 @@ const professionalTrainings = ref("");
         <!-- 教育背景 -->
         <section class="mb-6 flex flex-col gap-4 md:mb-12 md:flex-row md:gap-6">
           <aside
-            class="top-[100px] flex max-w-[300px] flex-1 flex-row justify-between gap-2 md:sticky md:flex-col md:gap-3 md:self-start"
+            class="top-[100px] flex flex-1 flex-row justify-between gap-2 md:sticky md:max-w-[300px] md:flex-col md:gap-3 md:self-start"
           >
             <h2 class="text-t2-sm !font-medium md:text-t2">教育背景</h2>
             <p class="text-neutral-600">欄位皆為選填</p>
