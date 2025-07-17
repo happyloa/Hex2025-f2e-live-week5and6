@@ -7,7 +7,7 @@ useSeoMeta({
 
 <template>
   <section class="bg-neutral-100 px-3 py-12 md:py-20">
-    <div class="mx-auto max-w-container-md">
+    <main class="mx-auto max-w-container-md">
       <h1 class="mb-6 text-center text-t4-sm md:mb-12 md:text-t4">
         隱私權政策
       </h1>
@@ -74,6 +74,6 @@ useSeoMeta({
         我們保留隨時修改本政策之權利，重大變更將提前公告。<br />
         如對本政策有任何疑問，請聯繫：privacy@workway.com
       </p>
-    </div>
+    </main>
   </section>
 </template>

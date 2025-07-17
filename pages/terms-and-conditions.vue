@@ -7,7 +7,7 @@ useSeoMeta({
 
 <template>
   <section class="bg-neutral-100 px-3 py-12 md:py-20">
-    <div class="mx-auto max-w-container-md">
+    <main class="mx-auto max-w-container-md">
       <h1 class="mb-6 text-center text-t4-sm md:mb-12 md:text-t4">用戶條款</h1>
       <p class="mb-4 text-body-lg-sm md:mb-6 md:text-body-lg">
         最後更新日期：2025 年 1 月 1 日
@@ -65,6 +65,6 @@ useSeoMeta({
       <p>
         本條款受中華民國法律管轄。如有爭議，雙方同意以台灣台北地方法院為第一審管轄法院。
       </p>
-    </div>
+    </main>
   </section>
 </template>

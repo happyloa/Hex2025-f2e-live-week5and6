@@ -41,7 +41,7 @@ onMounted(async () => {
   <section class="bg-neutral-100 px-3 py-12 md:py-20">
     <div class="mx-auto max-w-container-md">
       <CommonMemberNav />
-      <div
+      <main
         class="rounded-2xl bg-white p-6 shadow-shadow md:rounded-3xl md:p-12"
       >
         <h1 class="mb-4 text-t2-sm !font-medium md:mb-6 md:text-t2">
@@ -216,7 +216,7 @@ onMounted(async () => {
             </ul>
           </div>
         </template>
-      </div>
+      </main>
     </div>
   </section>
 </template>

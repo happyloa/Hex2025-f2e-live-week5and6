@@ -53,7 +53,7 @@ const professionalTrainings = ref("");
   <section class="bg-neutral-100 px-3 py-12 md:py-20">
     <div class="mx-auto max-w-container-md">
       <CommonMemberNav />
-      <div
+      <main
         class="rounded-2xl bg-white p-6 shadow-shadow md:rounded-3xl md:p-12"
       >
         <!-- 職旅計劃概況 -->
@@ -1015,7 +1015,7 @@ const professionalTrainings = ref("");
           />
           <AtomButton text="儲存更新" hasIcon class="w-full md:w-auto" />
         </div>
-      </div>
+      </main>
     </div>
   </section>
 </template>

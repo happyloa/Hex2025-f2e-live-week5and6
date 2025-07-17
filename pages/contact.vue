@@ -59,7 +59,7 @@ function handleKnowUsChange() {
         </p>
       </section>
       <!-- 表單區塊 -->
-      <div
+      <main
         class="relative rounded-2xl bg-white p-6 shadow-shadow md:rounded-3xl md:p-12"
       >
         <img
@@ -641,7 +641,7 @@ function handleKnowUsChange() {
           />
           <AtomButton text="確認送出" hasIcon class="w-full md:w-auto" />
         </div>
-      </div>
+      </main>
     </div>
   </section>
 </template>
