@@ -130,87 +130,90 @@ onMounted(async () => {
         <!-- 讀取資料 Spinner -->
         <AtomSpinner v-if="loading" />
 
-        <!-- 電腦版表格 -->
-        <table class="hidden w-full whitespace-nowrap md:table">
-          <thead class="border-b border-neutral-300 text-body-sm">
-            <tr>
-              <th class="w-3/5 p-3 text-start !font-medium">諮詢方案</th>
-              <th class="p-3 text-start !font-medium">預約日期</th>
-              <th class="p-3 text-start !font-medium">諮詢時長</th>
-              <th class="p-3 text-start !font-medium">諮詢方式</th>
-              <th class="p-3 text-start !font-medium">上課狀態</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr
-              v-for="(item, idx) in sortedAppointments"
-              :key="idx"
-              :class="[
-                idx % 2 === 1 ? 'bg-neutral-200' : '', // 雙數列底色
-                'border-b border-neutral-300 transition hover:bg-primary-200',
-                item.status === '已完成' ? 'text-neutral-500' : '',
-              ]"
-            >
-              <td class="px-3 py-4">{{ item.consultPlan }}</td>
-              <td class="px-3 py-4">{{ item.date }}</td>
-              <td class="px-3 py-4">{{ item.period }}</td>
-              <td class="px-3 py-4">
-                <span
-                  class="rounded-xl border border-neutral-300 bg-white px-2 py-[3.5px] text-body-sm !font-medium leading-[1.2] text-neutral-600"
-                  >{{ item.method }}</span
-                >
-              </td>
-              <td class="px-3 py-4">{{ item.status }}</td>
-            </tr>
-          </tbody>
-        </table>
-        <!-- 手機版卡片 -->
-        <div class="block md:hidden">
-          <h3
-            class="border-b border-neutral-300 px-2 py-[11.5px] text-body-sm !font-medium"
-          >
-            預約紀錄一覽
-          </h3>
-          <ul>
-            <li
-              v-for="(item, idx) in sortedAppointments"
-              :key="idx"
-              :class="[
-                idx % 2 === 1 ? 'bg-neutral-200' : '', // 雙數列底色
-                'border-b border-neutral-300 px-2 text-body-sm transition hover:bg-primary-200',
-                item.status === '已完成'
-                  ? 'text-neutral-500'
-                  : 'text-neutral-600',
-              ]"
-            >
-              <article>
-                <div class="flex items-center justify-between py-2.5">
-                  <h4
-                    class="truncate text-body-lg-sm"
-                    :class="
-                      item.status === '已完成'
-                        ? 'text-neutral-500'
-                        : 'text-neutral'
-                    "
-                  >
-                    {{ item.consultPlan }}
-                  </h4>
+        <!-- 資料區塊（接到資料後才顯示） -->
+        <template v-else>
+          <!-- 電腦版表格 -->
+          <table class="hidden w-full whitespace-nowrap md:table">
+            <thead class="border-b border-neutral-300 text-body-sm">
+              <tr>
+                <th class="w-3/5 p-3 text-start !font-medium">諮詢方案</th>
+                <th class="p-3 text-start !font-medium">預約日期</th>
+                <th class="p-3 text-start !font-medium">諮詢時長</th>
+                <th class="p-3 text-start !font-medium">諮詢方式</th>
+                <th class="p-3 text-start !font-medium">上課狀態</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                v-for="(item, idx) in sortedAppointments"
+                :key="idx"
+                :class="[
+                  idx % 2 === 1 ? 'bg-neutral-200' : '', // 雙數列底色
+                  'border-b border-neutral-300 transition hover:bg-primary-200',
+                  item.status === '已完成' ? 'text-neutral-500' : '',
+                ]"
+              >
+                <td class="px-3 py-4">{{ item.consultPlan }}</td>
+                <td class="px-3 py-4">{{ item.date }}</td>
+                <td class="px-3 py-4">{{ item.period }}</td>
+                <td class="px-3 py-4">
                   <span
-                    class="whitespace-nowrap rounded-xl border border-neutral-300 bg-white px-2 py-[3.5px] !font-medium leading-[1.2] text-neutral-600"
+                    class="rounded-xl border border-neutral-300 bg-white px-2 py-[3.5px] text-body-sm !font-medium leading-[1.2] text-neutral-600"
                     >{{ item.method }}</span
                   >
-                </div>
-                <div class="flex items-center gap-4 py-[11.5px]">
-                  <h4>時間：{{ item.date }}</h4>
-                  <span>時長：{{ item.period }}</span>
-                </div>
-                <div class="py-[11.5px]">
-                  <h4>{{ item.status }}</h4>
-                </div>
-              </article>
-            </li>
-          </ul>
-        </div>
+                </td>
+                <td class="px-3 py-4">{{ item.status }}</td>
+              </tr>
+            </tbody>
+          </table>
+          <!-- 手機版卡片 -->
+          <div class="block md:hidden">
+            <h3
+              class="border-b border-neutral-300 px-2 py-[11.5px] text-body-sm !font-medium"
+            >
+              預約紀錄一覽
+            </h3>
+            <ul>
+              <li
+                v-for="(item, idx) in sortedAppointments"
+                :key="idx"
+                :class="[
+                  idx % 2 === 1 ? 'bg-neutral-200' : '', // 雙數列底色
+                  'border-b border-neutral-300 px-2 text-body-sm transition hover:bg-primary-200',
+                  item.status === '已完成'
+                    ? 'text-neutral-500'
+                    : 'text-neutral-600',
+                ]"
+              >
+                <article>
+                  <div class="flex items-center justify-between py-2.5">
+                    <h4
+                      class="truncate text-body-lg-sm"
+                      :class="
+                        item.status === '已完成'
+                          ? 'text-neutral-500'
+                          : 'text-neutral'
+                      "
+                    >
+                      {{ item.consultPlan }}
+                    </h4>
+                    <span
+                      class="whitespace-nowrap rounded-xl border border-neutral-300 bg-white px-2 py-[3.5px] !font-medium leading-[1.2] text-neutral-600"
+                      >{{ item.method }}</span
+                    >
+                  </div>
+                  <div class="flex items-center gap-4 py-[11.5px]">
+                    <h4>時間：{{ item.date }}</h4>
+                    <span>時長：{{ item.period }}</span>
+                  </div>
+                  <div class="py-[11.5px]">
+                    <h4>{{ item.status }}</h4>
+                  </div>
+                </article>
+              </li>
+            </ul>
+          </div>
+        </template>
       </div>
     </div>
   </section>
