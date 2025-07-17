@@ -126,14 +126,19 @@ useSeoMeta({
       <article
         class="justify-items-center rounded-2xl bg-primary px-6 pb-6 pt-4 text-white shadow-shadow md:rounded-3xl md:px-12 md:pb-12 md:pt-6"
       >
-        <h3
+        <!-- <h3
           class="md:text-t text-t-sm relative z-0 mb-4 rounded-xl border-2 border-primary bg-white px-5 py-3 text-primary md:mb-6"
         >
           <span class="relative z-20">團隊承諾</span>
           <div
             class="absolute -bottom-2 left-1/2 z-10 size-7 -translate-x-1/2 rotate-45 bg-white"
           ></div>
-        </h3>
+        </h3> -->
+        <img
+          src="/images/about/commitment.svg"
+          alt="團隊承諾"
+          class="mb-4 md:mb-6"
+        />
         <p class="mx-auto mb-6 max-w-[800px] md:mb-12">
           我們不只是顧問，更是你職業轉型路上的夥伴與同行者。我們深知轉型過程中的不確定與恐懼，也經歷過停滯不前的困境。正因如此，我們更懂得如何陪你走過這段旅程，不只指引方向，更與你並肩同行。
         </p>
