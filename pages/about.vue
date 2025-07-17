@@ -47,23 +47,27 @@ useSeoMeta({
         class="2xl:w-screen"
         :breakpoints="{
           1536: {
-            slidesPerView: 5.675,
-          },
-          1280: {
             slidesPerView: 4.675,
           },
+          1280: {
+            slidesPerView: 4.2,
+          },
           1024: {
-            slidesPerView: 3.75,
+            slidesPerView: 3.675,
           },
           768: {
-            slidesPerView: 1.2,
+            slidesPerView: 2.675,
+          },
+          576: {
+            slidesPerView: 2.2,
+          },
+          0: {
+            slidesPerView: 1.1,
           },
         }"
-        slides-per-view="auto"
         space-between="24"
         :autoplay="{
-          delay: 1000,
-          disableOnInteraction: true,
+          delay: 5000,
         }"
         :loop="true"
       >
