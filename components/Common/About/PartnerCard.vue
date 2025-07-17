@@ -43,10 +43,10 @@ const { img, title, name, tags } = toRefs(props);
     <div class="relative overflow-hidden rounded-t-2xl md:rounded-t-3xl">
       <img :src="img" :alt="name" class="transition group-hover:scale-110" />
       <!-- 白色三角形 -->
-      <div
+      <!-- <div
         class="absolute bottom-0 right-0 size-10 bg-white"
         style="clip-path: polygon(100% 0, 0% 100%, 100% 100%)"
-      ></div>
+      ></div> -->
     </div>
     <div class="p-4">
       <p class="mb-2 font-medium text-neutral-600">{{ title }}</p>
