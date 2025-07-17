@@ -6,5 +6,5 @@ useSeoMeta({
 </script>
 
 <template>
-  <p>首頁</p>
+  <CommonCTA />
 </template>
