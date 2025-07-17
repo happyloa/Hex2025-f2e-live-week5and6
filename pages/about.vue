@@ -1,4 +1,6 @@
 <script setup>
+import { CommonAboutPartnerCard } from "#components";
+
 useSeoMeta({
   title: "關於職旅 | 2025 切版直播班 - 職涯諮詢媒合 W5&W6",
   ogTitle: "關於職旅 | 2025 切版直播班 - 職涯諮詢媒合 W5&W6",
@@ -31,27 +33,99 @@ useSeoMeta({
     </div>
   </section>
   <!-- 精實的職旅夥伴 -->
-  <section class="px-3 py-12 md:py-20">
+  <section class="overflow-x-hidden px-3 py-12 md:py-20">
     <main class="mx-auto max-w-container space-y-6 text-center md:space-y-12">
       <!-- 標題 -->
       <div>
-        <h3 class="mb-4 text-t4-sm md:mb-6 md:text-t4">精實的職旅夥伴</h3>
+        <h2 class="mb-4 text-t4-sm md:mb-6 md:text-t4">精實的職旅夥伴</h2>
         <p class="text-body-lg-sm text-neutral-600 md:text-body-lg">
           我們相信，最好的指導來自於那些已經走過你想走的路，並願意伸出手拉你一把的人。
         </p>
       </div>
+      <!-- 夥伴輪播 -->
+      <swiper-container
+        :breakpoints="{
+          1024: {
+            slidesPerView: 3.725,
+          },
+          768: {
+            slidesPerView: 2.725,
+          },
+          640: {
+            slidesPerView: 2.25,
+          },
+          0: {
+            slidesPerView: 1.2,
+          },
+        }"
+        slides-per-view="auto"
+        space-between="24"
+        :autoplay="{
+          delay: 5000,
+          disableOnInteraction: true,
+        }"
+      >
+        <swiper-slide>
+          <CommonAboutPartnerCard
+            img="/images/about/mentor-1.webp"
+            title="數位遊牧先驅"
+            name="陳志遠 Ethan Chen"
+            :tags="['# 遠端工作策略', '# 數位遊牧生活設計']"
+          />
+        </swiper-slide>
+        <swiper-slide>
+          <CommonAboutPartnerCard
+            img="/images/about/mentor-2.webp"
+            title="個人品牌策略專家"
+            name="林曉彤 Clara Lin"
+            :tags="['# 個人品牌建立', '# 內容行銷策略', '# 故事行銷']"
+          />
+        </swiper-slide>
+        <swiper-slide>
+          <CommonAboutPartnerCard
+            img="/images/about/mentor-3.webp"
+            title="財務自由規劃顧問"
+            name="王建明 Marcus"
+            :tags="['# 稅務優化', '# 被動收入建立', '# 現金流管理']"
+          />
+        </swiper-slide>
+        <swiper-slide>
+          <CommonAboutPartnerCard
+            img="/images/about/mentor-4.webp"
+            title="創意接案與多元收入專家"
+            name="張雅琳 Ariel"
+            :tags="['# 創意變現策略', '# 線上課程開發']"
+          />
+        </swiper-slide>
+        <swiper-slide>
+          <CommonAboutPartnerCard
+            img="/images/about/mentor-5.webp"
+            title="遠端工作技術顧問"
+            name="李俊宏 Kevin Lee"
+            :tags="['# 專案管理自動化', '# 虛擬團隊管理']"
+          />
+        </swiper-slide>
+        <swiper-slide>
+          <CommonAboutPartnerCard
+            img="/images/about/mentor-6.webp"
+            title="創意接案與多元收入專家"
+            name="張雅琳 Ariel"
+            :tags="['# 創意變現策略', '# 線上課程開發']"
+          />
+        </swiper-slide>
+      </swiper-container>
       <!-- 團隊承諾 -->
       <article
         class="justify-items-center rounded-2xl bg-primary px-6 pb-6 pt-4 text-white shadow-shadow md:rounded-3xl md:px-12 md:pb-12 md:pt-6"
       >
-        <h4
+        <h3
           class="md:text-t text-t-sm relative z-0 mb-4 rounded-xl border-2 border-primary bg-white px-5 py-3 text-primary md:mb-6"
         >
           <span class="relative z-20">團隊承諾</span>
           <div
             class="absolute -bottom-2 left-1/2 z-10 size-7 -translate-x-1/2 rotate-45 bg-white"
           ></div>
-        </h4>
+        </h3>
         <p class="mx-auto mb-6 max-w-[800px] md:mb-12">
           我們不只是顧問，更是你職業轉型路上的夥伴與同行者。我們深知轉型過程中的不確定與恐懼，也經歷過停滯不前的困境。正因如此，我們更懂得如何陪你走過這段旅程，不只指引方向，更與你並肩同行。
         </p>
