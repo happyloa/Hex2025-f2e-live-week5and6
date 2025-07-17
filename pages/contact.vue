@@ -59,7 +59,9 @@ function handleKnowUsChange() {
         </p>
       </section>
       <!-- 表單區塊 -->
-      <div class="relative rounded-3xl bg-white p-6 shadow-shadow md:p-12">
+      <div
+        class="relative rounded-2xl bg-white p-6 shadow-shadow md:rounded-3xl md:p-12"
+      >
         <img
           src="/images/contact/form-top.svg"
           alt="表單裝飾圖片"

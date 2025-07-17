@@ -53,7 +53,9 @@ const professionalTrainings = ref("");
   <section class="bg-neutral-100 px-3 py-12 md:py-20">
     <div class="mx-auto max-w-container-md">
       <CommonMemberNav />
-      <div class="rounded-3xl bg-white p-6 shadow-shadow md:p-12">
+      <div
+        class="rounded-2xl bg-white p-6 shadow-shadow md:rounded-3xl md:p-12"
+      >
         <!-- 職旅計劃概況 -->
         <section
           class="mb-6 flex flex-col gap-4 border-b border-neutral-300 pb-6 md:mb-12 md:flex-row md:gap-6 md:pb-12"
@@ -406,7 +408,7 @@ const professionalTrainings = ref("");
               <p class="mb-2">附件檔案</p>
               <button
                 type="button"
-                class="flex items-center rounded-2xl border border-neutral-200 bg-white p-3 transition duration-300 hover:bg-neutral-200 md:gap-1 md:px-5"
+                class="flex items-center rounded-xl border border-neutral-200 bg-white p-3 transition duration-300 hover:bg-neutral-200 md:gap-1 md:rounded-2xl md:px-5"
               >
                 <svg
                   width="20"

@@ -85,7 +85,7 @@ const component = computed(() => (isLink.value ? "NuxtLink" : "button"));
   <component
     :is="component"
     v-bind="isLink ? { to, target } : { type: 'button' }"
-    class="flex w-fit items-center justify-center gap-1 whitespace-nowrap rounded-2xl transition"
+    class="flex w-fit items-center justify-center gap-1 whitespace-nowrap rounded-xl transition md:rounded-2xl"
     :class="btnClass"
   >
     {{ text }}

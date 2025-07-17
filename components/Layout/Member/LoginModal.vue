@@ -61,7 +61,7 @@ function handleShowRegister() {
             <!-- Google 登入 -->
             <button
               type="button"
-              class="mb-4 flex w-full items-center justify-center rounded-2xl border border-neutral-300 p-3 transition hover:bg-neutral-200 lg:gap-1"
+              class="mb-4 flex w-full items-center justify-center rounded-xl border border-neutral-300 p-3 transition hover:bg-neutral-200 md:rounded-2xl lg:gap-1"
             >
               <svg
                 width="21"
@@ -93,7 +93,7 @@ function handleShowRegister() {
             <!-- DC 登入 -->
             <button
               type="button"
-              class="mb-6 flex w-full items-center justify-center rounded-2xl border border-neutral-300 p-3 transition hover:bg-neutral-200 lg:gap-1"
+              class="mb-6 flex w-full items-center justify-center rounded-xl border border-neutral-300 p-3 transition hover:bg-neutral-200 md:rounded-2xl lg:gap-1"
             >
               <svg
                 width="21"

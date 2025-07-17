@@ -8,7 +8,7 @@
           <li>
             <NuxtLink
               to="/plans"
-              class="block rounded-2xl px-4 py-2 transition duration-300 hover:bg-neutral-200 md:px-6"
+              class="block rounded-xl px-4 py-2 transition duration-300 hover:bg-neutral-200 md:rounded-2xl md:px-6"
               :class="$route.path === '/plans' ? 'bg-neutral-200' : ''"
               >服務方案</NuxtLink
             >
@@ -16,7 +16,7 @@
           <li>
             <NuxtLink
               to="/about"
-              class="block rounded-2xl px-4 py-2 transition duration-300 hover:bg-neutral-200 md:px-6"
+              class="block rounded-xl px-4 py-2 transition duration-300 hover:bg-neutral-200 md:rounded-2xl md:px-6"
               :class="$route.path === '/about' ? 'bg-neutral-200' : ''"
               >關於職旅</NuxtLink
             >
@@ -24,7 +24,7 @@
           <li>
             <NuxtLink
               to="/contact"
-              class="block rounded-2xl px-4 py-2 transition duration-300 hover:bg-neutral-200 md:px-6"
+              class="block rounded-xl px-4 py-2 transition duration-300 hover:bg-neutral-200 md:rounded-2xl md:px-6"
               :class="$route.path === '/contact' ? 'bg-neutral-200' : ''"
               >聯絡我們</NuxtLink
             >
@@ -32,7 +32,7 @@
           <li>
             <NuxtLink
               to="/privacy-policy"
-              class="block rounded-2xl px-4 py-2 transition duration-300 hover:bg-neutral-200 md:px-6"
+              class="block rounded-xl px-4 py-2 transition duration-300 hover:bg-neutral-200 md:rounded-2xl md:px-6"
               :class="$route.path === '/privacy-policy' ? 'bg-neutral-200' : ''"
               >隱私權政策</NuxtLink
             >
@@ -40,7 +40,7 @@
           <li>
             <NuxtLink
               to="/terms-and-conditions"
-              class="block rounded-2xl px-4 py-2 transition duration-300 hover:bg-neutral-200 md:px-6"
+              class="block rounded-xl px-4 py-2 transition duration-300 hover:bg-neutral-200 md:rounded-2xl md:px-6"
               :class="
                 $route.path === '/terms-and-conditions' ? 'bg-neutral-200' : ''
               "

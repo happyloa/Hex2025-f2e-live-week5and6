@@ -35,7 +35,9 @@ function clearFields() {
   <section class="bg-neutral-100 px-3 py-12 md:py-20">
     <div class="mx-auto max-w-container-md">
       <CommonMemberNav />
-      <div class="rounded-3xl bg-white p-6 shadow-shadow md:p-12">
+      <div
+        class="rounded-2xl bg-white p-6 shadow-shadow md:rounded-3xl md:p-12"
+      >
         <div class="mb-20 flex flex-col gap-4 md:mb-12 md:flex-row md:gap-6">
           <aside class="flex-1 md:max-w-[300px]">
             <h1 class="text-t2-sm !font-medium md:text-t2">個人資料</h1>
@@ -50,7 +52,7 @@ function clearFields() {
               />
               <button
                 type="button"
-                class="flex items-center rounded-2xl border border-neutral-200 bg-white p-3 transition duration-300 hover:bg-neutral-200 md:gap-1 md:px-5"
+                class="flex items-center rounded-xl border border-neutral-200 bg-white p-3 transition duration-300 hover:bg-neutral-200 md:gap-1 md:rounded-2xl md:px-5"
               >
                 <svg
                   width="20"

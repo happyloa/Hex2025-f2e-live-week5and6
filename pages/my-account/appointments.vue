@@ -41,14 +41,16 @@ onMounted(async () => {
   <section class="bg-neutral-100 px-3 py-12 md:py-20">
     <div class="mx-auto max-w-container-md">
       <CommonMemberNav />
-      <div class="rounded-3xl bg-white p-6 shadow-shadow md:p-12">
+      <div
+        class="rounded-2xl bg-white p-6 shadow-shadow md:rounded-3xl md:p-12"
+      >
         <h1 class="mb-4 text-t2-sm !font-medium md:mb-6 md:text-t2">
           預約紀錄
         </h1>
         <ul class="mb-6 grid gap-6 md:mb-12 md:grid-cols-3">
           <!-- 卡片1 -->
           <li
-            class="hidden justify-items-center rounded-3xl border border-neutral-300 p-6 text-center md:block"
+            class="hidden justify-items-center rounded-2xl border border-neutral-300 p-6 text-center md:block md:rounded-3xl"
           >
             <p class="inter | mb-2 text-t4-sm text-primary md:text-t4">3</p>
             <h2 class="text-body-lg-sm text-neutral-600 md:text-body-lg">
@@ -57,7 +59,7 @@ onMounted(async () => {
           </li>
           <!-- 卡片2 -->
           <li
-            class="justify-items-center rounded-3xl border border-neutral-300 p-4 text-center md:p-6"
+            class="justify-items-center rounded-2xl border border-neutral-300 p-4 text-center md:rounded-3xl md:p-6"
           >
             <p class="inter | mb-2 text-t4-sm text-primary md:text-t4">
               2025/10/10
@@ -68,7 +70,7 @@ onMounted(async () => {
           </li>
           <!-- 卡片3 -->
           <li
-            class="hidden justify-items-center rounded-3xl border border-neutral-300 p-6 text-center md:block"
+            class="hidden justify-items-center rounded-2xl border border-neutral-300 p-6 text-center md:block md:rounded-3xl"
           >
             <p class="inter | mb-2 text-t4-sm text-primary md:text-t4">3/6</p>
             <h2 class="text-body-lg-sm text-neutral-600 md:text-body-lg">
@@ -86,7 +88,7 @@ onMounted(async () => {
           <div class="relative">
             <button
               type="button"
-              class="flex items-center gap-1 rounded-2xl border-neutral-300 p-2.5 transition duration-300 hover:bg-neutral-200 sm:border sm:px-5 sm:py-3"
+              class="flex items-center gap-1 rounded-xl border-neutral-300 p-2.5 transition duration-300 hover:bg-neutral-200 sm:border sm:px-5 sm:py-3 md:rounded-2xl"
               @click="showDropdown = !showDropdown"
             >
               <span class="hidden sm:block">排序</span>

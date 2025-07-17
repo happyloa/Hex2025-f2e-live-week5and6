@@ -4,7 +4,7 @@
       <li>
         <NuxtLink
           to="/my-account"
-          class="flex items-center rounded-2xl border border-neutral-200 p-3 transition duration-300 hover:bg-neutral-200 md:gap-1 md:px-5"
+          class="flex items-center rounded-xl border border-neutral-200 p-3 transition duration-300 hover:bg-neutral-200 md:gap-1 md:rounded-2xl md:px-5"
           :class="$route.path === '/my-account' ? 'bg-neutral-200' : 'bg-white'"
         >
           <svg
@@ -26,7 +26,7 @@
       <li>
         <NuxtLink
           to="/my-account/appointments"
-          class="flex items-center rounded-2xl border border-neutral-200 p-3 transition duration-300 hover:bg-neutral-200 md:gap-1 md:px-5"
+          class="flex items-center rounded-xl border border-neutral-200 p-3 transition duration-300 hover:bg-neutral-200 md:gap-1 md:rounded-2xl md:px-5"
           :class="
             $route.path.includes('appointments') ? 'bg-neutral-200' : 'bg-white'
           "
@@ -50,7 +50,7 @@
       <li>
         <NuxtLink
           to="/my-account/plans"
-          class="flex items-center rounded-2xl border border-neutral-200 p-3 transition duration-300 hover:bg-neutral-200 md:gap-1 md:px-5"
+          class="flex items-center rounded-xl border border-neutral-200 p-3 transition duration-300 hover:bg-neutral-200 md:gap-1 md:rounded-2xl md:px-5"
           :class="$route.path.includes('plans') ? 'bg-neutral-200' : 'bg-white'"
         >
           <svg
