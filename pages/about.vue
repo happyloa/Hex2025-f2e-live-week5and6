@@ -59,6 +59,7 @@ useSeoMeta({
             slidesPerView: 1.2,
           },
         }"
+        slides-per-view="auto"
         space-between="24"
         :autoplay="{
           delay: 1000,
