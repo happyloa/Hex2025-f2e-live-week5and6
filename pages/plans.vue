@@ -241,7 +241,7 @@ useSeoMeta({
     </main>
   </section>
   <!-- 基礎諮詢服務 -->
-  <section class="bg-neutral-100 px-3 py-12 md:py-20">
+  <section class="bg-neutral-100 px-3 pb-[348px] pt-12 md:pb-[380px] md:pt-20">
     <div class="mx-auto max-w-container">
       <!-- 標題文字 -->
       <div class="mb-6 justify-items-center text-center md:mb-12">
@@ -315,6 +315,48 @@ useSeoMeta({
           </article>
         </li>
       </ul>
+    </div>
+  </section>
+  <!-- 持續支持方案 -->
+  <section class="relative z-10 -mt-[279px] px-3 py-12 md:-mt-[332px] md:py-20">
+    <div class="mx-auto max-w-container-sm">
+      <!-- 標題文字 -->
+      <div class="mb-6 justify-items-center text-center md:mb-12">
+        <img src="/icons/plans/support.svg" alt="持續支持方案" class="mb-1" />
+        <h2 class="mb-4 text-t4-sm md:mb-6 md:text-t4">持續支持方案</h2>
+      </div>
+      <!-- 內容 -->
+      <div
+        class="relative justify-items-center rounded-2xl border-2 border-secondary bg-secondary-100 p-6 text-center shadow-shadow md:rounded-3xl md:p-12"
+      >
+        <div class="relative z-10 mb-12">
+          <h3 class="mb-2 text-t2-sm !font-medium md:text-t2">職旅會員計畫</h3>
+          <p>享有長期社群支持與資源服務</p>
+        </div>
+        <div class="relative z-10 mb-12 flex items-center gap-2">
+          <span class="inter | md:text-t text-t-sm text-primary"
+            >NT$ 9,800
+          </span>
+          /年
+          <span class="font-medium">( NT$1,200 /月)</span>
+        </div>
+        <AtomButton text="我有興趣" hasIcon />
+        <img
+          src="/images/plans/subscribe-1.svg"
+          alt="插圖1"
+          class="absolute bottom-0 left-6 z-10 hidden md:block"
+        />
+        <img
+          src="/images/plans/subscribe-2.svg"
+          alt="插圖2"
+          class="absolute bottom-0 right-6 z-10 hidden md:block"
+        />
+        <img
+          src="/images/plans/subscribe-3.svg"
+          alt="插圖3"
+          class="absolute right-0 top-0 z-0 rounded-tr-2xl md:rounded-tr-3xl"
+        />
+      </div>
     </div>
   </section>
 </template>
