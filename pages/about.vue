@@ -43,83 +43,85 @@ useSeoMeta({
         </p>
       </div>
       <!-- 夥伴輪播 -->
-      <swiper-container
-        class="2xl:w-screen"
-        :breakpoints="{
-          1536: {
-            slidesPerView: 4.675,
-          },
-          1280: {
-            slidesPerView: 4.2,
-          },
-          1024: {
-            slidesPerView: 3.675,
-          },
-          768: {
-            slidesPerView: 2.675,
-          },
-          576: {
-            slidesPerView: 2.2,
-          },
-          0: {
-            slidesPerView: 1.1,
-          },
-        }"
-        space-between="24"
-        :autoplay="{
-          delay: 5000,
-        }"
-        :loop="true"
-      >
-        <swiper-slide>
-          <CommonAboutPartnerCard
-            img="/images/about/mentor-1.webp"
-            title="數位遊牧先驅"
-            name="陳志遠 Ethan Chen"
-            :tags="['# 遠端工作策略', '# 數位遊牧生活設計']"
-          />
-        </swiper-slide>
-        <swiper-slide>
-          <CommonAboutPartnerCard
-            img="/images/about/mentor-2.webp"
-            title="個人品牌策略專家"
-            name="林曉彤 Clara Lin"
-            :tags="['# 個人品牌建立', '# 內容行銷策略', '# 故事行銷']"
-          />
-        </swiper-slide>
-        <swiper-slide>
-          <CommonAboutPartnerCard
-            img="/images/about/mentor-3.webp"
-            title="財務自由規劃顧問"
-            name="王建明 Marcus"
-            :tags="['# 稅務優化', '# 被動收入建立', '# 現金流管理']"
-          />
-        </swiper-slide>
-        <swiper-slide>
-          <CommonAboutPartnerCard
-            img="/images/about/mentor-4.webp"
-            title="創意接案與多元收入專家"
-            name="張雅琳 Ariel"
-            :tags="['# 創意變現策略', '# 線上課程開發']"
-          />
-        </swiper-slide>
-        <swiper-slide>
-          <CommonAboutPartnerCard
-            img="/images/about/mentor-5.webp"
-            title="遠端工作技術顧問"
-            name="李俊宏 Kevin Lee"
-            :tags="['# 專案管理自動化', '# 虛擬團隊管理']"
-          />
-        </swiper-slide>
-        <swiper-slide>
-          <CommonAboutPartnerCard
-            img="/images/about/mentor-6.webp"
-            title="創意接案與多元收入專家"
-            name="張雅琳 Ariel"
-            :tags="['# 創意變現策略', '# 線上課程開發']"
-          />
-        </swiper-slide>
-      </swiper-container>
+      <ClientOnly>
+        <swiper-container
+          class="2xl:w-screen"
+          :breakpoints="{
+            1536: {
+              slidesPerView: 4.675,
+            },
+            1280: {
+              slidesPerView: 4.2,
+            },
+            1024: {
+              slidesPerView: 3.675,
+            },
+            768: {
+              slidesPerView: 2.675,
+            },
+            576: {
+              slidesPerView: 2.2,
+            },
+            0: {
+              slidesPerView: 1.1,
+            },
+          }"
+          space-between="24"
+          :autoplay="{
+            delay: 5000,
+          }"
+          :loop="true"
+        >
+          <swiper-slide>
+            <CommonAboutPartnerCard
+              img="/images/about/mentor-1.webp"
+              title="數位遊牧先驅"
+              name="陳志遠 Ethan Chen"
+              :tags="['# 遠端工作策略', '# 數位遊牧生活設計']"
+            />
+          </swiper-slide>
+          <swiper-slide>
+            <CommonAboutPartnerCard
+              img="/images/about/mentor-2.webp"
+              title="個人品牌策略專家"
+              name="林曉彤 Clara Lin"
+              :tags="['# 個人品牌建立', '# 內容行銷策略', '# 故事行銷']"
+            />
+          </swiper-slide>
+          <swiper-slide>
+            <CommonAboutPartnerCard
+              img="/images/about/mentor-3.webp"
+              title="財務自由規劃顧問"
+              name="王建明 Marcus"
+              :tags="['# 稅務優化', '# 被動收入建立', '# 現金流管理']"
+            />
+          </swiper-slide>
+          <swiper-slide>
+            <CommonAboutPartnerCard
+              img="/images/about/mentor-4.webp"
+              title="創意接案與多元收入專家"
+              name="張雅琳 Ariel"
+              :tags="['# 創意變現策略', '# 線上課程開發']"
+            />
+          </swiper-slide>
+          <swiper-slide>
+            <CommonAboutPartnerCard
+              img="/images/about/mentor-5.webp"
+              title="遠端工作技術顧問"
+              name="李俊宏 Kevin Lee"
+              :tags="['# 專案管理自動化', '# 虛擬團隊管理']"
+            />
+          </swiper-slide>
+          <swiper-slide>
+            <CommonAboutPartnerCard
+              img="/images/about/mentor-6.webp"
+              title="創意接案與多元收入專家"
+              name="張雅琳 Ariel"
+              :tags="['# 創意變現策略', '# 線上課程開發']"
+            />
+          </swiper-slide>
+        </swiper-container>
+      </ClientOnly>
       <!-- 團隊承諾 -->
       <article
         class="justify-items-center rounded-2xl bg-primary px-6 pb-6 pt-4 text-white shadow-shadow md:rounded-3xl md:px-12 md:pb-12 md:pt-6"
