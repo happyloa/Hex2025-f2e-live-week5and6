@@ -45,7 +45,7 @@ useSeoMeta({
             >HOT
           </span>
           <article
-            class="flex gap-6 rounded-2xl border-2 border-secondary p-6 pt-12 shadow-shadow md:rounded-3xl md:p-12"
+            class="flex items-start gap-6 rounded-2xl border-2 border-secondary p-6 pt-12 shadow-shadow md:rounded-3xl md:p-12"
           >
             <div class="flex-1">
               <p class="mb-2 font-medium text-primary">全面方案</p>
@@ -103,14 +103,14 @@ useSeoMeta({
             <img
               src="/images/plans/plan-1.svg"
               alt="計畫方案1"
-              class="hidden lg:block"
+              class="hidden w-[300px] md:block"
             />
           </article>
         </li>
         <!-- 加速方案 -->
         <li>
           <article
-            class="flex gap-6 rounded-2xl p-6 shadow-shadow md:rounded-3xl md:p-12"
+            class="flex items-start gap-6 rounded-2xl p-6 shadow-shadow md:rounded-3xl md:p-12"
           >
             <div class="flex-1">
               <p class="mb-2 font-medium text-primary">加速方案</p>
@@ -168,14 +168,14 @@ useSeoMeta({
             <img
               src="/images/plans/plan-2.svg"
               alt="計畫方案2"
-              class="hidden lg:block"
+              class="hidden w-[300px] md:block"
             />
           </article>
         </li>
         <!-- 遊牧方案 -->
         <li>
           <article
-            class="flex gap-6 rounded-2xl p-6 shadow-shadow md:rounded-3xl md:p-12"
+            class="flex items-start gap-6 rounded-2xl p-6 shadow-shadow md:rounded-3xl md:p-12"
           >
             <div class="flex-1">
               <p class="mb-2 font-medium text-primary">遊牧方案</p>
@@ -233,7 +233,7 @@ useSeoMeta({
             <img
               src="/images/plans/plan-3.svg"
               alt="計畫方案3"
-              class="hidden lg:block"
+              class="hidden w-[300px] md:block"
             />
           </article>
         </li>
