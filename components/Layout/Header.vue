@@ -1,7 +1,39 @@
 <script setup>
+const router = useRouter();
+
 const isLoggedIn = ref(false);
 
 const showMobileNav = ref(false);
+
+// Modal 控制
+const isLoginModalOpen = ref(false);
+const isRegisterModalOpen = ref(false);
+function closeLoginModal() {
+  isLoginModalOpen.value = false;
+}
+function closeRegisterModal() {
+  isRegisterModalOpen.value = false;
+}
+
+// 處理登入、註冊成功
+function handleLoginSuccess() {
+  router.push("/my-account");
+}
+function handleRegisterSuccess() {
+  router.push("/my-account");
+}
+
+// 顯示快速註冊
+function handleShowRegister() {
+  isLoginModalOpen.value = false;
+  isRegisterModalOpen.value = true;
+}
+
+// 顯示登入
+function handleShowLogin() {
+  isRegisterModalOpen.value = false;
+  isLoginModalOpen.value = true;
+}
 
 onMounted(async () => {
   await nextTick();
@@ -69,6 +101,7 @@ onMounted(async () => {
           text="登入/註冊"
           isOutlined
           class="px-4 py-2 md:px-6"
+          @click="isLoginModalOpen = true"
         />
         <!-- 手機版選單開關 -->
         <button type="button" class="block p-2.5 md:hidden">
@@ -123,6 +156,25 @@ onMounted(async () => {
       text="登入/註冊"
       size="lg"
       class="mt-auto w-full"
+      @click="
+        isLoginModalOpen = true;
+        showMobileNav = false;
+      "
     />
   </LayoutMobileNav>
+
+  <!-- 登入 Modal -->
+  <LayoutMemberLoginModal
+    :open="isLoginModalOpen"
+    :onClose="closeLoginModal"
+    @login-success="handleLoginSuccess"
+    @show-register="handleShowRegister"
+  />
+  <!-- 註冊 Modal -->
+  <LayoutMemberRegisterModal
+    :open="isRegisterModalOpen"
+    :onClose="closeRegisterModal"
+    @register-success="handleRegisterSuccess"
+    @show-login="handleShowLogin"
+  />
 </template>
