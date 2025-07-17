@@ -48,13 +48,13 @@ useSeoMeta({
           class="2xl:w-screen"
           :breakpoints="{
             1536: {
-              slidesPerView: 4.675,
+              slidesPerView: 5,
             },
             1280: {
-              slidesPerView: 4.2,
+              slidesPerView: 4.5,
             },
             1024: {
-              slidesPerView: 3.675,
+              slidesPerView: 3.75,
             },
             768: {
               slidesPerView: 2.675,
