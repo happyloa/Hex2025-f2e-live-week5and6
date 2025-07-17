@@ -9,6 +9,8 @@ definePageMeta({
 });
 
 const appointments = ref([]);
+const loading = ref(true);
+
 const showDropdown = ref(false); // dropdown 開關
 const sortOrder = ref("desc"); // "desc" 新到舊（預設），"asc" 舊到新
 
@@ -31,6 +33,7 @@ function selectSort(order) {
 onMounted(async () => {
   const res = await fetch("/data/appointments.json");
   appointments.value = await res.json();
+  loading.value = false; // 接到資料就結束 loading Spinner
 });
 </script>
 
@@ -124,6 +127,9 @@ onMounted(async () => {
             </div>
           </div>
         </div>
+        <!-- 讀取資料 Spinner -->
+        <AtomSpinner v-if="loading" />
+
         <!-- 電腦版表格 -->
         <table class="hidden w-full whitespace-nowrap md:table">
           <thead class="border-b border-neutral-300 text-body-sm">
