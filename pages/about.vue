@@ -44,26 +44,27 @@ useSeoMeta({
       </div>
       <!-- 夥伴輪播 -->
       <swiper-container
+        class="2xl:w-screen"
         :breakpoints="{
+          1536: {
+            slidesPerView: 5.675,
+          },
+          1280: {
+            slidesPerView: 4.675,
+          },
           1024: {
-            slidesPerView: 3.725,
+            slidesPerView: 3.75,
           },
           768: {
-            slidesPerView: 2.725,
-          },
-          640: {
-            slidesPerView: 2.25,
-          },
-          0: {
             slidesPerView: 1.2,
           },
         }"
-        slides-per-view="auto"
         space-between="24"
         :autoplay="{
-          delay: 5000,
+          delay: 1000,
           disableOnInteraction: true,
         }"
+        :loop="true"
       >
         <swiper-slide>
           <CommonAboutPartnerCard
