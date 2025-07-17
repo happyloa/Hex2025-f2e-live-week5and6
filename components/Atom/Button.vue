@@ -1,4 +1,6 @@
 <script setup>
+import { NuxtLink } from "#components";
+
 const props = defineProps({
   /**
    * 按鈕尺寸
@@ -78,7 +80,7 @@ const iconSizeClass = computed(() => {
 
 // 判斷是否為連結
 const isLink = computed(() => !!to.value && to.value !== "#");
-const component = computed(() => (isLink.value ? "NuxtLink" : "button"));
+const component = computed(() => (isLink.value ? NuxtLink : "button"));
 </script>
 
 <template>
