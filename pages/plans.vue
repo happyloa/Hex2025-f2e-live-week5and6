@@ -42,8 +42,8 @@ useSeoMeta({
           <!-- HOT 標籤 -->
           <span
             class="inter | absolute left-0 top-0 rounded-br-2xl rounded-tl-2xl bg-secondary px-4 py-2 text-body-sm font-bold md:rounded-br-3xl md:rounded-tl-3xl"
-            >HOT</span
-          >
+            >HOT
+          </span>
           <article
             class="flex gap-6 rounded-2xl border-2 border-secondary p-6 pt-12 shadow-shadow md:rounded-3xl md:p-12"
           >
@@ -239,5 +239,82 @@ useSeoMeta({
         </li>
       </ul>
     </main>
+  </section>
+  <!-- 基礎諮詢服務 -->
+  <section class="bg-neutral-100 px-3 py-12 md:py-20">
+    <div class="mx-auto max-w-container">
+      <!-- 標題文字 -->
+      <div class="mb-6 justify-items-center text-center md:mb-12">
+        <img src="/icons/plans/basics.svg" alt="基礎諮詢服務" class="mb-1" />
+        <h2 class="mb-4 text-t4-sm md:mb-6 md:text-t4">基礎諮詢服務</h2>
+        <p class="text-body-lg-sm text-neutral-600 md:text-body-lg">
+          我們提供第一次免費諮詢，一起建立信任的橋樑
+        </p>
+      </div>
+      <!-- 服務卡片 -->
+      <ul class="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-6">
+        <!-- 職涯探索評估 -->
+        <li>
+          <article
+            class="justify-items-center space-y-4 rounded-2xl bg-white p-6 shadow-shadow md:space-y-6 md:rounded-3xl"
+          >
+            <img
+              src="/images/plans/service-1.svg"
+              alt="服務1"
+              class="size-[120px] md:size-40"
+            />
+            <div class="space-y-2 text-center">
+              <h3 class="text-t2-sm md:text-t2">職涯探索評估</h3>
+              <p class="text-neutral-600">3 次一對一諮詢，了解可能性和適配性</p>
+              <p class="inter | md:text-t text-t-sm text-primary">NT$ 3,800</p>
+            </div>
+            <AtomButton text="我有興趣" hasIcon />
+          </article>
+        </li>
+        <!-- 職涯轉型規劃 -->
+        <li class="relative">
+          <!-- HOT 標籤 -->
+          <span
+            class="inter | absolute left-0 top-0 rounded-br-2xl rounded-tl-2xl bg-secondary px-4 py-2 text-body-sm font-bold md:rounded-br-3xl md:rounded-tl-3xl"
+            >HOT
+          </span>
+          <article
+            class="justify-items-center space-y-4 rounded-2xl border-2 border-secondary bg-white p-6 shadow-shadow md:space-y-6 md:rounded-3xl"
+          >
+            <img
+              src="/images/plans/service-2.svg"
+              alt="服務2"
+              class="size-[120px] md:size-40"
+            />
+            <div class="space-y-2 text-center">
+              <h3 class="text-t2-sm md:text-t2">職涯轉型規劃</h3>
+              <p class="text-neutral-600">6 次深度諮詢，建立完整轉型藍圖</p>
+              <p class="inter | md:text-t text-t-sm text-primary">NT$ 12,000</p>
+            </div>
+            <AtomButton text="我有興趣" hasIcon />
+          </article>
+        </li>
+        <!-- 專業定位與品牌建立 -->
+        <li>
+          <article
+            class="justify-items-center space-y-4 rounded-2xl bg-white p-6 shadow-shadow md:space-y-6 md:rounded-3xl"
+          >
+            <img
+              src="/images/plans/service-3.svg"
+              alt="服務3"
+              class="size-[120px] md:size-40"
+            />
+            <div class="space-y-2 text-center">
+              <h3 class="text-t2-sm md:text-t2">專業定位與品牌建立</h3>
+              <p class="text-neutral-600">
+                4 次專業諮詢，確立市場定位與差異化策略
+              </p>
+              <p class="inter | md:text-t text-t-sm text-primary">NT$ 8,800</p>
+            </div>
+            <AtomButton text="我有興趣" hasIcon />
+          </article>
+        </li>
+      </ul>
+    </div>
   </section>
 </template>
