@@ -241,7 +241,7 @@ useSeoMeta({
     </main>
   </section>
   <!-- 基礎諮詢服務 -->
-  <section class="bg-neutral-100 px-3 pb-[348px] pt-12 md:pb-[380px] md:pt-20">
+  <section class="bg-neutral-100 px-3 py-12 md:py-20">
     <div class="mx-auto max-w-container">
       <!-- 標題文字 -->
       <div class="mb-6 justify-items-center text-center md:mb-12">
@@ -318,8 +318,9 @@ useSeoMeta({
     </div>
   </section>
   <!-- 持續支持方案 -->
-  <section class="relative z-10 -mt-[279px] px-3 py-12 md:-mt-[332px] md:py-20">
-    <div class="mx-auto max-w-container-sm">
+  <section class="relative bg-neutral-100 px-3 py-12 md:py-20">
+    <!-- 內容區塊 -->
+    <div class="relative z-10 mx-auto max-w-container-sm">
       <!-- 標題文字 -->
       <div class="mb-6 justify-items-center text-center md:mb-12">
         <img src="/icons/plans/support.svg" alt="持續支持方案" class="mb-1" />
@@ -358,6 +359,10 @@ useSeoMeta({
         />
       </div>
     </div>
+    <!-- 白色區塊 -->
+    <div
+      class="absolute bottom-0 left-0 h-[179px] w-full bg-white md:h-[332px]"
+    ></div>
   </section>
   <CommonCTA />
 </template>
