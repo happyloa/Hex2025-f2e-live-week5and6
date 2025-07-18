@@ -42,6 +42,95 @@ function handleToggle(idx) {
 </script>
 
 <template>
+  <!-- 服務流程 -->
+  <section class="bg-primary px-3 py-12 md:py-20">
+    <div class="mx-auto max-w-container text-center">
+      <!-- 標題 -->
+      <div class="mb-6 text-white md:mb-12">
+        <h2 class="mb-4 text-t5-sm md:mb-6 md:text-t5">服務流程</h2>
+        <p class="text-body-lg-sm md:text-body-lg">簡單四步，踏上你的職旅</p>
+      </div>
+      <!-- 電腦版 -->
+      <ul class="hidden gap-6 md:grid md:grid-cols-2 lg:grid-cols-4">
+        <li>
+          <CommonHomeServiceCard
+            img="/images/home/service-1.svg"
+            step="1"
+            title="免費註冊會員"
+            desc="透過網站左上角按鈕，立即註冊免費會員，與我們開始建立連結。"
+          />
+        </li>
+        <li>
+          <CommonHomeServiceCard
+            img="/images/home/service-2.svg"
+            step="2"
+            title="填寫職旅計劃"
+            desc="了解你的技能、熱情與市場需求的交會點，找出屬於你的獨特定位。"
+          />
+        </li>
+        <li>
+          <CommonHomeServiceCard
+            img="/images/home/service-3.svg"
+            step="3"
+            title="初次諮詢"
+            desc="依據你的目標與現況，給予最直接的建議，建立清晰的轉型思路。"
+          />
+        </li>
+        <li>
+          <CommonHomeServiceCard
+            img="/images/home/service-4.svg"
+            step="4"
+            title="實戰指導"
+            desc="專家一對一指導，從品牌建立到客戶開發，每一步都有明確方向。"
+          />
+        </li>
+      </ul>
+      <!-- 手機版 -->
+      <ClientOnly>
+        <swiper-container
+          class="block md:hidden"
+          slides-per-view="1.2"
+          space-between="16"
+          :autoplay="{
+            delay: 5000,
+          }"
+        >
+          <swiper-slide>
+            <CommonHomeServiceCard
+              img="/images/home/service-1.svg"
+              step="1"
+              title="免費註冊會員"
+              desc="透過網站左上角按鈕，立即註冊免費會員，與我們開始建立連結。"
+            />
+          </swiper-slide>
+          <swiper-slide>
+            <CommonHomeServiceCard
+              img="/images/home/service-2.svg"
+              step="2"
+              title="填寫職旅計劃"
+              desc="了解你的技能、熱情與市場需求的交會點，找出屬於你的獨特定位。"
+            />
+          </swiper-slide>
+          <swiper-slide>
+            <CommonHomeServiceCard
+              img="/images/home/service-3.svg"
+              step="3"
+              title="初次諮詢"
+              desc="依據你的目標與現況，給予最直接的建議，建立清晰的轉型思路。"
+            />
+          </swiper-slide>
+          <swiper-slide>
+            <CommonHomeServiceCard
+              img="/images/home/service-4.svg"
+              step="4"
+              title="實戰指導"
+              desc="專家一對一指導，從品牌建立到客戶開發，每一步都有明確方向。"
+            />
+          </swiper-slide>
+        </swiper-container>
+      </ClientOnly>
+    </div>
+  </section>
   <!-- 你可能有些困惑... -->
   <section class="bg-[url('/images/home/bg-grid.webp')] px-3 py-12 md:py-20">
     <div class="mx-auto max-w-container">
