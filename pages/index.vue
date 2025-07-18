@@ -42,6 +42,44 @@ function handleToggle(idx) {
 </script>
 
 <template>
+  <!-- 遇見你的職涯夥伴 -->
+  <section class="relative overflow-hidden px-3 py-12 md:py-20">
+    <!-- 裝飾球球 -->
+    <img
+      src="/images/home/gradient-ball.webp"
+      alt="裝飾球球"
+      class="absolute -bottom-[160px] -right-[160px] z-0 aspect-square size-[400px] lg:-right-[180px] lg:top-[140px] lg:size-[800px]"
+    />
+    <!-- 內容 -->
+    <div
+      class="relative z-10 mx-auto flex max-w-container flex-col items-start gap-6 lg:flex-row"
+    >
+      <img
+        src="/images/home/team.webp"
+        alt="職涯夥伴"
+        class="rounded-xl lg:max-w-[636px]"
+      />
+      <div class="flex-1 space-y-4 lg:max-w-[636px] lg:space-y-6 lg:px-3">
+        <h2 class="text-t5-sm lg:text-t5">遇見你的職涯夥伴</h2>
+        <p class="text-body-lg-sm text-neutral-600 lg:text-body-lg">
+          每位顧問都有獨特專長，更重要的是：
+        </p>
+        <blockquote class="inline-block bg-neutral-100 p-2">
+          <p class="text-t2-sm text-primary lg:text-t2">
+            “ 他們都曾面對你正在經歷的挑戰 ”
+          </p>
+        </blockquote>
+        <p class="text-body-lg-sm text-neutral-600 lg:text-body-lg">
+          職旅 WorkWay
+          匯集了來自不同領域、擁有豐富實戰經驗的自由工作者與數位遊牧專家。我們的顧問不只教授理論，更分享親身經歷的挑戰與解決之道。
+        </p>
+        <p class="text-body-lg-sm text-neutral-600 lg:text-body-lg">
+          我們相信，最好的指導來自於那些已經走過你想走的路，並願意伸出手拉你一把的人。
+        </p>
+        <AtomButton to="/about" text="了解更多職旅夥伴" hasIcon />
+      </div>
+    </div>
+  </section>
   <!-- 服務流程 -->
   <section class="bg-primary px-3 py-12 md:py-20">
     <div class="mx-auto max-w-container text-center">
