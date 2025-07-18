@@ -66,13 +66,13 @@ useSeoMeta({
               slidesPerView: 1.1,
             },
           }"
-          space-between="24"
+          space-between="0"
           :autoplay="{
             delay: 5000,
           }"
           :loop="true"
         >
-          <swiper-slide>
+          <swiper-slide class="p-3">
             <CommonAboutPartnerCard
               img="/images/about/mentor-1.webp"
               title="數位遊牧先驅"
@@ -80,7 +80,7 @@ useSeoMeta({
               :tags="['# 遠端工作策略', '# 數位遊牧生活設計']"
             />
           </swiper-slide>
-          <swiper-slide>
+          <swiper-slide class="p-3">
             <CommonAboutPartnerCard
               img="/images/about/mentor-2.webp"
               title="個人品牌策略專家"
@@ -88,7 +88,7 @@ useSeoMeta({
               :tags="['# 個人品牌建立', '# 內容行銷策略', '# 故事行銷']"
             />
           </swiper-slide>
-          <swiper-slide>
+          <swiper-slide class="p-3">
             <CommonAboutPartnerCard
               img="/images/about/mentor-3.webp"
               title="財務自由規劃顧問"
@@ -96,7 +96,7 @@ useSeoMeta({
               :tags="['# 稅務優化', '# 被動收入建立', '# 現金流管理']"
             />
           </swiper-slide>
-          <swiper-slide>
+          <swiper-slide class="p-3">
             <CommonAboutPartnerCard
               img="/images/about/mentor-4.webp"
               title="創意接案與多元收入專家"
@@ -104,7 +104,7 @@ useSeoMeta({
               :tags="['# 創意變現策略', '# 線上課程開發']"
             />
           </swiper-slide>
-          <swiper-slide>
+          <swiper-slide class="p-3">
             <CommonAboutPartnerCard
               img="/images/about/mentor-5.webp"
               title="遠端工作技術顧問"
@@ -112,7 +112,7 @@ useSeoMeta({
               :tags="['# 專案管理自動化', '# 虛擬團隊管理']"
             />
           </swiper-slide>
-          <swiper-slide>
+          <swiper-slide class="p-3">
             <CommonAboutPartnerCard
               img="/images/about/mentor-6.webp"
               title="創意接案與多元收入專家"
