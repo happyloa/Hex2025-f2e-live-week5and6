@@ -17,28 +17,28 @@ const props = defineProps({
     default: "內容文字",
   },
   /**
-   * 預設收合
+   * 是否開啟
    * @type {Boolean}
    */
-  defaultOpen: {
+  isOpen: {
     type: Boolean,
     default: false,
   },
 });
 
-const isOpen = ref(props.defaultOpen); // 預設收合；要展開就在元件上加上 defaultOpen prop
+const emit = defineEmits(["toggle"]);
 </script>
 
 <template>
   <details
-    open
+    :open="isOpen"
     class="rounded-xl border border-neutral-300 bg-white p-6 shadow-shadow"
   >
     <!-- summary 用來觸發收合 -->
     <summary
       class="flex cursor-pointer list-none items-center justify-between gap-2"
       :class="isOpen ? 'border-b border-dashed pb-4' : 'p-0'"
-      @click.prevent="isOpen = !isOpen"
+      @click.prevent="emit('toggle')"
     >
       <!-- 標題 -->
       <h3
