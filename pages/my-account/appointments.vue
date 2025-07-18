@@ -11,6 +11,25 @@ definePageMeta({
 const appointments = ref([]);
 const loading = ref(true);
 
+// 依照狀態的 Filter
+const filterStatus = ref("全部預約"); // 預設
+
+const statusOptions = [
+  { label: "全部預約", value: "全部預約" },
+  { label: "已完成", value: "已完成" },
+  { label: "已取消", value: "已取消" },
+];
+
+const filteredAppointments = computed(() => {
+  if (filterStatus.value === "全部預約") {
+    return sortedAppointments.value;
+  }
+  return sortedAppointments.value.filter(
+    (item) => item.status === filterStatus.value,
+  );
+});
+
+// 依照日期的排序功能
 const showDropdown = ref(false); // dropdown 開關
 const sortOrder = ref("desc"); // "desc" 新到舊（預設），"asc" 舊到新
 
@@ -80,9 +99,13 @@ onMounted(async () => {
         </ul>
         <div class="mb-4 flex items-center justify-between gap-3 md:mb-6">
           <div class="flex gap-2">
-            <AtomButton text="全部預約" />
-            <AtomButton text="已完成" isOutlined />
-            <AtomButton text="已取消" isOutlined />
+            <AtomButton
+              v-for="option in statusOptions"
+              :key="option.value"
+              :text="option.label"
+              :isOutlined="filterStatus !== option.value"
+              @click="filterStatus = option.value"
+            />
           </div>
           <!-- 過濾按鈕 -->
           <div class="relative">
@@ -135,7 +158,10 @@ onMounted(async () => {
         <!-- 資料區塊（接到資料後才顯示） -->
         <template v-else>
           <!-- 電腦版表格 -->
-          <table class="hidden w-full whitespace-nowrap md:table">
+          <table
+            class="hidden w-full whitespace-nowrap md:table"
+            v-if="filteredAppointments.length"
+          >
             <thead class="border-b border-neutral-300 text-body-sm">
               <tr>
                 <th class="w-3/5 p-3 text-start !font-medium">諮詢方案</th>
@@ -147,7 +173,7 @@ onMounted(async () => {
             </thead>
             <tbody>
               <tr
-                v-for="(item, idx) in sortedAppointments"
+                v-for="(item, idx) in filteredAppointments"
                 :key="idx"
                 :class="[
                   idx % 2 === 1 ? 'bg-neutral-200' : '', // 雙數列底色
@@ -168,6 +194,13 @@ onMounted(async () => {
               </tr>
             </tbody>
           </table>
+          <!-- 沒有記錄訊息 -->
+          <p
+            v-else
+            class="hidden py-6 text-center text-body-lg-sm md:block md:text-body-lg"
+          >
+            目前沒有相關預約紀錄
+          </p>
           <!-- 手機版卡片 -->
           <div class="block md:hidden">
             <h3
@@ -175,9 +208,9 @@ onMounted(async () => {
             >
               預約紀錄一覽
             </h3>
-            <ul>
+            <ul v-if="filteredAppointments.length">
               <li
-                v-for="(item, idx) in sortedAppointments"
+                v-for="(item, idx) in filteredAppointments"
                 :key="idx"
                 :class="[
                   idx % 2 === 1 ? 'bg-neutral-200' : '', // 雙數列底色
@@ -214,6 +247,10 @@ onMounted(async () => {
                 </article>
               </li>
             </ul>
+            <!-- 沒有記錄訊息 -->
+            <p v-else class="py-6 text-center text-body-lg-sm md:text-body-lg">
+              目前沒有相關預約紀錄
+            </p>
           </div>
         </template>
       </main>
