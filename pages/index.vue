@@ -51,7 +51,7 @@ function handleToggle(idx) {
         <p class="text-body-lg-sm md:text-body-lg">簡單四步，踏上你的職旅</p>
       </div>
       <!-- 電腦版 -->
-      <ul class="hidden gap-6 md:grid md:grid-cols-2 lg:grid-cols-4">
+      <ol class="hidden gap-6 md:grid md:grid-cols-2 lg:grid-cols-4">
         <li>
           <CommonHomeServiceCard
             img="/images/home/service-1.svg"
@@ -84,7 +84,7 @@ function handleToggle(idx) {
             desc="專家一對一指導，從品牌建立到客戶開發，每一步都有明確方向。"
           />
         </li>
-      </ul>
+      </ol>
       <!-- 手機版 -->
       <ClientOnly>
         <swiper-container
