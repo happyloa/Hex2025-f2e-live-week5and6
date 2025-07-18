@@ -37,7 +37,7 @@ const { img, step, title, desc } = toRefs(props);
 </script>
 
 <template>
-  <article class="relative">
+  <article class="relative h-full">
     <!-- 標籤 -->
     <span
       class="inter | absolute left-0 top-0 flex items-center gap-1 rounded-br-xl rounded-tl-xl bg-neutral-100 px-3 py-2 text-body-sm font-bold text-primary"
@@ -47,7 +47,7 @@ const { img, step, title, desc } = toRefs(props);
     </span>
     <!-- 卡片本身 -->
     <div
-      class="justify-items-center space-y-4 rounded-2xl bg-white px-4 pb-12 pt-16 shadow-shadow md:space-y-6 md:rounded-3xl md:px-6"
+      class="h-full justify-items-center space-y-4 rounded-2xl bg-white px-4 pb-12 pt-16 shadow-shadow md:space-y-6 md:rounded-3xl md:px-6"
     >
       <img :src="img" :alt="title" class="size-40" />
       <h3 class="text-t2-sm md:text-t2">{{ title }}</h3>
