@@ -88,107 +88,115 @@ function handleToggle(idx) {
         <h2 class="text-t5-sm md:text-t5">選擇職旅 WorkWay</h2>
       </div>
       <!-- 卡片 -->
-      <ul class="relative grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-6">
+      <div class="relative">
         <!-- 裝飾圖片 -->
         <img
           src="/images/home/adv-deco.svg"
           alt="裝飾圖片"
           class="absolute -top-[174px] right-0 hidden lg:block"
         />
-        <li class="group relative overflow-y-hidden rounded-2xl md:rounded-3xl">
-          <!-- 覆蓋文字 -->
-          <div
-            class="absolute inset-0 translate-y-full content-center bg-neutral/50 p-6 text-center opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100"
+        <ul class="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-6">
+          <li
+            class="group relative overflow-y-hidden rounded-2xl md:rounded-3xl"
           >
-            <p class="text-white">
-              我們的顧問都是親身走過這條路的專家，不是紙上談兵的理論家。你所學到的每一個建議，都是經過無數次嘗試與錯誤後萃取的精華。
-            </p>
-          </div>
-          <article>
-            <img src="/images/home/adv-1.webp" alt="實戰經驗" />
-          </article>
-          <!-- 標籤 -->
-          <span
-            class="absolute bottom-0 left-0 flex items-center gap-2 rounded-tr-xl bg-neutral-100 px-6 py-3 text-t2-sm text-neutral-600 md:text-t2"
-          >
-            <svg
-              width="24"
-              height="25"
-              viewBox="0 0 24 25"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
+            <!-- 覆蓋文字 -->
+            <div
+              class="absolute inset-0 translate-y-full content-center bg-neutral/50 p-6 text-center opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100"
             >
-              <path
-                d="M11.7 18.5q-2.4-.125-4.05-1.85T6 12.5Q6 10 7.75 8.25T12 6.5q2.425 0 4.15 1.65T18 12.2l-2.1-.625a3.94 3.94 0 0 0-1.4-2.212Q13.425 8.5 12 8.5q-1.65 0-2.825 1.175T8 12.5q0 1.425.863 2.5a3.94 3.94 0 0 0 2.212 1.4zm1.2 3.95q-.225.05-.45.05H12a9.7 9.7 0 0 1-3.9-.788 10.1 10.1 0 0 1-3.175-2.137q-1.35-1.35-2.137-3.175A9.7 9.7 0 0 1 2 12.5q0-2.075.788-3.9a10.1 10.1 0 0 1 2.137-3.175q1.35-1.35 3.175-2.137A9.7 9.7 0 0 1 12 2.5q2.075 0 3.9.788a10.1 10.1 0 0 1 3.175 2.137q1.35 1.35 2.137 3.175A9.7 9.7 0 0 1 22 12.5v.45q0 .225-.05.45L20 12.8v-.3q0-3.35-2.325-5.675T12 4.5 6.325 6.825 4 12.5t2.325 5.675T12 20.5h.3zm7.625.55-4.275-4.275L15 22.5l-3-10 10 3-3.775 1.25 4.275 4.275z"
-                fill="#4A69E8"
-              />
-            </svg>
-            實戰經驗
-          </span>
-        </li>
-        <li class="group relative overflow-y-hidden rounded-2xl md:rounded-3xl">
-          <!-- 覆蓋文字 -->
-          <div
-            class="absolute inset-0 translate-y-full content-center bg-neutral/50 p-6 text-center opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100"
-          >
-            <p class="text-white">
-              從心態調整到實際操作，從品牌建立到財務規劃，我們提供你轉型路上需要的每一塊拼圖，讓不確定感不再阻礙你的決定。
-            </p>
-          </div>
-          <article>
-            <img src="/images/home/adv-2.webp" alt="全方位支持" />
-          </article>
-          <!-- 標籤 -->
-          <span
-            class="absolute bottom-0 left-0 flex items-center gap-2 rounded-tr-xl bg-neutral-100 px-6 py-3 text-t2-sm text-neutral-600 md:text-t2"
-          >
-            <svg
-              width="24"
-              height="25"
-              viewBox="0 0 24 25"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
+              <p class="text-white">
+                我們的顧問都是親身走過這條路的專家，不是紙上談兵的理論家。你所學到的每一個建議，都是經過無數次嘗試與錯誤後萃取的精華。
+              </p>
+            </div>
+            <article>
+              <img src="/images/home/adv-1.webp" alt="實戰經驗" />
+            </article>
+            <!-- 標籤 -->
+            <span
+              class="absolute bottom-0 left-0 flex items-center gap-2 rounded-tr-xl bg-neutral-100 px-6 py-3 text-t2-sm text-neutral-600 md:text-t2"
             >
-              <path
-                d="M11.7 18.5q-2.4-.125-4.05-1.85T6 12.5Q6 10 7.75 8.25T12 6.5q2.425 0 4.15 1.65T18 12.2l-2.1-.625a3.94 3.94 0 0 0-1.4-2.212Q13.425 8.5 12 8.5q-1.65 0-2.825 1.175T8 12.5q0 1.425.863 2.5a3.94 3.94 0 0 0 2.212 1.4zm1.2 3.95q-.225.05-.45.05H12a9.7 9.7 0 0 1-3.9-.788 10.1 10.1 0 0 1-3.175-2.137q-1.35-1.35-2.137-3.175A9.7 9.7 0 0 1 2 12.5q0-2.075.788-3.9a10.1 10.1 0 0 1 2.137-3.175q1.35-1.35 3.175-2.137A9.7 9.7 0 0 1 12 2.5q2.075 0 3.9.788a10.1 10.1 0 0 1 3.175 2.137q1.35 1.35 2.137 3.175A9.7 9.7 0 0 1 22 12.5v.45q0 .225-.05.45L20 12.8v-.3q0-3.35-2.325-5.675T12 4.5 6.325 6.825 4 12.5t2.325 5.675T12 20.5h.3zm7.625.55-4.275-4.275L15 22.5l-3-10 10 3-3.775 1.25 4.275 4.275z"
-                fill="#4A69E8"
-              />
-            </svg>
-            全方位支持
-          </span>
-        </li>
-        <li class="group relative overflow-y-hidden rounded-2xl md:rounded-3xl">
-          <!-- 覆蓋文字 -->
-          <div
-            class="absolute inset-0 translate-y-full content-center bg-neutral/50 p-6 text-center opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100"
+              <svg
+                width="24"
+                height="25"
+                viewBox="0 0 24 25"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M11.7 18.5q-2.4-.125-4.05-1.85T6 12.5Q6 10 7.75 8.25T12 6.5q2.425 0 4.15 1.65T18 12.2l-2.1-.625a3.94 3.94 0 0 0-1.4-2.212Q13.425 8.5 12 8.5q-1.65 0-2.825 1.175T8 12.5q0 1.425.863 2.5a3.94 3.94 0 0 0 2.212 1.4zm1.2 3.95q-.225.05-.45.05H12a9.7 9.7 0 0 1-3.9-.788 10.1 10.1 0 0 1-3.175-2.137q-1.35-1.35-2.137-3.175A9.7 9.7 0 0 1 2 12.5q0-2.075.788-3.9a10.1 10.1 0 0 1 2.137-3.175q1.35-1.35 3.175-2.137A9.7 9.7 0 0 1 12 2.5q2.075 0 3.9.788a10.1 10.1 0 0 1 3.175 2.137q1.35 1.35 2.137 3.175A9.7 9.7 0 0 1 22 12.5v.45q0 .225-.05.45L20 12.8v-.3q0-3.35-2.325-5.675T12 4.5 6.325 6.825 4 12.5t2.325 5.675T12 20.5h.3zm7.625.55-4.275-4.275L15 22.5l-3-10 10 3-3.775 1.25 4.275 4.275z"
+                  fill="#4A69E8"
+                />
+              </svg>
+              實戰經驗
+            </span>
+          </li>
+          <li
+            class="group relative overflow-y-hidden rounded-2xl md:rounded-3xl"
           >
-            <p class="text-white">
-              加入職旅不只是獲得諮詢，更是連結到一群志同道合的夥伴。在這裡，你的疑惑有人解答，你的成就有人分享，你的旅程不再孤單。
-            </p>
-          </div>
-          <article>
-            <img src="/images/home/adv-3.webp" alt="社群力量" />
-          </article>
-          <!-- 標籤 -->
-          <span
-            class="absolute bottom-0 left-0 flex items-center gap-2 rounded-tr-xl bg-neutral-100 px-6 py-3 text-t2-sm text-neutral-600 md:text-t2"
-          >
-            <svg
-              width="24"
-              height="25"
-              viewBox="0 0 24 25"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
+            <!-- 覆蓋文字 -->
+            <div
+              class="absolute inset-0 translate-y-full content-center bg-neutral/50 p-6 text-center opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100"
             >
-              <path
-                d="M11.7 18.5q-2.4-.125-4.05-1.85T6 12.5Q6 10 7.75 8.25T12 6.5q2.425 0 4.15 1.65T18 12.2l-2.1-.625a3.94 3.94 0 0 0-1.4-2.212Q13.425 8.5 12 8.5q-1.65 0-2.825 1.175T8 12.5q0 1.425.863 2.5a3.94 3.94 0 0 0 2.212 1.4zm1.2 3.95q-.225.05-.45.05H12a9.7 9.7 0 0 1-3.9-.788 10.1 10.1 0 0 1-3.175-2.137q-1.35-1.35-2.137-3.175A9.7 9.7 0 0 1 2 12.5q0-2.075.788-3.9a10.1 10.1 0 0 1 2.137-3.175q1.35-1.35 3.175-2.137A9.7 9.7 0 0 1 12 2.5q2.075 0 3.9.788a10.1 10.1 0 0 1 3.175 2.137q1.35 1.35 2.137 3.175A9.7 9.7 0 0 1 22 12.5v.45q0 .225-.05.45L20 12.8v-.3q0-3.35-2.325-5.675T12 4.5 6.325 6.825 4 12.5t2.325 5.675T12 20.5h.3zm7.625.55-4.275-4.275L15 22.5l-3-10 10 3-3.775 1.25 4.275 4.275z"
-                fill="#4A69E8"
-              />
-            </svg>
-            社群力量
-          </span>
-        </li>
-      </ul>
+              <p class="text-white">
+                從心態調整到實際操作，從品牌建立到財務規劃，我們提供你轉型路上需要的每一塊拼圖，讓不確定感不再阻礙你的決定。
+              </p>
+            </div>
+            <article>
+              <img src="/images/home/adv-2.webp" alt="全方位支持" />
+            </article>
+            <!-- 標籤 -->
+            <span
+              class="absolute bottom-0 left-0 flex items-center gap-2 rounded-tr-xl bg-neutral-100 px-6 py-3 text-t2-sm text-neutral-600 md:text-t2"
+            >
+              <svg
+                width="24"
+                height="25"
+                viewBox="0 0 24 25"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M11.7 18.5q-2.4-.125-4.05-1.85T6 12.5Q6 10 7.75 8.25T12 6.5q2.425 0 4.15 1.65T18 12.2l-2.1-.625a3.94 3.94 0 0 0-1.4-2.212Q13.425 8.5 12 8.5q-1.65 0-2.825 1.175T8 12.5q0 1.425.863 2.5a3.94 3.94 0 0 0 2.212 1.4zm1.2 3.95q-.225.05-.45.05H12a9.7 9.7 0 0 1-3.9-.788 10.1 10.1 0 0 1-3.175-2.137q-1.35-1.35-2.137-3.175A9.7 9.7 0 0 1 2 12.5q0-2.075.788-3.9a10.1 10.1 0 0 1 2.137-3.175q1.35-1.35 3.175-2.137A9.7 9.7 0 0 1 12 2.5q2.075 0 3.9.788a10.1 10.1 0 0 1 3.175 2.137q1.35 1.35 2.137 3.175A9.7 9.7 0 0 1 22 12.5v.45q0 .225-.05.45L20 12.8v-.3q0-3.35-2.325-5.675T12 4.5 6.325 6.825 4 12.5t2.325 5.675T12 20.5h.3zm7.625.55-4.275-4.275L15 22.5l-3-10 10 3-3.775 1.25 4.275 4.275z"
+                  fill="#4A69E8"
+                />
+              </svg>
+              全方位支持
+            </span>
+          </li>
+          <li
+            class="group relative overflow-y-hidden rounded-2xl md:rounded-3xl"
+          >
+            <!-- 覆蓋文字 -->
+            <div
+              class="absolute inset-0 translate-y-full content-center bg-neutral/50 p-6 text-center opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100"
+            >
+              <p class="text-white">
+                加入職旅不只是獲得諮詢，更是連結到一群志同道合的夥伴。在這裡，你的疑惑有人解答，你的成就有人分享，你的旅程不再孤單。
+              </p>
+            </div>
+            <article>
+              <img src="/images/home/adv-3.webp" alt="社群力量" />
+            </article>
+            <!-- 標籤 -->
+            <span
+              class="absolute bottom-0 left-0 flex items-center gap-2 rounded-tr-xl bg-neutral-100 px-6 py-3 text-t2-sm text-neutral-600 md:text-t2"
+            >
+              <svg
+                width="24"
+                height="25"
+                viewBox="0 0 24 25"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M11.7 18.5q-2.4-.125-4.05-1.85T6 12.5Q6 10 7.75 8.25T12 6.5q2.425 0 4.15 1.65T18 12.2l-2.1-.625a3.94 3.94 0 0 0-1.4-2.212Q13.425 8.5 12 8.5q-1.65 0-2.825 1.175T8 12.5q0 1.425.863 2.5a3.94 3.94 0 0 0 2.212 1.4zm1.2 3.95q-.225.05-.45.05H12a9.7 9.7 0 0 1-3.9-.788 10.1 10.1 0 0 1-3.175-2.137q-1.35-1.35-2.137-3.175A9.7 9.7 0 0 1 2 12.5q0-2.075.788-3.9a10.1 10.1 0 0 1 2.137-3.175q1.35-1.35 3.175-2.137A9.7 9.7 0 0 1 12 2.5q2.075 0 3.9.788a10.1 10.1 0 0 1 3.175 2.137q1.35 1.35 2.137 3.175A9.7 9.7 0 0 1 22 12.5v.45q0 .225-.05.45L20 12.8v-.3q0-3.35-2.325-5.675T12 4.5 6.325 6.825 4 12.5t2.325 5.675T12 20.5h.3zm7.625.55-4.275-4.275L15 22.5l-3-10 10 3-3.775 1.25 4.275 4.275z"
+                  fill="#4A69E8"
+                />
+              </svg>
+              社群力量
+            </span>
+          </li>
+        </ul>
+      </div>
       <!-- 底下文字 -->
       <div class="flex items-center gap-4 md:gap-6">
         <p class="shrink-0 font-medium text-neutral-600">
