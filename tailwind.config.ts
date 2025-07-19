@@ -49,7 +49,7 @@ export default <Partial<Config>>{
       },
       fontSize: {
         display: [
-          "6rem",
+          "5rem",
           {
             lineHeight: "1.2",
             fontWeight: "700",
