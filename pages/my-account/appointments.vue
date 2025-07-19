@@ -112,6 +112,7 @@ onMounted(async () => {
             <button
               type="button"
               class="flex items-center gap-1 rounded-xl border-neutral-300 p-2.5 transition duration-300 hover:bg-neutral-200 sm:border sm:px-5 sm:py-3 md:rounded-2xl"
+              aria-label="開啟列表排序"
               @click="showDropdown = !showDropdown"
             >
               <span class="hidden sm:block">排序</span>
