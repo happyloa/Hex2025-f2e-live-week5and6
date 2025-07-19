@@ -19,4 +19,14 @@ onMounted(() => {
       <LayoutFooter />
     </NuxtLayout>
   </div>
+  <img
+    src="/images/member/login.webp"
+    alt="登入 Modal 背景預先載入"
+    class="hidden"
+  />
+  <img
+    src="/images/member/register.webp"
+    alt="註冊 Modal 背景預先載入"
+    class="hidden"
+  />
 </template>
