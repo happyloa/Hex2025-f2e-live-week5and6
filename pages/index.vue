@@ -46,7 +46,7 @@ function handleToggle(idx) {
   <section class="relative overflow-hidden px-3 py-12 md:py-20">
     <!-- 標題 -->
     <div class="relative z-10 mx-auto mb-10 max-w-[815px]">
-      <h1 class="mb-6 text-center text-display-sm md:text-display">
+      <h1 class="mb-6 text-center text-t5-sm md:text-display">
         一起陪伴、探索<br />還有你那些未完成的夢
       </h1>
       <div class="flex flex-col items-center justify-between gap-6 md:flex-row">
