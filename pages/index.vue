@@ -79,6 +79,118 @@ function handleToggle(idx) {
       class="absolute left-1/2 top-10 z-0 aspect-square w-[560px] -translate-x-1/2 md:w-[800px]"
     />
   </section>
+  <!-- 他們已經踏上職旅 -->
+  <section class="relative overflow-x-hidden px-3 py-12 md:py-20">
+    <!-- 內容區塊 -->
+    <div
+      class="mx-auto grid max-w-container grid-cols-1 items-center gap-6 xl:grid-cols-3"
+    >
+      <!-- 標題 -->
+      <div class="space-y-4 md:space-y-6">
+        <img
+          src="/logo-icon.svg"
+          alt="icon logo"
+          class="w-[48px] md:w-[96px]"
+        />
+        <h2 class="text-t5-sm md:text-t5">
+          他們已經踏上職旅<br />聽聽他們的故事
+        </h2>
+        <p class="text-body-lg-sm text-neutral-600 md:text-body-lg">
+          每一段職涯轉型都有獨特挑戰，這些曾經與你有相同疑惑的夥伴，現在正過著他們嚮往的生活
+        </p>
+      </div>
+      <!-- 卡片輪播 -->
+      <div class="col-span-2">
+        <ClientOnly
+          ><swiper-container
+            class="xl:w-screen"
+            :breakpoints="{
+              1280: {
+                slidesPerView: 4.5,
+              },
+              1024: {
+                slidesPerView: 3.2,
+              },
+              768: {
+                slidesPerView: 2.3,
+              },
+              0: {
+                slidesPerView: 1.1,
+              },
+            }"
+            space-between="0"
+            :autoplay="{
+              delay: 7000,
+            }"
+            :loop="true"
+          >
+            <swiper-slide class="px-2 py-3 md:px-3">
+              <CommonHomeStoryCard
+                years="2"
+                img="/images/home/story-cover-1.webp"
+                title="轉型成功的設計師"
+                intro="從企業設計師轉職自由接案，比我想的難太多。收入不穩時我幾乎想放棄，是職旅顧問幫我找回方向與差異化。半年後，我不僅維持收入，還能自由挑案，最重要的是，我終於有時間陪爸媽。"
+                profession="視覺設計師"
+                nameAndAge="郭敏迪 (34y)"
+              />
+            </swiper-slide>
+            <swiper-slide class="px-2 py-3 md:px-3">
+              <CommonHomeStoryCard
+                years="2"
+                img="/images/home/story-cover-2.webp"
+                title="數位遊牧生活實踐者"
+                intro="兩年前我只想環遊世界，卻不知道怎麼開始。職旅給了我遠端工作與生活規劃的指導。現在我在五個國家工作過，收入比以前多 20%。每次打開電腦，看見窗外不同的風景，都慶幸當初那一個決定。"
+                profession="內容策略師"
+                nameAndAge="林雨潔 (29y)"
+              />
+            </swiper-slide>
+            <swiper-slide class="px-2 py-3 md:px-3">
+              <CommonHomeStoryCard
+                years="3"
+                img="/images/home/story-cover-3.webp"
+                title="中年轉型的工程師"
+                intro="59 歲被裁員時，我以為職涯結束了。職旅顧問不只幫我轉職，更讓我相信自己還有價值。現在我每月穩定接案、收入翻倍。年齡不是限制，只是我還沒找到對的方向。"
+                profession="系統架構顧問"
+                nameAndAge="張世明 (62y)"
+              />
+            </swiper-slide>
+            <swiper-slide class="px-2 py-3 md:px-3">
+              <CommonHomeStoryCard
+                years="2"
+                img="/images/home/story-cover-4.webp"
+                title="數位遊牧生活實踐者"
+                intro="兩年前我只想環遊世界，卻不知道怎麼開始。職旅給了我遠端工作與生活規劃的指導。現在我在五個國家工作過，收入比以前多 20%。每次打開電腦，看見窗外不同的風景，都慶幸當初那一個決定。"
+                profession="內容策略師"
+                nameAndAge="林雨潔 (29y)"
+              />
+            </swiper-slide>
+            <swiper-slide class="px-2 py-3 md:px-3">
+              <CommonHomeStoryCard
+                years="3"
+                img="/images/home/story-cover-5.webp"
+                title="中年轉型的工程師"
+                intro="59 歲被裁員時，我以為職涯結束了。職旅顧問不只幫我轉職，更讓我相信自己還有價值。現在我每月穩定接案、收入翻倍。年齡不是限制，只是我還沒找到對的方向。"
+                profession="系統架構顧問"
+                nameAndAge="張世明 (28y)"
+              />
+            </swiper-slide>
+            <swiper-slide class="px-2 py-3 md:px-3">
+              <CommonHomeStoryCard
+                years="3"
+                img="/images/home/story-cover-6.webp"
+                title="中年轉型的工程師"
+                intro="59 歲被裁員時，我以為職涯結束了。職旅顧問不只幫我轉職，更讓我相信自己還有價值。現在我每月穩定接案、收入翻倍。年齡不是限制，只是我還沒找到對的方向。"
+                profession="系統架構顧問"
+                nameAndAge="張世明 (28y)"
+              />
+            </swiper-slide>
+          </swiper-container>
+        </ClientOnly>
+      </div>
+    </div>
+    <!-- 灰色區塊 -->
+    <div class="absolute bottom-0 left-0 h-[200px] w-full bg-neutral-100"></div>
+  </section>
   <!-- 為什麼選擇職旅 -->
   <section class="bg-neutral-100 px-3 py-12 md:py-20">
     <div class="mx-auto max-w-container space-y-6 md:space-y-12">
