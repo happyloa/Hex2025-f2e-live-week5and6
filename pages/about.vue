@@ -33,10 +33,10 @@ useSeoMeta({
     </div>
   </section>
   <!-- 精實的職旅夥伴 -->
-  <section class="overflow-x-hidden px-3 py-12 md:py-20">
+  <section class="overflow-x-hidden py-12 md:py-20">
     <main class="mx-auto max-w-container space-y-6 text-center md:space-y-12">
       <!-- 標題 -->
-      <div>
+      <div class="px-3">
         <h2 class="mb-4 text-t4-sm md:mb-6 md:text-t4">精實的職旅夥伴</h2>
         <p class="text-body-lg-sm text-neutral-600 md:text-body-lg">
           我們相信，最好的指導來自於那些已經走過你想走的路，並願意伸出手拉你一把的人。
@@ -45,22 +45,22 @@ useSeoMeta({
       <!-- 夥伴輪播 -->
       <ClientOnly>
         <swiper-container
-          class="2xl:w-screen"
+          class="xl:w-screen"
           :breakpoints="{
             1536: {
-              slidesPerView: 5,
+              slidesPerView: 5.65,
             },
             1280: {
               slidesPerView: 4.5,
             },
             1024: {
-              slidesPerView: 3.75,
+              slidesPerView: 3.65,
             },
             768: {
-              slidesPerView: 2.675,
+              slidesPerView: 2.6,
             },
-            576: {
-              slidesPerView: 2.2,
+            480: {
+              slidesPerView: 2.3,
             },
             0: {
               slidesPerView: 1.1,
@@ -120,13 +120,22 @@ useSeoMeta({
               :tags="['# 創意變現策略', '# 線上課程開發']"
             />
           </swiper-slide>
+          <swiper-slide class="p-3">
+            <CommonAboutPartnerCard
+              img="/images/about/mentor-7.webp"
+              title="財務自由規劃顧問"
+              name="王建明 Marcus"
+              :tags="['# 稅務優化', '# 被動收入建立', '# 現金流管理']"
+            />
+          </swiper-slide>
         </swiper-container>
       </ClientOnly>
       <!-- 團隊承諾 -->
-      <article
-        class="justify-items-center rounded-2xl bg-primary px-6 pb-6 pt-4 text-white shadow-shadow md:rounded-3xl md:px-12 md:pb-12 md:pt-6"
-      >
-        <!-- <h3
+      <article class="px-3">
+        <div
+          class="justify-items-center rounded-2xl bg-primary px-6 pb-6 pt-4 text-white shadow-shadow md:rounded-3xl md:px-12 md:pb-12 md:pt-6"
+        >
+          <!-- <h3
           class="md:text-t text-t-sm relative z-0 mb-4 rounded-xl border-2 border-primary bg-white px-5 py-3 text-primary md:mb-6"
         >
           <span class="relative z-20">團隊承諾</span>
@@ -134,21 +143,22 @@ useSeoMeta({
             class="absolute -bottom-2 left-1/2 z-10 size-7 -translate-x-1/2 rotate-45 bg-white"
           ></div>
         </h3> -->
-        <img
-          src="/images/about/commitment.svg"
-          alt="團隊承諾"
-          class="mb-4 md:mb-6"
-        />
-        <p class="mx-auto mb-6 max-w-[800px] md:mb-12">
-          我們不只是顧問，更是你職業轉型路上的夥伴與同行者。我們深知轉型過程中的不確定與恐懼，也經歷過停滯不前的困境。正因如此，我們更懂得如何陪你走過這段旅程，不只指引方向，更與你並肩同行。
-        </p>
-        <picture class="block justify-items-center">
-          <source
-            media="(max-width: 768px)"
-            srcset="/images/about/text-mb.svg"
+          <img
+            src="/images/about/commitment.svg"
+            alt="團隊承諾"
+            class="mb-4 md:mb-6"
           />
-          <img src="/images/about/text-pc.svg" alt="手寫文字" />
-        </picture>
+          <p class="mx-auto mb-6 max-w-[800px] md:mb-12">
+            我們不只是顧問，更是你職業轉型路上的夥伴與同行者。我們深知轉型過程中的不確定與恐懼，也經歷過停滯不前的困境。正因如此，我們更懂得如何陪你走過這段旅程，不只指引方向，更與你並肩同行。
+          </p>
+          <picture class="block justify-items-center">
+            <source
+              media="(max-width: 768px)"
+              srcset="/images/about/text-mb.svg"
+            />
+            <img src="/images/about/text-pc.svg" alt="手寫文字" />
+          </picture>
+        </div>
       </article>
     </main>
   </section>
