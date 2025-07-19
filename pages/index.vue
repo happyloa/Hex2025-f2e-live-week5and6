@@ -42,6 +42,43 @@ function handleToggle(idx) {
 </script>
 
 <template>
+  <!-- Hero -->
+  <section class="relative overflow-hidden px-3 py-12 md:py-20">
+    <!-- 標題 -->
+    <div class="relative z-10 mx-auto mb-10 max-w-[815px]">
+      <h1 class="mb-6 text-center text-display-sm md:text-display">
+        一起陪伴、探索<br />還有你那些未完成的夢
+      </h1>
+      <div class="flex flex-col items-center justify-between gap-6 md:flex-row">
+        <p
+          class="text-center text-body-lg-sm text-neutral-600 md:text-start md:text-body-lg"
+        >
+          自由工作很美，也很難。<br />我們用 1 對 1
+          陪伴，陪你從第一步開始，直到夢想變成日常
+        </p>
+        <AtomButton to="/plans" size="lg" text="開始你的職旅" hasIcon />
+      </div>
+    </div>
+    <!-- 圖片 -->
+    <div class="relative z-10 grid grid-cols-1 gap-6 md:grid-cols-3 md:px-3">
+      <img
+        src="/images/home/hero-1.webp"
+        alt="hero圖片1"
+        class="hidden md:block"
+      />
+      <div class="hidden space-y-6 md:block">
+        <img src="/images/home/hero-2.webp" alt="hero圖片2" />
+        <img src="/images/home/hero-3.webp" alt="hero圖片3" />
+      </div>
+      <img src="/images/home/hero-4.webp" alt="hero圖片4" />
+    </div>
+    <!-- 裝飾球球 -->
+    <img
+      src="/images/home/gradient-ball.webp"
+      alt="裝飾球球"
+      class="absolute left-1/2 top-10 z-0 aspect-square w-[560px] -translate-x-1/2 md:w-[800px]"
+    />
+  </section>
   <!-- 為什麼選擇職旅 -->
   <section class="bg-neutral-100 px-3 py-12 md:py-20">
     <div class="mx-auto max-w-container space-y-6 md:space-y-12">
