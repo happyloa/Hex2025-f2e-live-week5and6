@@ -1,4 +1,8 @@
 <template>
+  <!--
+    loading Spinner，常用於資料尚未載入時顯示。
+    外層 flex 將 Spinner 垂直水平置中。
+  -->
   <div class="flex items-center justify-center py-10">
     <span class="spinner | inline-block size-12 rounded-full"></span>
   </div>

@@ -3,9 +3,10 @@ const router = useRouter();
 
 const isLoggedIn = ref(false);
 
+// 控制手機版導覽選單開關
 const showMobileNav = ref(false);
 
-// Modal 控制
+// Modal 控制（登入/註冊彈窗開關）
 const isLoginModalOpen = ref(false);
 const isRegisterModalOpen = ref(false);
 function closeLoginModal() {
@@ -15,7 +16,7 @@ function closeRegisterModal() {
   isRegisterModalOpen.value = false;
 }
 
-// 處理登入、註冊成功
+// 登入或註冊成功後，導向會員中心
 function handleLoginSuccess() {
   router.push("/my-account");
 }
@@ -23,13 +24,11 @@ function handleRegisterSuccess() {
   router.push("/my-account");
 }
 
-// 顯示快速註冊
+// 切換顯示註冊/登入 Modal
 function handleShowRegister() {
   isLoginModalOpen.value = false;
   isRegisterModalOpen.value = true;
 }
-
-// 顯示登入
 function handleShowLogin() {
   isRegisterModalOpen.value = false;
   isLoginModalOpen.value = true;

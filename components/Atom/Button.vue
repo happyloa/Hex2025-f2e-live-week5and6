@@ -51,6 +51,8 @@ const { size, isOutlined, text, hasIcon, to, target } = toRefs(props);
 
 /**
  * 動態產生按鈕 class
+ * - 根據尺寸（md, lg）、是否含 icon、是否 outlined 切換不同 class
+ * - 支援不同 breakpoint 樣式（md:...）
  */
 const btnClass = computed(() => {
   let paddingClass, colorClass, textClass;
@@ -73,17 +75,27 @@ const btnClass = computed(() => {
   return [paddingClass, colorClass, textClass];
 });
 
-// icon 大小處理
+/**
+ * 依照 size 決定 icon 大小的 class
+ */
 const iconSizeClass = computed(() => {
   return size.value === "lg" ? "size-7" : "size-5";
 });
 
-// 判斷是否為連結
+/**
+ * 判斷要渲染 <button> 還是 <NuxtLink>
+ * 若有傳入 to prop（且不是 #），就當作連結；否則為普通按鈕。
+ */
 const isLink = computed(() => !!to.value && to.value !== "#");
 const component = computed(() => (isLink.value ? NuxtLink : "button"));
 </script>
 
 <template>
+  <!--
+    根據 isLink 判斷要渲染 <NuxtLink> 還是 <button>
+    - 若是連結就會有 to、target
+    - 若是按鈕就會有 type="button"
+  -->
   <component
     :is="component"
     v-bind="isLink ? { to, target } : { type: 'button' }"
