@@ -80,13 +80,13 @@ function handleToggle(idx) {
     />
   </section>
   <!-- 他們已經踏上職旅 -->
-  <section class="relative overflow-x-hidden px-3 py-12 md:py-20">
+  <section class="relative overflow-x-hidden py-12 md:py-20">
     <!-- 內容區塊 -->
     <div
-      class="mx-auto grid max-w-container grid-cols-1 items-center gap-6 xl:grid-cols-3"
+      class="mx-auto grid max-w-container grid-cols-1 items-center gap-y-6 md:gap-6 xl:grid-cols-3"
     >
       <!-- 標題 -->
-      <div class="space-y-4 md:space-y-6">
+      <div class="space-y-4 px-3 md:space-y-6">
         <img
           src="/logo-icon.svg"
           alt="icon logo"
@@ -124,7 +124,7 @@ function handleToggle(idx) {
             }"
             :loop="true"
           >
-            <swiper-slide class="px-2 py-3 md:px-3">
+            <swiper-slide class="py-3 pl-3 pr-2 md:px-3">
               <CommonHomeStoryCard
                 years="2"
                 img="/images/home/story-cover-1.webp"
@@ -134,7 +134,7 @@ function handleToggle(idx) {
                 nameAndAge="郭敏迪 (34y)"
               />
             </swiper-slide>
-            <swiper-slide class="px-2 py-3 md:px-3">
+            <swiper-slide class="py-3 pl-3 pr-2 md:px-3">
               <CommonHomeStoryCard
                 years="2"
                 img="/images/home/story-cover-2.webp"
@@ -144,7 +144,7 @@ function handleToggle(idx) {
                 nameAndAge="林雨潔 (29y)"
               />
             </swiper-slide>
-            <swiper-slide class="px-2 py-3 md:px-3">
+            <swiper-slide class="py-3 pl-3 pr-2 md:px-3">
               <CommonHomeStoryCard
                 years="3"
                 img="/images/home/story-cover-3.webp"
@@ -154,7 +154,7 @@ function handleToggle(idx) {
                 nameAndAge="張世明 (62y)"
               />
             </swiper-slide>
-            <swiper-slide class="px-2 py-3 md:px-3">
+            <swiper-slide class="py-3 pl-3 pr-2 md:px-3">
               <CommonHomeStoryCard
                 years="2"
                 img="/images/home/story-cover-4.webp"
@@ -164,7 +164,7 @@ function handleToggle(idx) {
                 nameAndAge="林雨潔 (29y)"
               />
             </swiper-slide>
-            <swiper-slide class="px-2 py-3 md:px-3">
+            <swiper-slide class="py-3 pl-3 pr-2 md:px-3">
               <CommonHomeStoryCard
                 years="3"
                 img="/images/home/story-cover-5.webp"
@@ -174,7 +174,7 @@ function handleToggle(idx) {
                 nameAndAge="張世明 (28y)"
               />
             </swiper-slide>
-            <swiper-slide class="px-2 py-3 md:px-3">
+            <swiper-slide class="py-3 pl-3 pr-2 md:px-3">
               <CommonHomeStoryCard
                 years="3"
                 img="/images/home/story-cover-6.webp"
