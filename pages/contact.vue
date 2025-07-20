@@ -1,19 +1,75 @@
 <script setup>
+import { useField, useForm } from "vee-validate";
+import * as yup from "yup";
+
 useSeoMeta({
   title: "聯絡我們 | 2025 切版直播班 - 職涯諮詢媒合 W5&W6",
   ogTitle: "聯絡我們 | 2025 切版直播班 - 職涯諮詢媒合 W5&W6",
 });
 
+// 必填欄位的驗證規則
+const schema = yup.object({
+  // 基本資料相關欄位的驗證規則
+  name: yup
+    .string()
+    .required("請填寫姓名")
+    .min(2, "姓名最少兩個字")
+    .max(10, "姓名最多十個字")
+    .typeError("姓名必須是字串"),
+  email: yup.string().required("請填寫信箱").email("請填寫正確的信箱格式"),
+  phone: yup
+    .string()
+    .required("請填寫聯絡電話")
+    .matches(/^\d+$/, "電話只能輸入數字")
+    .matches(/^09\d{8}$/, "請輸入正確的手機號碼格式 (09 開頭，共 10 碼)"),
+  careerStatus: yup.string().required("請選擇目前職業/工作身分"),
+});
+
+const { handleSubmit, errors, validate } = useForm({
+  validationSchema: schema,
+});
+
+// 送出時的處理：驗證、捲動到最上方有錯誤的欄位
+const onSubmit = handleSubmit(async (values, { errors }) => {
+  // 通過驗證才會進來這裡
+  // ...送出資料
+});
+
+const scrollToFirstError = async () => {
+  await validate(); // 執行驗證
+  const errorKeys = Object.keys(errors.value);
+  if (errorKeys.length > 0) {
+    const firstErrorField = document.getElementById(errorKeys[0]);
+    if (firstErrorField) {
+      firstErrorField.scrollIntoView({ behavior: "smooth", block: "center" });
+      firstErrorField.focus?.();
+    }
+  }
+};
+
 // 基本資料相關欄位、變數、方法
-const name = ref("");
-const email = ref("");
-const phone = ref("");
-const careerStatus = ref("");
+const {
+  value: nameField,
+  errorMessage: nameError,
+  handleBlur: nameBlur,
+} = useField("name");
+const {
+  value: emailField,
+  errorMessage: emailError,
+  handleBlur: emailBlur,
+} = useField("email");
+const {
+  value: phoneField,
+  errorMessage: phoneError,
+  handleBlur: phoneBlur,
+} = useField("phone");
+const { value: careerStatusField, errorMessage: careerStatusError } =
+  useField("careerStatus");
 
 const showCareerStatusDropdown = ref(false);
 
 function selectedCareerStatus(status) {
-  careerStatus.value = status;
+  careerStatusField.value = status;
   showCareerStatusDropdown.value = false;
 }
 
@@ -84,29 +140,60 @@ function handleKnowUsChange() {
           </aside>
           <div class="flex-1 space-y-4 md:space-y-6">
             <!-- 姓名 -->
-            <div class="relative">
-              <input
-                v-model="name"
-                type="text"
-                id="name"
-                placeholder=" "
-                class="focus:shadow-focus peer block w-full rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] transition focus:border-primary focus:outline-none"
-              />
-              <label
-                for="name"
-                class="pointer-events-none absolute left-3 top-4 z-10 -translate-y-1/2 text-body-sm text-neutral-600 duration-100 peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-body-md peer-placeholder-shown:text-neutral peer-focus:top-4 peer-focus:text-body-sm peer-focus:text-neutral-600"
-                >姓名</label
+            <div>
+              <div class="relative">
+                <input
+                  v-model="nameField"
+                  type="text"
+                  id="name"
+                  placeholder=" "
+                  class="peer block w-full rounded-lg border bg-white px-3 pb-2.5 pt-[26px] transition focus:outline-none"
+                  :class="
+                    nameError
+                      ? 'focus:shadow-focus-error border-danger'
+                      : 'border-neutral-300 focus:border-primary focus:shadow-focus'
+                  "
+                  @blur="nameBlur"
+                  :aria-invalid="!!nameError"
+                  :aria-describedby="nameError ? 'name-error' : undefined"
+                />
+                <label
+                  for="name"
+                  class="pointer-events-none absolute left-3 top-4 z-10 -translate-y-1/2 text-body-sm text-neutral-600 duration-100 peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-body-md peer-placeholder-shown:text-neutral peer-focus:top-4 peer-focus:text-body-sm peer-focus:text-neutral-600"
+                  >姓名</label
+                >
+              </div>
+              <!-- 錯誤訊息 -->
+              <p
+                v-if="nameError"
+                id="name-error"
+                class="mt-1 flex items-center gap-1 bg-danger-100 px-2 text-body-xs text-danger"
               >
+                <img
+                  src="/icons/error-icon.svg"
+                  alt="錯誤 icon"
+                  class="text-danger"
+                />
+                {{ nameError }}
+              </p>
             </div>
             <!-- 信箱 -->
             <div>
               <div class="relative">
                 <input
-                  v-model="email"
+                  v-model="emailField"
                   type="email"
                   id="email"
                   placeholder=" "
-                  class="focus:shadow-focus peer block w-full rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] transition focus:border-primary focus:outline-none"
+                  class="peer block w-full rounded-lg border bg-white px-3 pb-2.5 pt-[26px] transition focus:outline-none"
+                  :class="
+                    emailError
+                      ? 'focus:shadow-focus-error border-danger'
+                      : 'border-neutral-300 focus:border-primary focus:shadow-focus'
+                  "
+                  @blur="emailBlur"
+                  :aria-invalid="!!emailError"
+                  :aria-describedby="emailError ? 'email-error' : undefined"
                 />
                 <label
                   for="email"
@@ -114,19 +201,46 @@ function handleKnowUsChange() {
                   >信箱</label
                 >
               </div>
-              <p class="px-2 text-body-sm text-neutral-600">
-                盡量勿使用Yahoo或Hotmail郵件信箱，以免因擋信、漏信
+              <!-- 一般訊息 or 錯誤訊息 -->
+              <p
+                id="email-error"
+                class="px-2"
+                :class="
+                  emailError
+                    ? 'mt-1 flex items-center gap-1 bg-danger-100 text-body-xs text-danger'
+                    : 'text-body-sm text-neutral-600'
+                "
+              >
+                <img
+                  v-if="emailError"
+                  src="/icons/error-icon.svg"
+                  alt="錯誤 icon"
+                  class="text-danger"
+                />
+                {{
+                  emailError
+                    ? emailError
+                    : "盡量勿使用Yahoo或Hotmail郵件信箱，以免因擋信、漏信"
+                }}
               </p>
             </div>
             <!-- 聯絡電話 -->
             <div>
               <div class="relative">
                 <input
-                  v-model="phone"
+                  v-model="phoneField"
                   type="tel"
                   id="phone"
                   placeholder=" "
-                  class="focus:shadow-focus peer block w-full rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] transition focus:border-primary focus:outline-none"
+                  class="peer block w-full rounded-lg border bg-white px-3 pb-2.5 pt-[26px] transition focus:outline-none"
+                  :class="
+                    phoneError
+                      ? 'focus:shadow-focus-error border-danger'
+                      : 'border-neutral-300 focus:border-primary focus:shadow-focus'
+                  "
+                  @blur="phoneBlur"
+                  :aria-invalid="!!phoneError"
+                  :aria-describedby="phoneError ? 'phone-error' : undefined"
                 />
                 <label
                   for="phone"
@@ -134,18 +248,42 @@ function handleKnowUsChange() {
                   >聯絡電話</label
                 >
               </div>
-              <p class="px-2 text-body-sm text-neutral-600">
-                我們不會以電話主動聯繫您，告知您要至ATM操作轉帳
+              <!-- 一般訊息 or 錯誤訊息 -->
+              <p
+                id="phone-error"
+                class="px-2"
+                :class="
+                  phoneError
+                    ? 'mt-1 flex items-center gap-1 bg-danger-100 text-body-xs text-danger'
+                    : 'text-body-sm text-neutral-600'
+                "
+              >
+                <img
+                  v-if="phoneError"
+                  src="/icons/error-icon.svg"
+                  alt="錯誤 icon"
+                  class="text-danger"
+                />
+                {{
+                  phoneError
+                    ? phoneError
+                    : "我們不會以電話主動聯繫您，告知您要至ATM操作轉帳"
+                }}
               </p>
             </div>
             <!-- 目前職業/工作身分 -->
-            <div class="relative">
+            <div class="relative" id="careerStatus">
               <button
                 type="button"
-                class="flex w-full items-center justify-between gap-3 rounded-lg border border-neutral-300 px-3 py-4 text-body-md"
+                class="flex w-full items-center justify-between gap-3 rounded-lg border px-3 py-4 text-body-md"
+                :class="
+                  careerStatusError ? 'border-danger' : 'border-neutral-300'
+                "
                 @click="showCareerStatusDropdown = !showCareerStatusDropdown"
               >
-                {{ careerStatus !== "" ? careerStatus : "目前職業/工作身分" }}
+                {{
+                  careerStatusField ? careerStatusField : "目前職業/工作身分"
+                }}
                 <svg
                   width="20"
                   height="20"
@@ -166,14 +304,18 @@ function handleKnowUsChange() {
                 <ul>
                   <li
                     class="cursor-pointer px-6 py-2 transition duration-300 hover:bg-neutral-200"
-                    :class="{ 'bg-neutral-200': careerStatus === '全職上班族' }"
+                    :class="{
+                      'bg-neutral-200': careerStatusField === '全職上班族',
+                    }"
                     @click="selectedCareerStatus('全職上班族')"
                   >
                     全職上班族
                   </li>
                   <li
                     class="cursor-pointer px-6 py-2 transition duration-300 hover:bg-neutral-200"
-                    :class="{ 'bg-neutral-200': careerStatus === '兼職工作者' }"
+                    :class="{
+                      'bg-neutral-200': careerStatusField === '兼職工作者',
+                    }"
                     @click="selectedCareerStatus('兼職工作者')"
                   >
                     兼職工作者
@@ -181,7 +323,8 @@ function handleKnowUsChange() {
                   <li
                     class="cursor-pointer px-6 py-2 transition duration-300 hover:bg-neutral-200"
                     :class="{
-                      'bg-neutral-200': careerStatus === '自由工作者/接案者',
+                      'bg-neutral-200':
+                        careerStatusField === '自由工作者/接案者',
                     }"
                     @click="selectedCareerStatus('自由工作者/接案者')"
                   >
@@ -189,7 +332,9 @@ function handleKnowUsChange() {
                   </li>
                   <li
                     class="cursor-pointer px-6 py-2 transition duration-300 hover:bg-neutral-200"
-                    :class="{ 'bg-neutral-200': careerStatus === '數位遊牧者' }"
+                    :class="{
+                      'bg-neutral-200': careerStatusField === '數位遊牧者',
+                    }"
                     @click="selectedCareerStatus('數位遊牧者')"
                   >
                     數位遊牧者
@@ -197,7 +342,7 @@ function handleKnowUsChange() {
                   <li
                     class="cursor-pointer px-6 py-2 transition duration-300 hover:bg-neutral-200"
                     :class="{
-                      'bg-neutral-200': careerStatus === '創業者/企業主',
+                      'bg-neutral-200': careerStatusField === '創業者/企業主',
                     }"
                     @click="selectedCareerStatus('創業者/企業主')"
                   >
@@ -206,7 +351,7 @@ function handleKnowUsChange() {
                   <li
                     class="cursor-pointer px-6 py-2 transition duration-300 hover:bg-neutral-200"
                     :class="{
-                      'bg-neutral-200': careerStatus === '待業中',
+                      'bg-neutral-200': careerStatusField === '待業中',
                     }"
                     @click="selectedCareerStatus('待業中')"
                   >
@@ -215,7 +360,7 @@ function handleKnowUsChange() {
                   <li
                     class="cursor-pointer px-6 py-2 transition duration-300 hover:bg-neutral-200"
                     :class="{
-                      'bg-neutral-200': careerStatus === '其他',
+                      'bg-neutral-200': careerStatusField === '其他',
                     }"
                     @click="selectedCareerStatus('其他')"
                   >
@@ -223,6 +368,19 @@ function handleKnowUsChange() {
                   </li>
                 </ul>
               </div>
+              <!-- 錯誤訊息 -->
+              <p
+                v-if="careerStatusError"
+                id="careerStatus-error"
+                class="mt-1 flex items-center gap-1 bg-danger-100 px-2 text-body-xs text-danger"
+              >
+                <img
+                  src="/icons/error-icon.svg"
+                  alt="錯誤 icon"
+                  class="text-danger"
+                />
+                {{ careerStatusError }}
+              </p>
             </div>
           </div>
         </section>
@@ -369,7 +527,7 @@ function handleKnowUsChange() {
               <textarea
                 v-model="currentChallenge"
                 id="currentChallenge"
-                class="focus:shadow-focus peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] transition focus:border-primary focus:outline-none"
+                class="peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] transition focus:border-primary focus:shadow-focus focus:outline-none"
                 placeholder=" "
                 rows="5"
                 maxlength="300"
@@ -385,7 +543,7 @@ function handleKnowUsChange() {
               <textarea
                 v-model="yourGoal"
                 id="yourGoal"
-                class="focus:shadow-focus peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] transition focus:border-primary focus:outline-none"
+                class="peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] transition focus:border-primary focus:shadow-focus focus:outline-none"
                 placeholder=" "
                 rows="5"
                 maxlength="300"
@@ -531,7 +689,7 @@ function handleKnowUsChange() {
                 type="date"
                 id="contactDate"
                 placeholder=" "
-                class="focus:shadow-focus peer block w-full rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] transition focus:border-primary focus:outline-none"
+                class="peer block w-full rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] transition focus:border-primary focus:shadow-focus focus:outline-none"
               />
               <label
                 for="contactDate"
@@ -578,7 +736,7 @@ function handleKnowUsChange() {
               <textarea
                 v-model="message"
                 id="message"
-                class="focus:shadow-focus peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] transition focus:border-primary focus:outline-none"
+                class="peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] transition focus:border-primary focus:shadow-focus focus:outline-none"
                 placeholder=" "
                 rows="5"
                 maxlength="300"
@@ -639,7 +797,12 @@ function handleKnowUsChange() {
             isOutlined
             class="w-full md:w-auto"
           />
-          <AtomButton text="確認送出" hasIcon class="w-full md:w-auto" />
+          <AtomButton
+            text="確認送出"
+            hasIcon
+            class="w-full md:w-auto"
+            @click="scrollToFirstError"
+          />
         </div>
       </main>
     </div>
