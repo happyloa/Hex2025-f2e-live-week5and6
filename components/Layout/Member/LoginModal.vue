@@ -1,4 +1,7 @@
 <script setup>
+import { useField, useForm } from "vee-validate";
+import * as yup from "yup";
+
 const props = defineProps({
   open: Boolean, // 控制 Modal 開關
   onClose: Function, // 關閉時觸發
@@ -6,14 +9,36 @@ const props = defineProps({
 
 const emit = defineEmits(["login-success", "show-register"]);
 
-const account = ref("");
-const password = ref("");
+// schema 只驗有無填寫
+const schema = yup.object({
+  account: yup.string().required("請輸入帳號"),
+  password: yup.string().required("請輸入密碼"),
+});
+
+const { handleSubmit } = useForm({
+  validationSchema: schema,
+  initialValues: {
+    account: "",
+    password: "",
+  },
+});
+
+const {
+  value: account,
+  errorMessage: accountError,
+  handleBlur: accountBlur,
+} = useField("account");
+const {
+  value: password,
+  errorMessage: passwordError,
+  handleBlur: passwordBlur,
+} = useField("password");
 
 const showPassword = ref(false);
 
-function handleLogin() {
+const onLoginSubmit = handleSubmit(() => {
   emit("login-success");
-}
+});
 
 function handleShowRegister() {
   emit("show-register");
@@ -114,42 +139,90 @@ function handleShowRegister() {
             </button>
             <hr class="mb-6 border-neutral-300" />
             <!-- 帳號欄位 -->
-            <div class="relative mb-4">
-              <input
-                v-model="account"
-                type="text"
-                id="account"
-                placeholder=" "
-                class="focus:shadow-focus peer block w-full rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] transition focus:border-primary focus:outline-none"
-              />
-              <label
-                for="account"
-                class="pointer-events-none absolute left-3 top-4 z-10 -translate-y-1/2 text-body-sm text-neutral-600 duration-100 peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-body-md peer-placeholder-shown:text-neutral peer-focus:top-4 peer-focus:text-body-sm peer-focus:text-neutral-600"
-                >帳號
-              </label>
+            <div class="mb-4">
+              <div class="relative">
+                <input
+                  v-model="account"
+                  type="text"
+                  id="account"
+                  placeholder=" "
+                  class="peer block w-full rounded-lg border bg-white px-3 pb-2.5 pt-[26px] transition focus:outline-none"
+                  :class="
+                    accountError
+                      ? 'focus:shadow-focus-error border-danger'
+                      : 'border-neutral-300 focus:border-primary focus:shadow-focus'
+                  "
+                  @blur="accountBlur"
+                  :aria-invalid="!!accountError"
+                  :aria-describedby="accountError ? 'account-error' : undefined"
+                />
+                <label
+                  for="account"
+                  class="pointer-events-none absolute left-3 top-4 z-10 -translate-y-1/2 text-body-sm text-neutral-600 duration-100 peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-body-md peer-placeholder-shown:text-neutral peer-focus:top-4 peer-focus:text-body-sm peer-focus:text-neutral-600"
+                  >帳號
+                </label>
+              </div>
+              <!-- 錯誤訊息 -->
+              <p
+                v-if="accountError"
+                id="account-error"
+                class="mt-1 flex items-center gap-1 bg-danger-100 px-2 text-body-xs text-danger"
+              >
+                <img
+                  src="/icons/error-icon.svg"
+                  alt="錯誤 icon"
+                  class="text-danger"
+                />
+                {{ accountError }}
+              </p>
             </div>
             <!-- 密碼欄位 -->
-            <div class="relative mb-4">
-              <input
-                v-model="password"
-                :type="showPassword ? 'text' : 'password'"
-                id="password"
-                placeholder=" "
-                class="focus:shadow-focus peer block w-full rounded-lg border border-neutral-300 bg-white pb-2.5 pl-3 pr-10 pt-[26px] transition focus:border-primary focus:outline-none"
-              />
-              <label
-                for="password"
-                class="pointer-events-none absolute left-3 top-4 z-10 -translate-y-1/2 text-body-sm text-neutral-600 duration-100 peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-body-md peer-placeholder-shown:text-neutral peer-focus:top-4 peer-focus:text-body-sm peer-focus:text-neutral-600"
-                >密碼
-              </label>
-              <img
-                :src="
-                  showPassword ? '/icons/visible.svg' : '/icons/invisible.svg'
-                "
-                alt="顯示/隱藏密碼"
-                class="absolute right-3 top-1/2 size-5 -translate-y-1/2 cursor-pointer"
-                @click="showPassword = !showPassword"
-              />
+            <div class="mb-4">
+              <div class="relative">
+                <input
+                  v-model="password"
+                  :type="showPassword ? 'text' : 'password'"
+                  id="password"
+                  placeholder=" "
+                  class="peer block w-full rounded-lg border bg-white pb-2.5 pl-3 pr-10 pt-[26px] transition focus:outline-none"
+                  :class="
+                    passwordError
+                      ? 'focus:shadow-focus-error border-danger'
+                      : 'border-neutral-300 focus:border-primary focus:shadow-focus'
+                  "
+                  @blur="passwordBlur"
+                  :aria-invalid="!!passwordError"
+                  :aria-describedby="
+                    passwordError ? 'password-error' : undefined
+                  "
+                />
+                <label
+                  for="password"
+                  class="pointer-events-none absolute left-3 top-4 z-10 -translate-y-1/2 text-body-sm text-neutral-600 duration-100 peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-body-md peer-placeholder-shown:text-neutral peer-focus:top-4 peer-focus:text-body-sm peer-focus:text-neutral-600"
+                  >密碼
+                </label>
+                <img
+                  :src="
+                    showPassword ? '/icons/visible.svg' : '/icons/invisible.svg'
+                  "
+                  alt="顯示/隱藏密碼"
+                  class="absolute right-3 top-1/2 size-5 -translate-y-1/2 cursor-pointer"
+                  @click="showPassword = !showPassword"
+                />
+              </div>
+              <!-- 錯誤訊息 -->
+              <p
+                v-if="passwordError"
+                id="password-error"
+                class="mt-1 flex items-center gap-1 bg-danger-100 px-2 text-body-xs text-danger"
+              >
+                <img
+                  src="/icons/error-icon.svg"
+                  alt="錯誤 icon"
+                  class="text-danger"
+                />
+                {{ passwordError }}
+              </p>
             </div>
             <NuxtLink
               to="#"
@@ -160,9 +233,9 @@ function handleShowRegister() {
               text="送出"
               hasIcon
               class="mb-6 w-full lg:mb-12"
-              @click="handleLogin"
+              @click="onLoginSubmit"
             />
-            <span class="inline-flex gap-1 text-neutral-600">
+            <span class="inline-flex gap-1 font-medium text-neutral-600">
               不是會員？
               <button
                 type="button"
