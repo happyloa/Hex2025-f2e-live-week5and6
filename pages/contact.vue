@@ -1,5 +1,5 @@
 <script setup>
-import { useField, useForm } from "vee-validate";
+import { useField, useForm, useFormContext } from "vee-validate";
 import * as yup from "yup";
 
 useSeoMeta({
@@ -23,10 +23,24 @@ const schema = yup.object({
     .matches(/^\d+$/, "電話只能輸入數字")
     .matches(/^09\d{8}$/, "請輸入正確的手機號碼格式 (09 開頭，共 10 碼)"),
   careerStatus: yup.string().required("請選擇目前職業/工作身分"),
+  // 諮詢需求相關欄位的驗證規則
+  consultTopics: yup
+    .array()
+    .min(1, "請選取至少一個諮詢主題")
+    .required("請選取至少一個諮詢主題"),
+  wantedProfession: yup.string().required("請選擇期望諮詢的專家"),
+  currentChallenge: yup.string().required("請告訴我們您目前面臨的主要挑戰"),
+  yourGoal: yup.string().required("請告訴我們您期望達成的目標"),
 });
 
-const { handleSubmit, errors, validate } = useForm({
+const { handleSubmit, errors, validate, setFieldValue, values } = useForm({
   validationSchema: schema,
+  initialValues: {
+    consultTopics: [],
+    wantedProfession: "",
+    currentChallenge: "",
+    yourGoal: "",
+  },
 });
 
 // 送出時的處理：驗證、捲動到最上方有錯誤的欄位
@@ -74,15 +88,35 @@ function selectedCareerStatus(status) {
 }
 
 // 諮詢需求相關欄位
-const consultTopics = ref([]);
-const wantedProfession = ref("");
-const currentChallenge = ref("");
-const yourGoal = ref("");
+const { value: consultTopics, errorMessage: consultTopicsError } =
+  useField("consultTopics");
+// 諮詢主題選項
+const topics = [
+  "職涯探索與方向",
+  "接案與技能變現",
+  "品牌與內容經營",
+  "遠端工作與數位游牧",
+  "收入與時間管理",
+  "其他（請填寫下題）",
+];
+
+const { value: wantedProfessionField, errorMessage: wantedProfessionError } =
+  useField("wantedProfession");
+const {
+  value: currentChallengeField,
+  errorMessage: currentChallengeError,
+  handleBlur: currentChallengeBlur,
+} = useField("currentChallenge");
+const {
+  value: yourGoalField,
+  errorMessage: yourGoalError,
+  handleBlur: yourGoalBlur,
+} = useField("yourGoal");
 
 const showWantedProfessionDropdown = ref(false);
 
 function selectedWantedProfession(pro) {
-  wantedProfession.value = pro;
+  wantedProfessionField.value = pro;
   showWantedProfessionDropdown.value = false;
 }
 
@@ -281,9 +315,7 @@ function handleKnowUsChange() {
                 "
                 @click="showCareerStatusDropdown = !showCareerStatusDropdown"
               >
-                {{
-                  careerStatusField ? careerStatusField : "目前職業/工作身分"
-                }}
+                {{ careerStatusField || "目前職業/工作身分" }}
                 <svg
                   width="20"
                   height="20"
@@ -401,88 +433,65 @@ function handleKnowUsChange() {
           </aside>
           <div class="flex-1 space-y-4 md:space-y-6">
             <!-- 諮詢主題 -->
-            <div>
+            <div id="consultTopics">
               <p class="mb-2">諮詢主題</p>
               <div
                 class="mb-2 flex flex-wrap gap-x-4 gap-y-2 text-body-sm md:gap-x-6 md:px-2"
               >
-                <label class="flex cursor-pointer items-center gap-1">
+                <label
+                  v-for="topic in topics"
+                  :key="topic"
+                  class="flex cursor-pointer items-center gap-1"
+                >
                   <input
                     type="checkbox"
-                    name="consultTopics"
-                    value="職涯探索與方向"
+                    :value="topic"
                     v-model="consultTopics"
                     class="custom-checkbox"
                   />
-                  <span>職涯探索與方向</span>
-                </label>
-                <label class="flex cursor-pointer items-center gap-1">
-                  <input
-                    type="checkbox"
-                    name="consultTopics"
-                    value="接案與技能變現"
-                    v-model="consultTopics"
-                    class="custom-checkbox"
-                  />
-                  <span>接案與技能變現</span>
-                </label>
-                <label class="flex cursor-pointer items-center gap-1">
-                  <input
-                    type="checkbox"
-                    name="consultTopics"
-                    value="品牌與內容經營"
-                    v-model="consultTopics"
-                    class="custom-checkbox"
-                  />
-                  <span>品牌與內容經營</span>
-                </label>
-                <label class="flex cursor-pointer items-center gap-1">
-                  <input
-                    type="checkbox"
-                    name="consultTopics"
-                    value="遠端工作與數位游牧"
-                    v-model="consultTopics"
-                    class="custom-checkbox"
-                  />
-                  <span>遠端工作與數位游牧</span>
-                </label>
-                <label class="flex cursor-pointer items-center gap-1">
-                  <input
-                    type="checkbox"
-                    name="consultTopics"
-                    value="收入與時間管理"
-                    v-model="consultTopics"
-                    class="custom-checkbox"
-                  />
-                  <span>收入與時間管理</span>
-                </label>
-                <label class="flex cursor-pointer items-center gap-1">
-                  <input
-                    type="checkbox"
-                    name="consultTopics"
-                    value="其他（請填寫下題）"
-                    v-model="consultTopics"
-                    class="custom-checkbox"
-                  />
-                  <span>其他（請填寫下題）</span>
+                  <span>{{ topic }}</span>
                 </label>
               </div>
-              <p class="px-2 text-body-sm text-neutral-600">
-                可複選，讓我們更了解你的狀況，安排最適合的顧問與建議。
+              <!-- 一般訊息 or 錯誤訊息 -->
+              <p
+                id="consultTopics-error"
+                class="px-2"
+                :class="
+                  consultTopicsError
+                    ? 'mt-1 flex items-center gap-1 bg-danger-100 text-body-xs text-danger'
+                    : 'text-body-sm text-neutral-600'
+                "
+              >
+                <img
+                  v-if="consultTopicsError"
+                  src="/icons/error-icon.svg"
+                  alt="錯誤 icon"
+                  class="text-danger"
+                />
+                {{
+                  consultTopicsError
+                    ? consultTopicsError
+                    : "可複選，讓我們更了解你的狀況，安排最適合的顧問與建議。"
+                }}
               </p>
             </div>
             <!-- 期望諮詢的專家 -->
-            <div class="relative">
+            <div class="relative" id="wantedProfession">
               <button
                 type="button"
-                class="flex w-full items-center justify-between gap-3 rounded-lg border border-neutral-300 px-3 py-4 text-body-md"
+                class="flex w-full items-center justify-between gap-3 rounded-lg border px-3 py-4 text-body-md"
+                :class="
+                  wantedProfessionError ? 'border-danger' : 'border-neutral-300'
+                "
                 @click="
                   showWantedProfessionDropdown = !showWantedProfessionDropdown
                 "
+                :aria-describedby="
+                  wantedProfessionError ? 'wantedProfession-error' : undefined
+                "
+                :aria-invalid="!!wantedProfessionError"
               >
-                {{
-                  wantedProfession !== "" ? wantedProfession : "期望諮詢的專家"
-                }}
+                {{ wantedProfessionField || "期望諮詢的專家" }}
                 <svg
                   width="20"
                   height="20"
@@ -504,7 +513,7 @@ function handleKnowUsChange() {
                   <li
                     class="cursor-pointer px-6 py-2 transition duration-300 hover:bg-neutral-200"
                     :class="{
-                      'bg-neutral-200': wantedProfession === '專家1',
+                      'bg-neutral-200': wantedProfessionField === '專家1',
                     }"
                     @click="selectedWantedProfession('專家1')"
                   >
@@ -513,7 +522,7 @@ function handleKnowUsChange() {
                   <li
                     class="cursor-pointer px-6 py-2 transition duration-300 hover:bg-neutral-200"
                     :class="{
-                      'bg-neutral-200': wantedProfession === '專家2',
+                      'bg-neutral-200': wantedProfessionField === '專家2',
                     }"
                     @click="selectedWantedProfession('專家2')"
                   >
@@ -521,38 +530,93 @@ function handleKnowUsChange() {
                   </li>
                 </ul>
               </div>
+              <!-- 錯誤訊息 -->
+              <p
+                v-if="wantedProfessionError"
+                id="careerStatus-error"
+                class="mt-1 flex items-center gap-1 bg-danger-100 px-2 text-body-xs text-danger"
+              >
+                <img
+                  src="/icons/error-icon.svg"
+                  alt="錯誤 icon"
+                  class="text-danger"
+                />
+                {{ wantedProfessionError }}
+              </p>
             </div>
             <!-- 您目前面臨的主要挑戰 -->
-            <div class="relative">
+            <div class="relative" id="currentChallenge">
               <textarea
-                v-model="currentChallenge"
-                id="currentChallenge"
-                class="peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] transition focus:border-primary focus:shadow-focus focus:outline-none"
+                v-model="currentChallengeField"
+                class="peer w-full resize-none rounded-lg border bg-white px-3 pb-2.5 pt-[26px] transition focus:outline-none"
+                :class="
+                  currentChallengeError
+                    ? 'focus:shadow-focus-error border-danger'
+                    : 'border-neutral-300 focus:border-primary focus:shadow-focus'
+                "
                 placeholder=" "
                 rows="5"
                 maxlength="300"
+                :aria-invalid="!!currentChallengeError"
+                :aria-describedby="
+                  currentChallengeError ? 'currentChallenge-error' : undefined
+                "
+                @blur="currentChallengeBlur"
               ></textarea>
               <label
                 for="currentChallenge"
                 class="pointer-events-none absolute left-3 top-1 z-10 text-body-sm text-neutral-600 duration-100 peer-placeholder-shown:top-4 peer-placeholder-shown:text-body-md peer-placeholder-shown:text-neutral peer-focus:top-1 peer-focus:text-body-sm peer-focus:text-neutral-600"
                 >您目前面臨的主要挑戰
               </label>
+              <!-- 錯誤訊息 -->
+              <p
+                v-if="currentChallengeError"
+                id="currentChallenge-error"
+                class="mt-1 flex items-center gap-1 bg-danger-100 px-2 text-body-xs text-danger"
+              >
+                <img
+                  src="/icons/error-icon.svg"
+                  alt="錯誤 icon"
+                  class="text-danger"
+                />
+                {{ currentChallengeError }}
+              </p>
             </div>
             <!-- 期望達成的目標 -->
-            <div class="relative">
+            <div class="relative" id="yourGoal">
               <textarea
-                v-model="yourGoal"
-                id="yourGoal"
-                class="peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] transition focus:border-primary focus:shadow-focus focus:outline-none"
+                v-model="yourGoalField"
+                class="peer w-full resize-none rounded-lg border bg-white px-3 pb-2.5 pt-[26px] transition focus:outline-none"
+                :class="
+                  yourGoalError
+                    ? 'focus:shadow-focus-error border-danger'
+                    : 'border-neutral-300 focus:border-primary focus:shadow-focus'
+                "
                 placeholder=" "
                 rows="5"
                 maxlength="300"
+                :aria-invalid="!!yourGoalError"
+                :aria-describedby="yourGoalError ? 'yourGoal-error' : undefined"
+                @blur="yourGoalBlur"
               ></textarea>
               <label
                 for="yourGoal"
                 class="pointer-events-none absolute left-3 top-1 z-10 text-body-sm text-neutral-600 duration-100 peer-placeholder-shown:top-4 peer-placeholder-shown:text-body-md peer-placeholder-shown:text-neutral peer-focus:top-1 peer-focus:text-body-sm peer-focus:text-neutral-600"
                 >期望達成的目標
               </label>
+              <!-- 錯誤訊息 -->
+              <p
+                v-if="yourGoalError"
+                id="currentChallenge-error"
+                class="mt-1 flex items-center gap-1 bg-danger-100 px-2 text-body-xs text-danger"
+              >
+                <img
+                  src="/icons/error-icon.svg"
+                  alt="錯誤 icon"
+                  class="text-danger"
+                />
+                {{ yourGoalError }}
+              </p>
             </div>
           </div>
         </section>
