@@ -29,4 +29,5 @@ onMounted(() => {
     alt="註冊 Modal 背景預先載入"
     class="hidden"
   />
+  <img src="/icons/error-icon.svg" alt="預先載入錯誤 icon" class="hidden" />
 </template>
