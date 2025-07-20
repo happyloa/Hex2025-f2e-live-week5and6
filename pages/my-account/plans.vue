@@ -1,4 +1,7 @@
 <script setup>
+import { useField, useForm } from "vee-validate";
+import * as yup from "yup";
+
 useSeoMeta({
   title: "職旅計畫 | 2025 切版直播班 - 職涯諮詢媒合 W5&W6",
   ogTitle: "職旅計畫 | 2025 切版直播班 - 職涯諮詢媒合 W5&W6",
@@ -8,23 +11,60 @@ definePageMeta({
   layout: "member",
 });
 
+// 新增 schema 和 useForm，僅驗證「industry」有選就好
+const schema = yup.object({
+  industry: yup.string().required("請選擇工作產業"),
+  jobTenure: yup.string().required("請選擇工作年資"),
+  careerSummary: yup.string().required("請填寫職業摘要"),
+  workCase: yup.string().required("請填寫作品案例"),
+});
+
+const { handleSubmit, errors, validate } = useForm({
+  validationSchema: schema,
+  initialValues: {
+    industry: "",
+    jobTenure: "",
+    careerSummary: "",
+    workCase: "",
+  },
+});
+
+// 滾動到第一個有錯誤的欄位，搭配「平滑捲動」效果，讓使用者知道要修正哪一欄
+const scrollToFirstError = async () => {
+  await validate(); // 執行驗證
+  const errorKeys = Object.keys(errors.value);
+  if (errorKeys.length > 0) {
+    // 找到第一個有錯的欄位
+    const firstErrorField = document.getElementById(errorKeys[0]);
+    if (firstErrorField) {
+      // 捲動到該欄位並 focus
+      firstErrorField.scrollIntoView({ behavior: "smooth", block: "center" });
+      firstErrorField.focus?.();
+    }
+  }
+};
+
 // 職旅計劃概況相關欄位、變數、方法
 const careerStatus = ref("全職上班族");
-const industry = ref("");
-const jobTenure = ref("");
+const { value: industryField, errorMessage: industryError } =
+  useField("industry");
+const { value: jobTenureField, errorMessage: jobTenureError } =
+  useField("jobTenure");
 const monthlyIncome = ref("3 萬以下");
-const careerSummary = ref("");
-const workCase = ref("");
+const { value: careerSummaryField, errorMessage: careerSummaryError } =
+  useField("careerSummary");
+const { value: workCaseField, errorMessage: workCaseError } =
+  useField("workCase");
 
 const showIndustriesDropdown = ref(false);
 const showJobTenureDropdown = ref(false);
 
 function selectedIndustry(ind) {
-  industry.value = ind;
+  industryField.value = ind;
   showIndustriesDropdown.value = false;
 }
 function selectedJobTenure(period) {
-  jobTenure.value = period;
+  jobTenureField.value = period;
   showJobTenureDropdown.value = false;
 }
 
@@ -149,13 +189,16 @@ const professionalTrainings = ref("");
               </div>
             </div>
             <!-- 工作產業 -->
-            <div class="relative">
+            <div class="relative" id="industry">
               <button
                 type="button"
-                class="flex w-full items-center justify-between gap-3 rounded-lg border border-neutral-300 px-3 py-4 text-body-md"
+                class="flex w-full items-center justify-between gap-3 rounded-lg border px-3 py-4 text-body-md"
+                :class="industryError ? 'border-danger' : 'border-neutral-300'"
                 @click="showIndustriesDropdown = !showIndustriesDropdown"
+                :aria-invalid="!!industryError"
+                :aria-describedby="industryError ? 'industry-error' : undefined"
               >
-                {{ industry !== "" ? industry : "工作產業" }}
+                {{ industryField || "工作產業" }}
                 <svg
                   width="20"
                   height="20"
@@ -175,79 +218,53 @@ const professionalTrainings = ref("");
               >
                 <ul>
                   <li
+                    v-for="ind in [
+                      '科技',
+                      '媒體',
+                      '教育',
+                      '金融',
+                      '醫療健康',
+                      '零售製造',
+                      '服務業',
+                      '藝術創意',
+                      '非營利組織',
+                    ]"
+                    :key="ind"
                     class="cursor-pointer px-6 py-2 transition duration-300 hover:bg-neutral-200"
-                    :class="{ 'bg-neutral-200': industry === '科技' }"
-                    @click="selectedIndustry('科技')"
+                    :class="{ 'bg-neutral-200': industryField === ind }"
+                    @click="selectedIndustry(ind)"
                   >
-                    科技
-                  </li>
-                  <li
-                    class="cursor-pointer px-6 py-2 transition duration-300 hover:bg-neutral-200"
-                    :class="{ 'bg-neutral-200': industry === '媒體' }"
-                    @click="selectedIndustry('媒體')"
-                  >
-                    媒體
-                  </li>
-                  <li
-                    class="cursor-pointer px-6 py-2 transition duration-300 hover:bg-neutral-200"
-                    :class="{ 'bg-neutral-200': industry === '教育' }"
-                    @click="selectedIndustry('教育')"
-                  >
-                    教育
-                  </li>
-                  <li
-                    class="cursor-pointer px-6 py-2 transition duration-300 hover:bg-neutral-200"
-                    :class="{ 'bg-neutral-200': industry === '金融' }"
-                    @click="selectedIndustry('金融')"
-                  >
-                    金融
-                  </li>
-                  <li
-                    class="cursor-pointer px-6 py-2 transition duration-300 hover:bg-neutral-200"
-                    :class="{ 'bg-neutral-200': industry === '醫療健康' }"
-                    @click="selectedIndustry('醫療健康')"
-                  >
-                    醫療健康
-                  </li>
-                  <li
-                    class="cursor-pointer px-6 py-2 transition duration-300 hover:bg-neutral-200"
-                    :class="{ 'bg-neutral-200': industry === '零售製造' }"
-                    @click="selectedIndustry('零售製造')"
-                  >
-                    零售製造
-                  </li>
-                  <li
-                    class="cursor-pointer px-6 py-2 transition duration-300 hover:bg-neutral-200"
-                    :class="{ 'bg-neutral-200': industry === '服務業' }"
-                    @click="selectedIndustry('服務業')"
-                  >
-                    服務業
-                  </li>
-                  <li
-                    class="cursor-pointer px-6 py-2 transition duration-300 hover:bg-neutral-200"
-                    :class="{ 'bg-neutral-200': industry === '藝術創意' }"
-                    @click="selectedIndustry('藝術創意')"
-                  >
-                    藝術創意
-                  </li>
-                  <li
-                    class="cursor-pointer px-6 py-2 transition duration-300 hover:bg-neutral-200"
-                    :class="{ 'bg-neutral-200': industry === '非營利組織' }"
-                    @click="selectedIndustry('非營利組織')"
-                  >
-                    非營利組織
+                    {{ ind }}
                   </li>
                 </ul>
               </div>
+              <!-- 錯誤訊息 -->
+              <p
+                v-if="industryError"
+                id="industry-error"
+                class="mt-1 flex items-center gap-1 bg-danger-100 px-2 text-body-xs text-danger"
+              >
+                <img
+                  src="/icons/error-icon.svg"
+                  alt="錯誤 icon"
+                  class="text-danger"
+                />
+                {{ industryError }}
+              </p>
             </div>
             <!-- 工作年資 -->
-            <div class="relative">
+            <div class="relative" id="jobTenure">
               <button
                 type="button"
-                class="flex w-full items-center justify-between gap-3 rounded-lg border border-neutral-300 px-3 py-4 text-body-md"
+                class="flex w-full items-center justify-between gap-3 rounded-lg border px-3 py-4 text-body-md"
+                :class="jobTenureError ? 'border-danger' : 'border-neutral-300'"
                 @click="showJobTenureDropdown = !showJobTenureDropdown"
+                :aria-invalid="!!jobTenureError"
+                :aria-describedby="
+                  jobTenureError ? 'jobTenure-error' : undefined
+                "
               >
-                {{ jobTenure !== "" ? jobTenure : "工作年資" }}
+                {{ jobTenureField || "工作年資" }}
                 <svg
                   width="20"
                   height="20"
@@ -267,42 +284,35 @@ const professionalTrainings = ref("");
               >
                 <ul>
                   <li
+                    v-for="item in [
+                      '1 年以下',
+                      '1-3 年',
+                      '3-5 年',
+                      '5-10 年',
+                      '10 年以上',
+                    ]"
+                    :key="item"
                     class="cursor-pointer px-6 py-2 transition duration-300 hover:bg-neutral-200"
-                    :class="{ 'bg-neutral-200': jobTenure === '1 年以下' }"
-                    @click="selectedJobTenure('1 年以下')"
+                    :class="{ 'bg-neutral-200': jobTenureField === item }"
+                    @click="selectedJobTenure(item)"
                   >
-                    1 年以下
-                  </li>
-                  <li
-                    class="cursor-pointer px-6 py-2 transition duration-300 hover:bg-neutral-200"
-                    :class="{ 'bg-neutral-200': jobTenure === '1-3 年' }"
-                    @click="selectedJobTenure('1-3 年')"
-                  >
-                    1-3 年
-                  </li>
-                  <li
-                    class="cursor-pointer px-6 py-2 transition duration-300 hover:bg-neutral-200"
-                    :class="{ 'bg-neutral-200': jobTenure === '3-5 年' }"
-                    @click="selectedJobTenure('3-5 年')"
-                  >
-                    3-5 年
-                  </li>
-                  <li
-                    class="cursor-pointer px-6 py-2 transition duration-300 hover:bg-neutral-200"
-                    :class="{ 'bg-neutral-200': jobTenure === '5-10 年' }"
-                    @click="selectedJobTenure('5-10 年')"
-                  >
-                    5-10 年
-                  </li>
-                  <li
-                    class="cursor-pointer px-6 py-2 transition duration-300 hover:bg-neutral-200"
-                    :class="{ 'bg-neutral-200': jobTenure === '10 年以上' }"
-                    @click="selectedJobTenure('10 年以上')"
-                  >
-                    10 年以上
+                    {{ item }}
                   </li>
                 </ul>
               </div>
+              <!-- 錯誤訊息 -->
+              <p
+                v-if="jobTenureError"
+                id="jobTenure-error"
+                class="mt-1 flex items-center gap-1 bg-danger-100 px-2 text-body-xs text-danger"
+              >
+                <img
+                  src="/icons/error-icon.svg"
+                  alt="錯誤 icon"
+                  class="text-danger"
+                />
+                {{ jobTenureError }}
+              </p>
             </div>
             <!-- 月收入區間 -->
             <div>
@@ -375,33 +385,79 @@ const professionalTrainings = ref("");
             <!-- 職業摘要 -->
             <div class="relative">
               <textarea
-                v-model="careerSummary"
+                v-model="careerSummaryField"
                 id="careerSummary"
-                class="focus:shadow-focus peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] transition focus:border-primary focus:outline-none"
+                class="peer w-full resize-none rounded-lg border bg-white px-3 pb-2.5 pt-[26px] transition focus:outline-none"
+                :class="
+                  careerSummaryError
+                    ? 'focus:shadow-focus-error border-danger'
+                    : 'border-neutral-300 focus:border-primary focus:shadow-focus'
+                "
                 placeholder=" "
                 rows="5"
                 maxlength="300"
+                :aria-invalid="!!careerSummaryError"
+                :aria-describedby="
+                  careerSummaryError ? 'careerSummary-error' : undefined
+                "
               ></textarea>
               <label
                 for="careerSummary"
                 class="pointer-events-none absolute left-3 top-1 z-10 block w-[calc(100%-24px)] overflow-hidden text-ellipsis whitespace-nowrap text-body-sm text-neutral-600 duration-100 peer-placeholder-shown:top-4 peer-placeholder-shown:text-body-md peer-placeholder-shown:text-neutral peer-focus:top-1 peer-focus:text-body-sm peer-focus:text-neutral-600"
                 >職業摘要（簡短描述您的專業背景和核心競爭力最多 300 字）
               </label>
+              <!-- 錯誤訊息 -->
+              <p
+                v-if="careerSummaryError"
+                id="careerSummary-error"
+                class="mt-1 flex items-center gap-1 bg-danger-100 px-2 text-body-xs text-danger"
+              >
+                <img
+                  src="/icons/error-icon.svg"
+                  alt="錯誤 icon"
+                  class="text-danger"
+                />
+                {{ careerSummaryError }}
+              </p>
             </div>
             <!-- 作品案例展示 -->
-            <div class="relative">
-              <input
-                v-model="workCase"
-                type="text"
-                id="workCase"
-                placeholder=" "
-                class="focus:shadow-focus peer block w-full rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] transition focus:border-primary focus:outline-none"
-              />
-              <label
-                for="workCase"
-                class="pointer-events-none absolute left-3 top-4 z-10 -translate-y-1/2 text-body-sm text-neutral-600 duration-100 peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-body-md peer-placeholder-shown:text-neutral peer-focus:top-4 peer-focus:text-body-sm peer-focus:text-neutral-600"
-                >作品案例展示</label
+            <div>
+              <div class="relative">
+                <input
+                  v-model="workCaseField"
+                  type="text"
+                  id="workCase"
+                  placeholder=" "
+                  class="peer block w-full rounded-lg border bg-white px-3 pb-2.5 pt-[26px] transition focus:outline-none"
+                  :class="
+                    workCaseError
+                      ? 'focus:shadow-focus-error border-danger'
+                      : 'border-neutral-300 focus:border-primary focus:shadow-focus'
+                  "
+                  :aria-invalid="!!workCaseError"
+                  :aria-describedby="
+                    workCaseError ? 'workCase-error' : undefined
+                  "
+                />
+                <label
+                  for="workCase"
+                  class="pointer-events-none absolute left-3 top-4 z-10 -translate-y-1/2 text-body-sm text-neutral-600 duration-100 peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-body-md peer-placeholder-shown:text-neutral peer-focus:top-4 peer-focus:text-body-sm peer-focus:text-neutral-600"
+                  >作品案例展示</label
+                >
+              </div>
+              <!-- 錯誤訊息 -->
+              <p
+                v-if="workCaseError"
+                id="workCase-error"
+                class="mt-1 flex items-center gap-1 bg-danger-100 px-2 text-body-xs text-danger"
               >
+                <img
+                  src="/icons/error-icon.svg"
+                  alt="錯誤 icon"
+                  class="text-danger"
+                />
+                {{ workCaseError }}
+              </p>
             </div>
             <!-- 附件檔案 -->
             <div>
@@ -449,7 +505,7 @@ const professionalTrainings = ref("");
               <textarea
                 v-model="shortTermGoal"
                 id="shortTermGoal"
-                class="focus:shadow-focus peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] transition focus:border-primary focus:outline-none"
+                class="peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] transition focus:border-primary focus:shadow-focus focus:outline-none"
                 placeholder=" "
                 rows="5"
                 maxlength="300"
@@ -465,7 +521,7 @@ const professionalTrainings = ref("");
               <textarea
                 v-model="mediumAndLongTermGoal"
                 id="mediumAndLongTermGoal"
-                class="focus:shadow-focus peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] transition focus:border-primary focus:outline-none"
+                class="peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] transition focus:border-primary focus:shadow-focus focus:outline-none"
                 placeholder=" "
                 rows="5"
                 maxlength="300"
@@ -541,7 +597,7 @@ const professionalTrainings = ref("");
                 type="text"
                 id="desiredIncome"
                 placeholder=" "
-                class="focus:shadow-focus peer block w-full rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] transition focus:border-primary focus:outline-none"
+                class="peer block w-full rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] transition focus:border-primary focus:shadow-focus focus:outline-none"
               />
               <label
                 for="desiredIncome"
@@ -899,7 +955,7 @@ const professionalTrainings = ref("");
               <textarea
                 v-model="backgroundAndStrengths"
                 id="backgroundAndStrengths"
-                class="focus:shadow-focus peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] transition focus:border-primary focus:outline-none"
+                class="peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] transition focus:border-primary focus:shadow-focus focus:outline-none"
                 placeholder=" "
                 rows="5"
                 maxlength="300"
@@ -915,7 +971,7 @@ const professionalTrainings = ref("");
               <textarea
                 v-model="professionalSkills"
                 id="professionalSkills"
-                class="focus:shadow-focus peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] transition focus:border-primary focus:outline-none"
+                class="peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] transition focus:border-primary focus:shadow-focus focus:outline-none"
                 placeholder=" "
                 rows="5"
                 maxlength="300"
@@ -931,7 +987,7 @@ const professionalTrainings = ref("");
               <textarea
                 v-model="languageSkills"
                 id="languageSkills"
-                class="focus:shadow-focus peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] transition focus:border-primary focus:outline-none"
+                class="peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] transition focus:border-primary focus:shadow-focus focus:outline-none"
                 placeholder=" "
                 rows="5"
                 maxlength="300"
@@ -947,7 +1003,7 @@ const professionalTrainings = ref("");
               <textarea
                 v-model="certifications"
                 id="certifications"
-                class="focus:shadow-focus peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] transition focus:border-primary focus:outline-none"
+                class="peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] transition focus:border-primary focus:shadow-focus focus:outline-none"
                 placeholder=" "
                 rows="5"
                 maxlength="300"
@@ -974,7 +1030,7 @@ const professionalTrainings = ref("");
               <textarea
                 v-model="educationBackground"
                 id="educationBackground"
-                class="focus:shadow-focus peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] transition focus:border-primary focus:outline-none"
+                class="peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] transition focus:border-primary focus:shadow-focus focus:outline-none"
                 placeholder=" "
                 rows="5"
                 maxlength="500"
@@ -990,7 +1046,7 @@ const professionalTrainings = ref("");
               <textarea
                 v-model="professionalTrainings"
                 id="professionalTrainings"
-                class="focus:shadow-focus peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] transition focus:border-primary focus:outline-none"
+                class="peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] transition focus:border-primary focus:shadow-focus focus:outline-none"
                 placeholder=" "
                 rows="5"
                 maxlength="500"
@@ -1013,7 +1069,12 @@ const professionalTrainings = ref("");
             isOutlined
             class="w-full md:w-auto"
           />
-          <AtomButton text="儲存更新" hasIcon class="w-full md:w-auto" />
+          <AtomButton
+            text="儲存更新"
+            hasIcon
+            class="w-full md:w-auto"
+            @click="scrollToFirstError"
+          />
         </div>
       </main>
     </div>
