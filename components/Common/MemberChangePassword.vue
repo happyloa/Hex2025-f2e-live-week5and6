@@ -1,11 +1,45 @@
 <script setup>
+import { useField, useForm } from "vee-validate";
+import * as yup from "yup";
+
 const props = defineProps({
   open: Boolean, // 控制 Modal 開關
   onClose: Function, // 關閉時觸發
 });
 
-const password = ref("");
-const passwordAgain = ref("");
+// yup schema：驗證密碼欄位
+const schema = yup.object({
+  password: yup.string().required("請輸入密碼"),
+  passwordAgain: yup
+    .string()
+    .required("請再次輸入密碼")
+    .oneOf([yup.ref("password")], "兩次輸入的密碼不一致"),
+});
+
+// 初始化表單驗證狀態與錯誤訊息（useForm 提供）
+const { handleSubmit } = useForm({
+  validationSchema: schema,
+  initialValues: {
+    password: "",
+    passwordAgain: "",
+  },
+});
+
+const {
+  value: password,
+  errorMessage: passwordError,
+  handleBlur: passwordBlur,
+} = useField("password");
+const {
+  value: passwordAgain,
+  errorMessage: passwordAgainError,
+  handleBlur: passwordAgainBlur,
+} = useField("passwordAgain");
+
+// 處理表單送出，驗證通過才 emit 註冊成功事件
+const handleRegister = handleSubmit(() => {
+  props.onClose();
+});
 </script>
 
 <template>
@@ -23,7 +57,7 @@ const passwordAgain = ref("");
         >
           <!-- 標題 -->
           <header class="flex items-center justify-between px-6 py-2">
-            <h2 class="text-t-sm md:text-t !font-medium">更新密碼</h2>
+            <h2 class="text-t-sm !font-medium md:text-t">更新密碼</h2>
             <!-- 關閉按鈕 -->
             <button
               class="p-2.5 text-neutral transition duration-300 hover:text-primary"
@@ -46,41 +80,91 @@ const passwordAgain = ref("");
             </button>
           </header>
           <!-- 更新密碼欄位 -->
-          <div class="flex flex-col gap-6 border-y border-neutral-300 p-6">
+          <div class="space-y-6 border-y border-neutral-300 p-6">
             <!-- 新密碼欄位 -->
-            <div class="relative">
-              <input
-                v-model="password"
-                type="password"
-                id="password"
-                placeholder=" "
-                class="focus:shadow-focus peer block w-full rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] transition focus:border-primary focus:outline-none"
-              />
-              <label
-                for="password"
-                class="pointer-events-none absolute left-3 top-4 z-10 -translate-y-1/2 text-body-sm text-neutral-600 duration-100 peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-body-md peer-placeholder-shown:text-neutral peer-focus:top-4 peer-focus:text-body-sm peer-focus:text-neutral-600"
-                >新密碼</label
+            <div>
+              <div class="relative">
+                <input
+                  v-model="password"
+                  type="password"
+                  id="password"
+                  placeholder=" "
+                  class="peer block w-full rounded-lg border bg-white pb-2.5 pl-3 pr-10 pt-[26px] transition focus:outline-none"
+                  :class="
+                    passwordError
+                      ? 'focus:shadow-focus-error border-danger'
+                      : 'border-neutral-300 focus:border-primary focus:shadow-focus'
+                  "
+                  @blur="passwordBlur"
+                  :aria-invalid="!!passwordError"
+                  :aria-describedby="
+                    passwordError ? 'password-error' : undefined
+                  "
+                />
+                <label
+                  for="password"
+                  class="pointer-events-none absolute left-3 top-4 z-10 -translate-y-1/2 text-body-sm text-neutral-600 duration-100 peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-body-md peer-placeholder-shown:text-neutral peer-focus:top-4 peer-focus:text-body-sm peer-focus:text-neutral-600"
+                  >新密碼</label
+                >
+              </div>
+              <!-- 錯誤訊息 -->
+              <p
+                v-if="passwordError"
+                id="password-error"
+                class="mt-1 flex items-center gap-1 bg-danger-100 px-2 text-body-xs text-danger"
               >
+                <img
+                  src="/icons/error-icon.svg"
+                  alt="錯誤 icon"
+                  class="text-danger"
+                />
+                {{ passwordError }}
+              </p>
             </div>
             <!-- 再次輸入新密碼欄位 -->
-            <div class="relative">
-              <input
-                v-model="passwordAgain"
-                type="password"
-                id="passwordAgain"
-                placeholder=" "
-                class="focus:shadow-focus peer block w-full rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] transition focus:border-primary focus:outline-none"
-              />
-              <label
-                for="passwordAgain"
-                class="pointer-events-none absolute left-3 top-4 z-10 -translate-y-1/2 text-body-sm text-neutral-600 duration-100 peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-body-md peer-placeholder-shown:text-neutral peer-focus:top-4 peer-focus:text-body-sm peer-focus:text-neutral-600"
-                >再次輸入新密碼</label
+            <div>
+              <div class="relative">
+                <input
+                  v-model="passwordAgain"
+                  type="password"
+                  id="passwordAgain"
+                  placeholder=" "
+                  class="peer block w-full rounded-lg border bg-white pb-2.5 pl-3 pr-10 pt-[26px] transition focus:outline-none"
+                  :class="
+                    passwordAgainError
+                      ? 'focus:shadow-focus-error border-danger'
+                      : 'border-neutral-300 focus:border-primary focus:shadow-focus'
+                  "
+                  @blur="passwordAgainBlur"
+                  :aria-invalid="!!passwordAgainError"
+                  :aria-describedby="
+                    passwordAgainError ? 'passwordAgain-error' : undefined
+                  "
+                />
+                <label
+                  for="passwordAgain"
+                  class="pointer-events-none absolute left-3 top-4 z-10 -translate-y-1/2 text-body-sm text-neutral-600 duration-100 peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-body-md peer-placeholder-shown:text-neutral peer-focus:top-4 peer-focus:text-body-sm peer-focus:text-neutral-600"
+                  >再次輸入新密碼</label
+                >
+              </div>
+              <!-- 錯誤訊息 -->
+              <p
+                v-if="passwordAgainError"
+                id="passwordAgain-error"
+                class="mt-1 flex items-center gap-1 bg-danger-100 px-2 text-body-xs text-danger"
               >
+                <img
+                  src="/icons/error-icon.svg"
+                  alt="錯誤 icon"
+                  class="text-danger"
+                />
+                {{ passwordAgainError }}
+              </p>
             </div>
           </div>
           <!-- 按鈕 -->
           <footer class="flex justify-end px-6 py-4">
-            <AtomButton text="更新密碼" hasIcon @click="onClose" />
+            <AtomButton text="更新密碼" hasIcon @click="handleRegister" />
           </footer>
         </div>
       </section>
