@@ -9,12 +9,13 @@ const props = defineProps({
 
 const emit = defineEmits(["login-success", "show-register"]);
 
-// schema 只驗有無填寫
+// 定義 yup schema，只驗證欄位是否有填寫
 const schema = yup.object({
   account: yup.string().required("請輸入帳號"),
   password: yup.string().required("請輸入密碼"),
 });
 
+// 初始化表單驗證狀態，並設定初始值
 const { handleSubmit } = useForm({
   validationSchema: schema,
   initialValues: {
@@ -23,23 +24,29 @@ const { handleSubmit } = useForm({
   },
 });
 
+// useField 綁定帳號欄位狀態與錯誤提示
 const {
   value: account,
   errorMessage: accountError,
   handleBlur: accountBlur,
 } = useField("account");
+// useField 綁定密碼欄位狀態與錯誤提示
 const {
   value: password,
   errorMessage: passwordError,
   handleBlur: passwordBlur,
 } = useField("password");
 
+// 控制密碼欄位是否顯示明碼
 const showPassword = ref(false);
 
+// 送出登入表單的 function
+// 驗證通過才 emit login-success，失敗時會自動顯示錯誤訊息
 const onLoginSubmit = handleSubmit(() => {
   emit("login-success");
 });
 
+// 按下「快速註冊」時，切換到註冊 Modal
 function handleShowRegister() {
   emit("show-register");
 }

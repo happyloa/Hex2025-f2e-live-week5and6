@@ -9,7 +9,7 @@ const props = defineProps({
 
 const emit = defineEmits(["register-success", "show-login"]);
 
-// yup schema：註冊三欄 + 同意條款
+// yup schema：註冊三個欄位與同意條款的驗證規則
 const schema = yup.object({
   account: yup.string().required("請輸入帳號"),
   password: yup.string().required("請輸入密碼"),
@@ -20,7 +20,8 @@ const schema = yup.object({
   agreeTerms: yup.array().min(1, "請勾選同意服務條款和隱私政策"),
 });
 
-const { handleSubmit, errors } = useForm({
+// 初始化表單驗證狀態與錯誤訊息（useForm 提供）
+const { handleSubmit } = useForm({
   validationSchema: schema,
   initialValues: {
     account: "",
@@ -30,6 +31,7 @@ const { handleSubmit, errors } = useForm({
   },
 });
 
+// useField 取得每個表單欄位的雙向綁定、錯誤訊息與失焦事件
 const {
   value: account,
   errorMessage: accountError,
@@ -48,12 +50,15 @@ const {
 const { value: agreeTerms, errorMessage: agreeTermsError } =
   useField("agreeTerms");
 
+// 控制密碼欄位是否顯示明碼
 const showPassword = ref(false);
 
+// 處理表單送出，驗證通過才 emit 註冊成功事件
 const handleRegister = handleSubmit(() => {
   emit("register-success");
 });
 
+// 按下「直接登入」時，切換到登入 Modal
 function handleShowLogin() {
   emit("show-login");
 }

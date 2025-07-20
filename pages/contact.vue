@@ -33,6 +33,7 @@ const schema = yup.object({
   yourGoal: yup.string().required("請告訴我們您期望達成的目標"),
 });
 
+// 使用 vee-validate 套件初始化表單，綁定 schema 與初始值
 const { handleSubmit, errors, validate } = useForm({
   validationSchema: schema,
   initialValues: {
@@ -49,19 +50,22 @@ const onSubmit = handleSubmit(async (values, { errors }) => {
   // ...送出資料
 });
 
+// 滾動到第一個有錯誤的欄位，搭配「平滑捲動」效果，讓使用者知道要修正哪一欄
 const scrollToFirstError = async () => {
   await validate(); // 執行驗證
   const errorKeys = Object.keys(errors.value);
   if (errorKeys.length > 0) {
+    // 找到第一個有錯的欄位
     const firstErrorField = document.getElementById(errorKeys[0]);
     if (firstErrorField) {
+      // 捲動到該欄位並 focus
       firstErrorField.scrollIntoView({ behavior: "smooth", block: "center" });
       firstErrorField.focus?.();
     }
   }
 };
 
-// 基本資料相關欄位、變數、方法
+// ---- 基本資料相關欄位、變數、方法 ----
 const {
   value: nameField,
   errorMessage: nameError,
@@ -80,17 +84,19 @@ const {
 const { value: careerStatusField, errorMessage: careerStatusError } =
   useField("careerStatus");
 
+// 控制「目前職業/工作身分」下拉選單顯示/隱藏
 const showCareerStatusDropdown = ref(false);
 
+// 點選某個職業選項後，寫回值並收起下拉
 function selectedCareerStatus(status) {
   careerStatusField.value = status;
   showCareerStatusDropdown.value = false;
 }
 
-// 諮詢需求相關欄位
+// ---- 諮詢需求相關欄位 ----
 const { value: consultTopics, errorMessage: consultTopicsError } =
   useField("consultTopics");
-// 諮詢主題選項
+// 諮詢主題的選項列表，UI 用
 const topics = [
   "職涯探索與方向",
   "接案與技能變現",
@@ -113,14 +119,16 @@ const {
   handleBlur: yourGoalBlur,
 } = useField("yourGoal");
 
+// 控制「期望諮詢的專家」下拉選單顯示/隱藏
 const showWantedProfessionDropdown = ref(false);
 
+// 選擇諮詢專家後寫值＋收起下拉
 function selectedWantedProfession(pro) {
   wantedProfessionField.value = pro;
   showWantedProfessionDropdown.value = false;
 }
 
-// 聯絡偏好相關欄位
+// ---- 聯絡偏好相關欄位 ----
 const contactMethod = ref("信箱");
 const contactTime = ref([]);
 const contactDate = ref("");
@@ -128,11 +136,11 @@ const howDidYouKnowUs = ref([]);
 const message = ref("");
 const agreeChecks = ref([]);
 
-const MAX_KNOW_US = 3;
+const MAX_KNOW_US = 3; // 如何得知我們，最多可勾選數
 
+// 當「如何得知我們」超過上限時，自動移除最後一個選項，避免超標
 function handleKnowUsChange() {
   if (howDidYouKnowUs.value.length > MAX_KNOW_US) {
-    // 移除最後一個勾選（因為多了）
     howDidYouKnowUs.value.pop();
   }
 }
