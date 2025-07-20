@@ -18,15 +18,37 @@ const schema = yup.object({
   jobTenure: yup.string().required("請選擇工作年資"),
   careerSummary: yup.string().required("請填寫職業摘要"),
   workCase: yup.string().required("請填寫作品案例"),
+  // 職涯規劃相關欄位的驗證規則
+  shortTermGoal: yup.string().required("請填寫 1 年短期職涯目標"),
+  mediumAndLongTermGoal: yup.string().required("請填寫 1-3 年中長期職涯願景"),
+  desiredIncome: yup.string().required("請填寫目標薪資/收入"),
+  encounteredCareerChallenge: yup
+    .array()
+    .min(1, "請選取至少一項目前面臨的職涯挑戰")
+    .required("請選取至少一項目前面臨的職涯挑戰"),
+  desiredAssistanceAndResources: yup
+    .array()
+    .min(1, "請選取至少一項期望獲得的協助與資源")
+    .required("請選取至少一項期望獲得的協助與資源"),
+  interestedServices: yup
+    .array()
+    .min(1, "請選取至少一項感興趣的服務方案")
+    .required("請選取至少一項感興趣的服務方案"),
 });
 
-const { handleSubmit, errors, validate } = useForm({
+const { errors, validate } = useForm({
   validationSchema: schema,
   initialValues: {
     industry: "",
     jobTenure: "",
     careerSummary: "",
     workCase: "",
+    shortTermGoal: "",
+    mediumAndLongTermGoal: "",
+    desiredIncome: "",
+    encounteredCareerChallenge: [],
+    desiredAssistanceAndResources: [],
+    interestedServices: [],
   },
 });
 
@@ -69,13 +91,25 @@ function selectedJobTenure(period) {
 }
 
 // 職涯規劃相關欄位
-const shortTermGoal = ref("");
-const mediumAndLongTermGoal = ref("");
+const { value: shortTermGoalField, errorMessage: shortTermGoalError } =
+  useField("shortTermGoal");
+const {
+  value: mediumAndLongTermGoalField,
+  errorMessage: mediumAndLongTermGoalError,
+} = useField("mediumAndLongTermGoal");
 const idealWorkMode = ref("固定辦公室工作");
-const desiredIncome = ref("");
-const encounteredCareerChallenge = ref([]);
-const desiredAssistanceAndResources = ref([]);
-const interestedServices = ref([]);
+const { value: desiredIncomeField, errorMessage: desiredIncomeError } =
+  useField("desiredIncome");
+const {
+  value: encounteredCareerChallenge,
+  errorMessage: encounteredCareerChallengeError,
+} = useField("encounteredCareerChallenge");
+const {
+  value: desiredAssistanceAndResources,
+  errorMessage: desiredAssistanceAndResourcesError,
+} = useField("desiredAssistanceAndResources");
+const { value: interestedServices, errorMessage: interestedServicesError } =
+  useField("interestedServices");
 
 // 專業技能區塊相關欄位
 const coreProfessions = ref([]);
@@ -503,34 +537,80 @@ const professionalTrainings = ref("");
             <!-- 1 年短期職涯目標 -->
             <div class="relative">
               <textarea
-                v-model="shortTermGoal"
+                v-model="shortTermGoalField"
                 id="shortTermGoal"
-                class="peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] transition focus:border-primary focus:shadow-focus focus:outline-none"
+                class="peer w-full resize-none rounded-lg border bg-white px-3 pb-2.5 pt-[26px] transition focus:outline-none"
+                :class="
+                  shortTermGoalError
+                    ? 'focus:shadow-focus-error border-danger'
+                    : 'border-neutral-300 focus:border-primary focus:shadow-focus'
+                "
                 placeholder=" "
                 rows="5"
                 maxlength="300"
+                :aria-invalid="!!shortTermGoalError"
+                :aria-describedby="
+                  shortTermGoalError ? 'shortTermGoal-error' : undefined
+                "
               ></textarea>
               <label
                 for="shortTermGoal"
                 class="pointer-events-none absolute left-3 top-1 z-10 text-body-sm text-neutral-600 duration-100 peer-placeholder-shown:top-4 peer-placeholder-shown:text-body-md peer-placeholder-shown:text-neutral peer-focus:top-1 peer-focus:text-body-sm peer-focus:text-neutral-600"
                 >1 年短期職涯目標（最多 300 字）
               </label>
+              <!-- 錯誤訊息 -->
+              <p
+                v-if="shortTermGoalError"
+                id="shortTermGoal-error"
+                class="mt-1 flex items-center gap-1 bg-danger-100 px-2 text-body-xs text-danger"
+              >
+                <img
+                  src="/icons/error-icon.svg"
+                  alt="錯誤 icon"
+                  class="text-danger"
+                />
+                {{ shortTermGoalError }}
+              </p>
             </div>
             <!-- 1-3 年中長期職涯願景 -->
             <div class="relative">
               <textarea
-                v-model="mediumAndLongTermGoal"
+                v-model="mediumAndLongTermGoalField"
                 id="mediumAndLongTermGoal"
-                class="peer w-full resize-none rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] transition focus:border-primary focus:shadow-focus focus:outline-none"
+                class="peer w-full resize-none rounded-lg border bg-white px-3 pb-2.5 pt-[26px] transition focus:outline-none"
+                :class="
+                  mediumAndLongTermGoalError
+                    ? 'focus:shadow-focus-error border-danger'
+                    : 'border-neutral-300 focus:border-primary focus:shadow-focus'
+                "
                 placeholder=" "
                 rows="5"
                 maxlength="300"
+                :aria-invalid="!!mediumAndLongTermGoalError"
+                :aria-describedby="
+                  mediumAndLongTermGoalError
+                    ? 'mediumAndLongTermGoal-error'
+                    : undefined
+                "
               ></textarea>
               <label
                 for="mediumAndLongTermGoal"
                 class="pointer-events-none absolute left-3 top-1 z-10 text-body-sm text-neutral-600 duration-100 peer-placeholder-shown:top-4 peer-placeholder-shown:text-body-md peer-placeholder-shown:text-neutral peer-focus:top-1 peer-focus:text-body-sm peer-focus:text-neutral-600"
                 >1-3 年中長期職涯願景（最多 300 字）
               </label>
+              <!-- 錯誤訊息 -->
+              <p
+                v-if="mediumAndLongTermGoalError"
+                id="mediumAndLongTermGoal-error"
+                class="mt-1 flex items-center gap-1 bg-danger-100 px-2 text-body-xs text-danger"
+              >
+                <img
+                  src="/icons/error-icon.svg"
+                  alt="錯誤 icon"
+                  class="text-danger"
+                />
+                {{ mediumAndLongTermGoalError }}
+              </p>
             </div>
             <!-- 理想工作模式 -->
             <div>
@@ -591,208 +671,133 @@ const professionalTrainings = ref("");
               </div>
             </div>
             <!-- 目標薪資/收入 -->
-            <div class="relative">
-              <input
-                v-model="desiredIncome"
-                type="text"
-                id="desiredIncome"
-                placeholder=" "
-                class="peer block w-full rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] transition focus:border-primary focus:shadow-focus focus:outline-none"
-              />
-              <label
-                for="desiredIncome"
-                class="pointer-events-none absolute left-3 top-4 z-10 -translate-y-1/2 text-body-sm text-neutral-600 duration-100 peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-body-md peer-placeholder-shown:text-neutral peer-focus:top-4 peer-focus:text-body-sm peer-focus:text-neutral-600"
-                >目標薪資/收入</label
+            <div>
+              <div class="relative">
+                <input
+                  v-model="desiredIncomeField"
+                  type="text"
+                  id="desiredIncome"
+                  placeholder=" "
+                  class="peer block w-full rounded-lg border bg-white px-3 pb-2.5 pt-[26px] transition focus:outline-none"
+                  :class="
+                    desiredIncomeError
+                      ? 'focus:shadow-focus-error border-danger'
+                      : 'border-neutral-300 focus:border-primary focus:shadow-focus'
+                  "
+                  :aria-invalid="!!desiredIncomeError"
+                  :aria-describedby="
+                    desiredIncomeError ? 'desiredIncome-error' : undefined
+                  "
+                />
+                <label
+                  for="desiredIncome"
+                  class="pointer-events-none absolute left-3 top-4 z-10 -translate-y-1/2 text-body-sm text-neutral-600 duration-100 peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-body-md peer-placeholder-shown:text-neutral peer-focus:top-4 peer-focus:text-body-sm peer-focus:text-neutral-600"
+                  >目標薪資/收入</label
+                >
+              </div>
+              <!-- 錯誤訊息 -->
+              <p
+                v-if="desiredIncomeError"
+                id="desiredIncome-error"
+                class="mt-1 flex items-center gap-1 bg-danger-100 px-2 text-body-xs text-danger"
               >
+                <img
+                  src="/icons/error-icon.svg"
+                  alt="錯誤 icon"
+                  class="text-danger"
+                />
+                {{ desiredIncomeError }}
+              </p>
             </div>
             <!-- 目前面臨的職涯挑戰 -->
-            <div>
+            <div id="encounteredCareerChallenge">
               <p class="mb-2">目前面臨的職涯挑戰</p>
               <div
                 class="flex flex-wrap gap-x-4 gap-y-2 text-body-sm md:gap-x-6 md:px-2"
               >
-                <label class="flex cursor-pointer items-center gap-1">
+                <label
+                  v-for="item in [
+                    '方向不明確',
+                    '技能需要提升',
+                    '收入不穩定',
+                    '客戶開發困難',
+                    '時間管理問題',
+                    '工作生活失衡',
+                    '缺乏人脈資源',
+                    '其他(請說明)',
+                  ]"
+                  :key="item"
+                  class="flex cursor-pointer items-center gap-1"
+                >
                   <input
                     type="checkbox"
-                    name="encounteredCareerChallenge"
-                    value="方向不明確"
+                    :value="item"
                     v-model="encounteredCareerChallenge"
                     class="custom-checkbox"
                   />
-                  <span>方向不明確</span>
-                </label>
-                <label class="flex cursor-pointer items-center gap-1">
-                  <input
-                    type="checkbox"
-                    name="encounteredCareerChallenge"
-                    value="技能需要提升"
-                    v-model="encounteredCareerChallenge"
-                    class="custom-checkbox"
-                  />
-                  <span>技能需要提升</span>
-                </label>
-                <label class="flex cursor-pointer items-center gap-1">
-                  <input
-                    type="checkbox"
-                    name="encounteredCareerChallenge"
-                    value="收入不穩定"
-                    v-model="encounteredCareerChallenge"
-                    class="custom-checkbox"
-                  />
-                  <span>收入不穩定</span>
-                </label>
-                <label class="flex cursor-pointer items-center gap-1">
-                  <input
-                    type="checkbox"
-                    name="encounteredCareerChallenge"
-                    value="客戶開發困難"
-                    v-model="encounteredCareerChallenge"
-                    class="custom-checkbox"
-                  />
-                  <span>客戶開發困難</span>
-                </label>
-                <label class="flex cursor-pointer items-center gap-1">
-                  <input
-                    type="checkbox"
-                    name="encounteredCareerChallenge"
-                    value="時間管理問題"
-                    v-model="encounteredCareerChallenge"
-                    class="custom-checkbox"
-                  />
-                  <span>時間管理問題</span>
-                </label>
-                <label class="flex cursor-pointer items-center gap-1">
-                  <input
-                    type="checkbox"
-                    name="encounteredCareerChallenge"
-                    value="工作生活失衡"
-                    v-model="encounteredCareerChallenge"
-                    class="custom-checkbox"
-                  />
-                  <span>工作生活失衡</span>
-                </label>
-                <label class="flex cursor-pointer items-center gap-1">
-                  <input
-                    type="checkbox"
-                    name="encounteredCareerChallenge"
-                    value="缺乏人脈資源"
-                    v-model="encounteredCareerChallenge"
-                    class="custom-checkbox"
-                  />
-                  <span>缺乏人脈資源</span>
-                </label>
-                <label class="flex cursor-pointer items-center gap-1">
-                  <input
-                    type="checkbox"
-                    name="encounteredCareerChallenge"
-                    value="其他(請說明)"
-                    v-model="encounteredCareerChallenge"
-                    class="custom-checkbox"
-                  />
-                  <span>其他(請說明)</span>
+                  <span>{{ item }}</span>
                 </label>
               </div>
+              <!-- 錯誤訊息 -->
+              <p
+                v-if="encounteredCareerChallengeError"
+                id="encounteredCareerChallenge-error"
+                class="mt-1 flex items-center gap-1 bg-danger-100 px-2 text-body-xs text-danger"
+              >
+                <img
+                  src="/icons/error-icon.svg"
+                  alt="錯誤 icon"
+                  class="text-danger"
+                />
+                {{ encounteredCareerChallengeError }}
+              </p>
             </div>
             <!-- 期望獲得的協助與資源 -->
-            <div>
+            <div id="desiredAssistanceAndResources">
               <p class="mb-2">期望獲得的協助與資源</p>
               <div
                 class="flex flex-wrap gap-x-4 gap-y-2 text-body-sm md:gap-x-6 md:px-2"
               >
-                <label class="flex cursor-pointer items-center gap-1">
+                <label
+                  v-for="item in [
+                    '職涯方向指導',
+                    '專業技能提升建議',
+                    '個人品牌建立',
+                    '接案策略與定價',
+                    '客戶開發方法',
+                    '財務規劃',
+                    '時間管理系統',
+                    '工作生活平衡',
+                    '其他(請說明)',
+                  ]"
+                  :key="item"
+                  class="flex cursor-pointer items-center gap-1"
+                >
                   <input
                     type="checkbox"
-                    name="desiredAssistanceAndResources"
-                    value="職涯方向指導"
+                    :value="item"
                     v-model="desiredAssistanceAndResources"
                     class="custom-checkbox"
                   />
-                  <span>職涯方向指導</span>
-                </label>
-                <label class="flex cursor-pointer items-center gap-1">
-                  <input
-                    type="checkbox"
-                    name="desiredAssistanceAndResources"
-                    value="專業技能提升建議"
-                    v-model="desiredAssistanceAndResources"
-                    class="custom-checkbox"
-                  />
-                  <span>專業技能提升建議</span>
-                </label>
-                <label class="flex cursor-pointer items-center gap-1">
-                  <input
-                    type="checkbox"
-                    name="desiredAssistanceAndResources"
-                    value="個人品牌建立"
-                    v-model="desiredAssistanceAndResources"
-                    class="custom-checkbox"
-                  />
-                  <span>個人品牌建立</span>
-                </label>
-                <label class="flex cursor-pointer items-center gap-1">
-                  <input
-                    type="checkbox"
-                    name="desiredAssistanceAndResources"
-                    value="接案策略與定價"
-                    v-model="desiredAssistanceAndResources"
-                    class="custom-checkbox"
-                  />
-                  <span>接案策略與定價</span>
-                </label>
-                <label class="flex cursor-pointer items-center gap-1">
-                  <input
-                    type="checkbox"
-                    name="desiredAssistanceAndResources"
-                    value="客戶開發方法"
-                    v-model="desiredAssistanceAndResources"
-                    class="custom-checkbox"
-                  />
-                  <span>客戶開發方法</span>
-                </label>
-                <label class="flex cursor-pointer items-center gap-1">
-                  <input
-                    type="checkbox"
-                    name="desiredAssistanceAndResources"
-                    value="財務規劃"
-                    v-model="desiredAssistanceAndResources"
-                    class="custom-checkbox"
-                  />
-                  <span>財務規劃</span>
-                </label>
-                <label class="flex cursor-pointer items-center gap-1">
-                  <input
-                    type="checkbox"
-                    name="desiredAssistanceAndResources"
-                    value="時間管理系統"
-                    v-model="desiredAssistanceAndResources"
-                    class="custom-checkbox"
-                  />
-                  <span>時間管理系統</span>
-                </label>
-                <label class="flex cursor-pointer items-center gap-1">
-                  <input
-                    type="checkbox"
-                    name="desiredAssistanceAndResources"
-                    value="工作生活平衡"
-                    v-model="desiredAssistanceAndResources"
-                    class="custom-checkbox"
-                  />
-                  <span>工作生活平衡</span>
-                </label>
-                <label class="flex cursor-pointer items-center gap-1">
-                  <input
-                    type="checkbox"
-                    name="desiredAssistanceAndResources"
-                    value="其他(請說明)"
-                    v-model="desiredAssistanceAndResources"
-                    class="custom-checkbox"
-                  />
-                  <span>其他(請說明)</span>
+                  <span>{{ item }}</span>
                 </label>
               </div>
+              <!-- 錯誤訊息 -->
+              <p
+                v-if="desiredAssistanceAndResourcesError"
+                id="desiredAssistanceAndResources-error"
+                class="mt-1 flex items-center gap-1 bg-danger-100 px-2 text-body-xs text-danger"
+              >
+                <img
+                  src="/icons/error-icon.svg"
+                  alt="錯誤 icon"
+                  class="text-danger"
+                />
+                {{ desiredAssistanceAndResourcesError }}
+              </p>
             </div>
             <!-- 感興趣的服務方案 -->
-            <div>
+            <div id="interestedServices">
               <p class="mb-2">感興趣的服務方案</p>
               <div
                 class="flex flex-wrap gap-x-4 gap-y-2 text-body-sm md:gap-x-6 md:px-2"
@@ -800,7 +805,6 @@ const professionalTrainings = ref("");
                 <label class="flex cursor-pointer items-center gap-1">
                   <input
                     type="checkbox"
-                    name="interestedServices"
                     value="探索定位"
                     v-model="interestedServices"
                     class="custom-checkbox"
@@ -810,7 +814,6 @@ const professionalTrainings = ref("");
                 <label class="flex cursor-pointer items-center gap-1">
                   <input
                     type="checkbox"
-                    name="interestedServices"
                     value="客製化方案"
                     v-model="interestedServices"
                     class="custom-checkbox"
@@ -820,7 +823,6 @@ const professionalTrainings = ref("");
                 <label class="flex cursor-pointer items-center gap-1">
                   <input
                     type="checkbox"
-                    name="interestedServices"
                     value="實戰指導"
                     v-model="interestedServices"
                     class="custom-checkbox"
@@ -828,6 +830,19 @@ const professionalTrainings = ref("");
                   <span>實戰指導</span>
                 </label>
               </div>
+              <!-- 錯誤訊息 -->
+              <p
+                v-if="interestedServicesError"
+                id="interestedServices-error"
+                class="mt-1 flex items-center gap-1 bg-danger-100 px-2 text-body-xs text-danger"
+              >
+                <img
+                  src="/icons/error-icon.svg"
+                  alt="錯誤 icon"
+                  class="text-danger"
+                />
+                {{ interestedServicesError }}
+              </p>
             </div>
           </div>
         </section>
