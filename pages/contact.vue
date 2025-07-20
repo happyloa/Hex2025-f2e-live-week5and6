@@ -552,9 +552,10 @@ function handleKnowUsChange() {
               </p>
             </div>
             <!-- 您目前面臨的主要挑戰 -->
-            <div class="relative" id="currentChallenge">
+            <div class="relative">
               <textarea
                 v-model="currentChallengeField"
+                id="currentChallenge"
                 class="peer w-full resize-none rounded-lg border bg-white px-3 pb-2.5 pt-[26px] transition focus:outline-none"
                 :class="
                   currentChallengeError
@@ -590,9 +591,10 @@ function handleKnowUsChange() {
               </p>
             </div>
             <!-- 期望達成的目標 -->
-            <div class="relative" id="yourGoal">
+            <div class="relative">
               <textarea
                 v-model="yourGoalField"
+                id="yourGoal"
                 class="peer w-full resize-none rounded-lg border bg-white px-3 pb-2.5 pt-[26px] transition focus:outline-none"
                 :class="
                   yourGoalError
