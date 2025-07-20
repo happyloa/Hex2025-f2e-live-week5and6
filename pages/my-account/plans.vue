@@ -36,6 +36,7 @@ const schema = yup.object({
     .required("請選取至少一項感興趣的服務方案"),
 });
 
+// 使用 vee-validate 套件初始化表單，綁定 schema 與初始值
 const { errors, validate } = useForm({
   validationSchema: schema,
   initialValues: {
@@ -66,7 +67,7 @@ const scrollToFirstError = async () => {
   }
 };
 
-// 職旅計劃概況相關欄位、變數、方法
+// ---- 職旅計劃概況相關欄位、變數、方法 ----
 const careerStatus = ref("全職上班族");
 const { value: industryField, errorMessage: industryError } =
   useField("industry");
@@ -90,7 +91,7 @@ function selectedJobTenure(period) {
   showJobTenureDropdown.value = false;
 }
 
-// 職涯規劃相關欄位
+// ---- 職涯規劃相關欄位 ----
 const { value: shortTermGoalField, errorMessage: shortTermGoalError } =
   useField("shortTermGoal");
 const {
@@ -111,14 +112,14 @@ const {
 const { value: interestedServices, errorMessage: interestedServicesError } =
   useField("interestedServices");
 
-// 專業技能區塊相關欄位
+// ---- 專業技能區塊相關欄位 ----
 const coreProfessions = ref([]);
 const backgroundAndStrengths = ref("");
 const professionalSkills = ref("");
 const languageSkills = ref("");
 const certifications = ref("");
 
-// 教育背景相關欄位
+// ---- 教育背景相關欄位 ----
 const educationBackground = ref("");
 const professionalTrainings = ref("");
 </script>
