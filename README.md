@@ -104,7 +104,9 @@ public
 
 - [Nuxt Google Fonts](https://google-fonts.nuxtjs.org/)
 - [Nuxt Tailwind](https://tailwindcss.nuxtjs.org/)
-- [Nuxt Swiper](https://nuxt.com/modules/swiper)
+- [Nuxt Swiper](https://nuxt.com/modules/swiper/)
+- [VeeValidate](https://vee-validate.logaretm.com/)
+- [Yup](https://www.npmjs.com/package/yup)
 - [TinyPNG](https://tinypng.com/)
 - [SVG Viewer](https://www.svgviewer.dev/)
 - [ChatGPT 4.1](https://openai.com/)
