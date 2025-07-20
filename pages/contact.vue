@@ -58,9 +58,8 @@ const scrollToFirstError = async () => {
     // 找到第一個有錯的欄位
     const firstErrorField = document.getElementById(errorKeys[0]);
     if (firstErrorField) {
-      // 捲動到該欄位並 focus
+      // 捲動到該欄位
       firstErrorField.scrollIntoView({ behavior: "smooth", block: "center" });
-      firstErrorField.focus?.();
     }
   }
 };
