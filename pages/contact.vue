@@ -1,5 +1,5 @@
 <script setup>
-import { useField, useForm, useFormContext } from "vee-validate";
+import { useField, useForm } from "vee-validate";
 import * as yup from "yup";
 
 useSeoMeta({
@@ -33,7 +33,7 @@ const schema = yup.object({
   yourGoal: yup.string().required("請告訴我們您期望達成的目標"),
 });
 
-const { handleSubmit, errors, validate, setFieldValue, values } = useForm({
+const { handleSubmit, errors, validate } = useForm({
   validationSchema: schema,
   initialValues: {
     consultTopics: [],
