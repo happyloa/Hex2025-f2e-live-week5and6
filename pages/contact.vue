@@ -607,7 +607,7 @@ function handleKnowUsChange() {
               <!-- 錯誤訊息 -->
               <p
                 v-if="yourGoalError"
-                id="currentChallenge-error"
+                id="yourGoal-error"
                 class="mt-1 flex items-center gap-1 bg-danger-100 px-2 text-body-xs text-danger"
               >
                 <img
