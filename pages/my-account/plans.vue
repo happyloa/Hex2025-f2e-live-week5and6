@@ -11,8 +11,9 @@ definePageMeta({
   layout: "member",
 });
 
-// 新增 schema 和 useForm，僅驗證「industry」有選就好
+// 必填欄位的驗證規則
 const schema = yup.object({
+  // 職旅計劃概況相關欄位的驗證規則
   industry: yup.string().required("請選擇工作產業"),
   jobTenure: yup.string().required("請選擇工作年資"),
   careerSummary: yup.string().required("請填寫職業摘要"),
