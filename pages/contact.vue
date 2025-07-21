@@ -191,7 +191,7 @@ function handleKnowUsChange() {
                   class="peer block w-full rounded-lg border bg-white px-3 pb-2.5 pt-[26px] transition focus:outline-none"
                   :class="
                     nameError
-                      ? 'focus:shadow-focus-error border-danger'
+                      ? 'border-danger focus:shadow-focus-error'
                       : 'border-neutral-300 focus:border-primary focus:shadow-focus'
                   "
                   @blur="nameBlur"
@@ -205,18 +205,7 @@ function handleKnowUsChange() {
                 >
               </div>
               <!-- 錯誤訊息 -->
-              <p
-                v-if="nameError"
-                id="name-error"
-                class="mt-1 flex items-center gap-1 bg-danger-100 px-2 text-body-xs text-danger"
-              >
-                <img
-                  src="/icons/error-icon.svg"
-                  alt="錯誤 icon"
-                  class="text-danger"
-                />
-                {{ nameError }}
-              </p>
+              <AtomFormMessage :error="nameError" id="name-error" />
             </div>
             <!-- 信箱 -->
             <div>
@@ -229,7 +218,7 @@ function handleKnowUsChange() {
                   class="peer block w-full rounded-lg border bg-white px-3 pb-2.5 pt-[26px] transition focus:outline-none"
                   :class="
                     emailError
-                      ? 'focus:shadow-focus-error border-danger'
+                      ? 'border-danger focus:shadow-focus-error'
                       : 'border-neutral-300 focus:border-primary focus:shadow-focus'
                   "
                   @blur="emailBlur"
@@ -243,27 +232,11 @@ function handleKnowUsChange() {
                 >
               </div>
               <!-- 一般訊息 or 錯誤訊息 -->
-              <p
+              <AtomFormMessage
+                :error="emailError"
+                defaultMsg="盡量勿使用Yahoo或Hotmail郵件信箱，以免因擋信、漏信"
                 id="email-error"
-                class="px-2"
-                :class="
-                  emailError
-                    ? 'mt-1 flex items-center gap-1 bg-danger-100 text-body-xs text-danger'
-                    : 'text-body-sm text-neutral-600'
-                "
-              >
-                <img
-                  v-if="emailError"
-                  src="/icons/error-icon.svg"
-                  alt="錯誤 icon"
-                  class="text-danger"
-                />
-                {{
-                  emailError
-                    ? emailError
-                    : "盡量勿使用Yahoo或Hotmail郵件信箱，以免因擋信、漏信"
-                }}
-              </p>
+              />
             </div>
             <!-- 聯絡電話 -->
             <div>
@@ -276,7 +249,7 @@ function handleKnowUsChange() {
                   class="peer block w-full rounded-lg border bg-white px-3 pb-2.5 pt-[26px] transition focus:outline-none"
                   :class="
                     phoneError
-                      ? 'focus:shadow-focus-error border-danger'
+                      ? 'border-danger focus:shadow-focus-error'
                       : 'border-neutral-300 focus:border-primary focus:shadow-focus'
                   "
                   @blur="phoneBlur"
@@ -290,27 +263,11 @@ function handleKnowUsChange() {
                 >
               </div>
               <!-- 一般訊息 or 錯誤訊息 -->
-              <p
+              <AtomFormMessage
+                :error="phoneError"
+                defaultMsg="我們不會以電話主動聯繫您，告知您要至ATM操作轉帳"
                 id="phone-error"
-                class="px-2"
-                :class="
-                  phoneError
-                    ? 'mt-1 flex items-center gap-1 bg-danger-100 text-body-xs text-danger'
-                    : 'text-body-sm text-neutral-600'
-                "
-              >
-                <img
-                  v-if="phoneError"
-                  src="/icons/error-icon.svg"
-                  alt="錯誤 icon"
-                  class="text-danger"
-                />
-                {{
-                  phoneError
-                    ? phoneError
-                    : "我們不會以電話主動聯繫您，告知您要至ATM操作轉帳"
-                }}
-              </p>
+              />
             </div>
             <!-- 目前職業/工作身分 -->
             <div class="relative" id="careerStatus">
@@ -408,18 +365,10 @@ function handleKnowUsChange() {
                 </ul>
               </div>
               <!-- 錯誤訊息 -->
-              <p
-                v-if="careerStatusError"
+              <AtomFormMessage
+                :error="careerStatusError"
                 id="careerStatus-error"
-                class="mt-1 flex items-center gap-1 bg-danger-100 px-2 text-body-xs text-danger"
-              >
-                <img
-                  src="/icons/error-icon.svg"
-                  alt="錯誤 icon"
-                  class="text-danger"
-                />
-                {{ careerStatusError }}
-              </p>
+              />
             </div>
           </div>
         </section>
@@ -460,27 +409,11 @@ function handleKnowUsChange() {
                 </label>
               </div>
               <!-- 一般訊息 or 錯誤訊息 -->
-              <p
+              <AtomFormMessage
+                :error="consultTopicsError"
+                defaultMsg="可複選，讓我們更了解你的狀況，安排最適合的顧問與建議。"
                 id="consultTopics-error"
-                class="px-2"
-                :class="
-                  consultTopicsError
-                    ? 'mt-1 flex items-center gap-1 bg-danger-100 text-body-xs text-danger'
-                    : 'text-body-sm text-neutral-600'
-                "
-              >
-                <img
-                  v-if="consultTopicsError"
-                  src="/icons/error-icon.svg"
-                  alt="錯誤 icon"
-                  class="text-danger"
-                />
-                {{
-                  consultTopicsError
-                    ? consultTopicsError
-                    : "可複選，讓我們更了解你的狀況，安排最適合的顧問與建議。"
-                }}
-              </p>
+              />
             </div>
             <!-- 期望諮詢的專家 -->
             <div class="relative" id="wantedProfession">
@@ -538,18 +471,10 @@ function handleKnowUsChange() {
                 </ul>
               </div>
               <!-- 錯誤訊息 -->
-              <p
-                v-if="wantedProfessionError"
-                id="careerStatus-error"
-                class="mt-1 flex items-center gap-1 bg-danger-100 px-2 text-body-xs text-danger"
-              >
-                <img
-                  src="/icons/error-icon.svg"
-                  alt="錯誤 icon"
-                  class="text-danger"
-                />
-                {{ wantedProfessionError }}
-              </p>
+              <AtomFormMessage
+                :error="wantedProfessionError"
+                id="wantedProfession-error"
+              />
             </div>
             <!-- 您目前面臨的主要挑戰 -->
             <div class="relative">
@@ -559,7 +484,7 @@ function handleKnowUsChange() {
                 class="peer w-full resize-none rounded-lg border bg-white px-3 pb-2.5 pt-[26px] transition focus:outline-none"
                 :class="
                   currentChallengeError
-                    ? 'focus:shadow-focus-error border-danger'
+                    ? 'border-danger focus:shadow-focus-error'
                     : 'border-neutral-300 focus:border-primary focus:shadow-focus'
                 "
                 placeholder=" "
@@ -577,18 +502,10 @@ function handleKnowUsChange() {
                 >您目前面臨的主要挑戰
               </label>
               <!-- 錯誤訊息 -->
-              <p
-                v-if="currentChallengeError"
+              <AtomFormMessage
+                :error="currentChallengeError"
                 id="currentChallenge-error"
-                class="mt-1 flex items-center gap-1 bg-danger-100 px-2 text-body-xs text-danger"
-              >
-                <img
-                  src="/icons/error-icon.svg"
-                  alt="錯誤 icon"
-                  class="text-danger"
-                />
-                {{ currentChallengeError }}
-              </p>
+              />
             </div>
             <!-- 期望達成的目標 -->
             <div class="relative">
@@ -598,7 +515,7 @@ function handleKnowUsChange() {
                 class="peer w-full resize-none rounded-lg border bg-white px-3 pb-2.5 pt-[26px] transition focus:outline-none"
                 :class="
                   yourGoalError
-                    ? 'focus:shadow-focus-error border-danger'
+                    ? 'border-danger focus:shadow-focus-error'
                     : 'border-neutral-300 focus:border-primary focus:shadow-focus'
                 "
                 placeholder=" "
@@ -614,18 +531,7 @@ function handleKnowUsChange() {
                 >期望達成的目標
               </label>
               <!-- 錯誤訊息 -->
-              <p
-                v-if="yourGoalError"
-                id="yourGoal-error"
-                class="mt-1 flex items-center gap-1 bg-danger-100 px-2 text-body-xs text-danger"
-              >
-                <img
-                  src="/icons/error-icon.svg"
-                  alt="錯誤 icon"
-                  class="text-danger"
-                />
-                {{ yourGoalError }}
-              </p>
+              <AtomFormMessage :error="yourGoalError" id="yourGoal-error" />
             </div>
           </div>
         </section>

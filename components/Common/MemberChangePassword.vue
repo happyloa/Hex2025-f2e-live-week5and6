@@ -92,7 +92,7 @@ const handleRegister = handleSubmit(() => {
                   class="peer block w-full rounded-lg border bg-white pb-2.5 pl-3 pr-10 pt-[26px] transition focus:outline-none"
                   :class="
                     passwordError
-                      ? 'focus:shadow-focus-error border-danger'
+                      ? 'border-danger focus:shadow-focus-error'
                       : 'border-neutral-300 focus:border-primary focus:shadow-focus'
                   "
                   @blur="passwordBlur"
@@ -108,18 +108,7 @@ const handleRegister = handleSubmit(() => {
                 >
               </div>
               <!-- 錯誤訊息 -->
-              <p
-                v-if="passwordError"
-                id="password-error"
-                class="mt-1 flex items-center gap-1 bg-danger-100 px-2 text-body-xs text-danger"
-              >
-                <img
-                  src="/icons/error-icon.svg"
-                  alt="錯誤 icon"
-                  class="text-danger"
-                />
-                {{ passwordError }}
-              </p>
+              <AtomFormMessage :error="passwordError" id="password-error" />
             </div>
             <!-- 再次輸入新密碼欄位 -->
             <div>
@@ -132,7 +121,7 @@ const handleRegister = handleSubmit(() => {
                   class="peer block w-full rounded-lg border bg-white pb-2.5 pl-3 pr-10 pt-[26px] transition focus:outline-none"
                   :class="
                     passwordAgainError
-                      ? 'focus:shadow-focus-error border-danger'
+                      ? 'border-danger focus:shadow-focus-error'
                       : 'border-neutral-300 focus:border-primary focus:shadow-focus'
                   "
                   @blur="passwordAgainBlur"
@@ -148,18 +137,10 @@ const handleRegister = handleSubmit(() => {
                 >
               </div>
               <!-- 錯誤訊息 -->
-              <p
-                v-if="passwordAgainError"
+              <AtomFormMessage
+                :error="passwordAgainError"
                 id="passwordAgain-error"
-                class="mt-1 flex items-center gap-1 bg-danger-100 px-2 text-body-xs text-danger"
-              >
-                <img
-                  src="/icons/error-icon.svg"
-                  alt="錯誤 icon"
-                  class="text-danger"
-                />
-                {{ passwordAgainError }}
-              </p>
+              />
             </div>
           </div>
           <!-- 按鈕 -->

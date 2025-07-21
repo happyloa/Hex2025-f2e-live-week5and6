@@ -165,7 +165,7 @@ function handleShowLogin() {
                   class="peer block w-full rounded-lg border bg-white px-3 pb-2.5 pt-[26px] transition focus:outline-none"
                   :class="
                     accountError
-                      ? 'focus:shadow-focus-error border-danger'
+                      ? 'border-danger focus:shadow-focus-error'
                       : 'border-neutral-300 focus:border-primary focus:shadow-focus'
                   "
                   @blur="accountBlur"
@@ -179,18 +179,7 @@ function handleShowLogin() {
                 </label>
               </div>
               <!-- 錯誤訊息 -->
-              <p
-                v-if="accountError"
-                id="account-error"
-                class="mt-1 flex items-center gap-1 bg-danger-100 px-2 text-body-xs text-danger"
-              >
-                <img
-                  src="/icons/error-icon.svg"
-                  alt="錯誤 icon"
-                  class="text-danger"
-                />
-                {{ accountError }}
-              </p>
+              <AtomFormMessage :error="accountError" id="account-error" />
             </div>
             <!-- 密碼欄位 -->
             <div class="mb-4">
@@ -203,7 +192,7 @@ function handleShowLogin() {
                   class="peer block w-full rounded-lg border bg-white pb-2.5 pl-3 pr-10 pt-[26px] transition focus:outline-none"
                   :class="
                     passwordError
-                      ? 'focus:shadow-focus-error border-danger'
+                      ? 'border-danger focus:shadow-focus-error'
                       : 'border-neutral-300 focus:border-primary focus:shadow-focus'
                   "
                   @blur="passwordBlur"
@@ -227,18 +216,7 @@ function handleShowLogin() {
                 />
               </div>
               <!-- 錯誤訊息 -->
-              <p
-                v-if="passwordError"
-                id="password-error"
-                class="mt-1 flex items-center gap-1 bg-danger-100 px-2 text-body-xs text-danger"
-              >
-                <img
-                  src="/icons/error-icon.svg"
-                  alt="錯誤 icon"
-                  class="text-danger"
-                />
-                {{ passwordError }}
-              </p>
+              <AtomFormMessage :error="passwordError" id="password-error" />
             </div>
             <!-- 確認密碼欄位 -->
             <div class="mb-4">
@@ -251,7 +229,7 @@ function handleShowLogin() {
                   class="peer block w-full rounded-lg border bg-white pb-2.5 pl-3 pr-10 pt-[26px] transition focus:outline-none"
                   :class="
                     passwordAgainError
-                      ? 'focus:shadow-focus-error border-danger'
+                      ? 'border-danger focus:shadow-focus-error'
                       : 'border-neutral-300 focus:border-primary focus:shadow-focus'
                   "
                   @blur="passwordAgainBlur"
@@ -275,18 +253,10 @@ function handleShowLogin() {
                 />
               </div>
               <!-- 錯誤訊息 -->
-              <p
-                v-if="passwordAgainError"
+              <AtomFormMessage
+                :error="passwordAgainError"
                 id="passwordAgain-error"
-                class="mt-1 flex items-center gap-1 bg-danger-100 px-2 text-body-xs text-danger"
-              >
-                <img
-                  src="/icons/error-icon.svg"
-                  alt="錯誤 icon"
-                  class="text-danger"
-                />
-                {{ passwordAgainError }}
-              </p>
+              />
             </div>
             <!-- 勾選同意 -->
             <div class="mb-4">
@@ -318,18 +288,7 @@ function handleShowLogin() {
                 </span>
               </label>
               <!-- 錯誤訊息 -->
-              <p
-                v-if="agreeTermsError"
-                id="agreeTerms-error"
-                class="mt-1 flex items-center gap-1 bg-danger-100 px-2 text-body-xs text-danger"
-              >
-                <img
-                  src="/icons/error-icon.svg"
-                  alt="錯誤 icon"
-                  class="text-danger"
-                />
-                {{ agreeTermsError }}
-              </p>
+              <AtomFormMessage :error="agreeTermsError" id="agreeTerms-error" />
             </div>
             <AtomButton
               text="送出"

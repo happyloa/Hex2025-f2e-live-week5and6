@@ -274,18 +274,7 @@ const professionalTrainings = ref("");
                 </ul>
               </div>
               <!-- 錯誤訊息 -->
-              <p
-                v-if="industryError"
-                id="industry-error"
-                class="mt-1 flex items-center gap-1 bg-danger-100 px-2 text-body-xs text-danger"
-              >
-                <img
-                  src="/icons/error-icon.svg"
-                  alt="錯誤 icon"
-                  class="text-danger"
-                />
-                {{ industryError }}
-              </p>
+              <AtomFormMessage :error="industryError" id="industry-error" />
             </div>
             <!-- 工作年資 -->
             <div class="relative" id="jobTenure">
@@ -336,18 +325,7 @@ const professionalTrainings = ref("");
                 </ul>
               </div>
               <!-- 錯誤訊息 -->
-              <p
-                v-if="jobTenureError"
-                id="jobTenure-error"
-                class="mt-1 flex items-center gap-1 bg-danger-100 px-2 text-body-xs text-danger"
-              >
-                <img
-                  src="/icons/error-icon.svg"
-                  alt="錯誤 icon"
-                  class="text-danger"
-                />
-                {{ jobTenureError }}
-              </p>
+              <AtomFormMessage :error="jobTenureError" id="jobTenure-error" />
             </div>
             <!-- 月收入區間 -->
             <div>
@@ -425,7 +403,7 @@ const professionalTrainings = ref("");
                 class="peer w-full resize-none rounded-lg border bg-white px-3 pb-2.5 pt-[26px] transition focus:outline-none"
                 :class="
                   careerSummaryError
-                    ? 'focus:shadow-focus-error border-danger'
+                    ? 'border-danger focus:shadow-focus-error'
                     : 'border-neutral-300 focus:border-primary focus:shadow-focus'
                 "
                 placeholder=" "
@@ -442,18 +420,10 @@ const professionalTrainings = ref("");
                 >職業摘要（簡短描述您的專業背景和核心競爭力最多 300 字）
               </label>
               <!-- 錯誤訊息 -->
-              <p
-                v-if="careerSummaryError"
+              <AtomFormMessage
+                :error="careerSummaryError"
                 id="careerSummary-error"
-                class="mt-1 flex items-center gap-1 bg-danger-100 px-2 text-body-xs text-danger"
-              >
-                <img
-                  src="/icons/error-icon.svg"
-                  alt="錯誤 icon"
-                  class="text-danger"
-                />
-                {{ careerSummaryError }}
-              </p>
+              />
             </div>
             <!-- 作品案例展示 -->
             <div>
@@ -466,7 +436,7 @@ const professionalTrainings = ref("");
                   class="peer block w-full rounded-lg border bg-white px-3 pb-2.5 pt-[26px] transition focus:outline-none"
                   :class="
                     workCaseError
-                      ? 'focus:shadow-focus-error border-danger'
+                      ? 'border-danger focus:shadow-focus-error'
                       : 'border-neutral-300 focus:border-primary focus:shadow-focus'
                   "
                   :aria-invalid="!!workCaseError"
@@ -481,18 +451,7 @@ const professionalTrainings = ref("");
                 >
               </div>
               <!-- 錯誤訊息 -->
-              <p
-                v-if="workCaseError"
-                id="workCase-error"
-                class="mt-1 flex items-center gap-1 bg-danger-100 px-2 text-body-xs text-danger"
-              >
-                <img
-                  src="/icons/error-icon.svg"
-                  alt="錯誤 icon"
-                  class="text-danger"
-                />
-                {{ workCaseError }}
-              </p>
+              <AtomFormMessage :error="workCaseError" id="workCase-error" />
             </div>
             <!-- 附件檔案 -->
             <div>
@@ -543,7 +502,7 @@ const professionalTrainings = ref("");
                 class="peer w-full resize-none rounded-lg border bg-white px-3 pb-2.5 pt-[26px] transition focus:outline-none"
                 :class="
                   shortTermGoalError
-                    ? 'focus:shadow-focus-error border-danger'
+                    ? 'border-danger focus:shadow-focus-error'
                     : 'border-neutral-300 focus:border-primary focus:shadow-focus'
                 "
                 placeholder=" "
@@ -560,18 +519,10 @@ const professionalTrainings = ref("");
                 >1 年短期職涯目標（最多 300 字）
               </label>
               <!-- 錯誤訊息 -->
-              <p
-                v-if="shortTermGoalError"
+              <AtomFormMessage
+                :error="shortTermGoalError"
                 id="shortTermGoal-error"
-                class="mt-1 flex items-center gap-1 bg-danger-100 px-2 text-body-xs text-danger"
-              >
-                <img
-                  src="/icons/error-icon.svg"
-                  alt="錯誤 icon"
-                  class="text-danger"
-                />
-                {{ shortTermGoalError }}
-              </p>
+              />
             </div>
             <!-- 1-3 年中長期職涯願景 -->
             <div class="relative">
@@ -581,7 +532,7 @@ const professionalTrainings = ref("");
                 class="peer w-full resize-none rounded-lg border bg-white px-3 pb-2.5 pt-[26px] transition focus:outline-none"
                 :class="
                   mediumAndLongTermGoalError
-                    ? 'focus:shadow-focus-error border-danger'
+                    ? 'border-danger focus:shadow-focus-error'
                     : 'border-neutral-300 focus:border-primary focus:shadow-focus'
                 "
                 placeholder=" "
@@ -600,18 +551,10 @@ const professionalTrainings = ref("");
                 >1-3 年中長期職涯願景（最多 300 字）
               </label>
               <!-- 錯誤訊息 -->
-              <p
-                v-if="mediumAndLongTermGoalError"
+              <AtomFormMessage
+                :error="mediumAndLongTermGoalError"
                 id="mediumAndLongTermGoal-error"
-                class="mt-1 flex items-center gap-1 bg-danger-100 px-2 text-body-xs text-danger"
-              >
-                <img
-                  src="/icons/error-icon.svg"
-                  alt="錯誤 icon"
-                  class="text-danger"
-                />
-                {{ mediumAndLongTermGoalError }}
-              </p>
+              />
             </div>
             <!-- 理想工作模式 -->
             <div>
@@ -682,7 +625,7 @@ const professionalTrainings = ref("");
                   class="peer block w-full rounded-lg border bg-white px-3 pb-2.5 pt-[26px] transition focus:outline-none"
                   :class="
                     desiredIncomeError
-                      ? 'focus:shadow-focus-error border-danger'
+                      ? 'border-danger focus:shadow-focus-error'
                       : 'border-neutral-300 focus:border-primary focus:shadow-focus'
                   "
                   :aria-invalid="!!desiredIncomeError"
@@ -697,18 +640,10 @@ const professionalTrainings = ref("");
                 >
               </div>
               <!-- 錯誤訊息 -->
-              <p
-                v-if="desiredIncomeError"
+              <AtomFormMessage
+                :error="desiredIncomeError"
                 id="desiredIncome-error"
-                class="mt-1 flex items-center gap-1 bg-danger-100 px-2 text-body-xs text-danger"
-              >
-                <img
-                  src="/icons/error-icon.svg"
-                  alt="錯誤 icon"
-                  class="text-danger"
-                />
-                {{ desiredIncomeError }}
-              </p>
+              />
             </div>
             <!-- 目前面臨的職涯挑戰 -->
             <div id="encounteredCareerChallenge">
@@ -740,18 +675,10 @@ const professionalTrainings = ref("");
                 </label>
               </div>
               <!-- 錯誤訊息 -->
-              <p
-                v-if="encounteredCareerChallengeError"
+              <AtomFormMessage
+                :error="encounteredCareerChallengeError"
                 id="encounteredCareerChallenge-error"
-                class="mt-1 flex items-center gap-1 bg-danger-100 px-2 text-body-xs text-danger"
-              >
-                <img
-                  src="/icons/error-icon.svg"
-                  alt="錯誤 icon"
-                  class="text-danger"
-                />
-                {{ encounteredCareerChallengeError }}
-              </p>
+              />
             </div>
             <!-- 期望獲得的協助與資源 -->
             <div id="desiredAssistanceAndResources">
@@ -784,18 +711,10 @@ const professionalTrainings = ref("");
                 </label>
               </div>
               <!-- 錯誤訊息 -->
-              <p
-                v-if="desiredAssistanceAndResourcesError"
+              <AtomFormMessage
+                :error="desiredAssistanceAndResourcesError"
                 id="desiredAssistanceAndResources-error"
-                class="mt-1 flex items-center gap-1 bg-danger-100 px-2 text-body-xs text-danger"
-              >
-                <img
-                  src="/icons/error-icon.svg"
-                  alt="錯誤 icon"
-                  class="text-danger"
-                />
-                {{ desiredAssistanceAndResourcesError }}
-              </p>
+              />
             </div>
             <!-- 感興趣的服務方案 -->
             <div id="interestedServices">
@@ -832,18 +751,10 @@ const professionalTrainings = ref("");
                 </label>
               </div>
               <!-- 錯誤訊息 -->
-              <p
-                v-if="interestedServicesError"
+              <AtomFormMessage
+                :error="interestedServicesError"
                 id="interestedServices-error"
-                class="mt-1 flex items-center gap-1 bg-danger-100 px-2 text-body-xs text-danger"
-              >
-                <img
-                  src="/icons/error-icon.svg"
-                  alt="錯誤 icon"
-                  class="text-danger"
-                />
-                {{ interestedServicesError }}
-              </p>
+              />
             </div>
           </div>
         </section>
