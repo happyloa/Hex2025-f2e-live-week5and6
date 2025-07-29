@@ -247,6 +247,12 @@ const professionalTrainings = ref("");
                   />
                 </svg>
               </button>
+              <!-- 透明 backdrop -->
+              <div
+                v-if="showIndustriesDropdown"
+                @click="showIndustriesDropdown = false"
+                class="fixed inset-0 z-20 bg-transparent"
+              ></div>
               <div
                 v-if="showIndustriesDropdown"
                 class="absolute right-0 top-16 z-30 w-full rounded-xl bg-white py-2 shadow-shadow"
@@ -302,6 +308,12 @@ const professionalTrainings = ref("");
                   />
                 </svg>
               </button>
+              <!-- 透明 backdrop -->
+              <div
+                v-if="showJobTenureDropdown"
+                @click="showJobTenureDropdown = false"
+                class="fixed inset-0 z-20 bg-transparent"
+              ></div>
               <div
                 v-if="showJobTenureDropdown"
                 class="absolute right-0 top-16 z-30 w-full rounded-xl bg-white py-2 shadow-shadow"

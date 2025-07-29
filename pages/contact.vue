@@ -293,6 +293,12 @@ function handleKnowUsChange() {
                   />
                 </svg>
               </button>
+              <!-- 透明 backdrop -->
+              <div
+                v-if="showCareerStatusDropdown"
+                @click="showCareerStatusDropdown = false"
+                class="fixed inset-0 z-20 bg-transparent"
+              ></div>
               <div
                 v-if="showCareerStatusDropdown"
                 class="absolute right-0 top-16 z-30 w-full rounded-xl bg-white py-2 shadow-shadow"
@@ -445,6 +451,12 @@ function handleKnowUsChange() {
                   />
                 </svg>
               </button>
+              <!-- 透明 backdrop -->
+              <div
+                v-if="showWantedProfessionDropdown"
+                @click="showWantedProfessionDropdown = false"
+                class="fixed inset-0 z-20 bg-transparent"
+              ></div>
               <div
                 v-if="showWantedProfessionDropdown"
                 class="absolute right-0 top-16 z-30 w-full rounded-xl bg-white py-2 shadow-shadow"
