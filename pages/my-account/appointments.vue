@@ -130,6 +130,12 @@ onMounted(async () => {
                 />
               </svg>
             </button>
+            <!-- 透明 backdrop -->
+            <div
+                v-if="showDropdown"
+                @click="showDropdown = false"
+                class="fixed inset-0 z-20 bg-transparent"
+              ></div>
             <div
               v-if="showDropdown"
               class="absolute right-0 top-14 z-10 w-[160px] rounded-xl bg-white py-2 shadow-shadow"
