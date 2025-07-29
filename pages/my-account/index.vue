@@ -11,7 +11,7 @@ definePageMeta({
 // 表單欄位
 const name = ref("Mokumaru");
 const gender = ref("女性");
-const birthDate = ref("2000/01/10");
+const birthDate = ref("2000-01-10");
 const email = ref("mokumaru@mail.com");
 const phone = ref("09-1234-5678");
 const address = ref("高雄市三民區九如一路 87 號");
@@ -77,7 +77,7 @@ function clearFields() {
                 type="text"
                 id="name"
                 placeholder=" "
-                class="focus:shadow-focus peer block w-full rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] transition focus:border-primary focus:outline-none"
+                class="peer block w-full rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] transition focus:border-primary focus:shadow-focus focus:outline-none"
               />
               <label
                 for="name"
@@ -125,10 +125,10 @@ function clearFields() {
             <div class="relative">
               <input
                 v-model="birthDate"
-                type="text"
+                type="date"
                 id="birthDate"
                 placeholder=" "
-                class="focus:shadow-focus peer block w-full rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] transition focus:border-primary focus:outline-none"
+                class="peer block w-full rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] transition focus:border-primary focus:shadow-focus focus:outline-none"
               />
               <label
                 for="birthDate"
@@ -154,7 +154,7 @@ function clearFields() {
                   type="email"
                   id="email"
                   placeholder=" "
-                  class="focus:shadow-focus peer block w-full rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] transition focus:border-primary focus:outline-none"
+                  class="peer block w-full rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] transition focus:border-primary focus:shadow-focus focus:outline-none"
                 />
                 <label
                   for="email"
@@ -173,7 +173,7 @@ function clearFields() {
                 type="tel"
                 id="phone"
                 placeholder=" "
-                class="focus:shadow-focus peer block w-full rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] transition focus:border-primary focus:outline-none"
+                class="peer block w-full rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] transition focus:border-primary focus:shadow-focus focus:outline-none"
               />
               <label
                 for="phone"
@@ -188,7 +188,7 @@ function clearFields() {
                 type="text"
                 id="address"
                 placeholder=" "
-                class="focus:shadow-focus peer block w-full rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] transition focus:border-primary focus:outline-none"
+                class="peer block w-full rounded-lg border border-neutral-300 bg-white px-3 pb-2.5 pt-[26px] transition focus:border-primary focus:shadow-focus focus:outline-none"
               />
               <label
                 for="address"
