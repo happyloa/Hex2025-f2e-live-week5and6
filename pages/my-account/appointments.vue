@@ -138,7 +138,7 @@ onMounted(async () => {
               ></div>
             <div
               v-if="showDropdown"
-              class="absolute right-0 top-14 z-10 w-[160px] rounded-xl bg-white py-2 shadow-shadow"
+              class="absolute right-0 top-14 z-30 w-[160px] rounded-xl bg-white py-2 shadow-shadow"
             >
               <ul>
                 <li
