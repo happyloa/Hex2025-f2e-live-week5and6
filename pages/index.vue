@@ -87,11 +87,7 @@ function handleToggle(idx) {
     >
       <!-- 標題 -->
       <div class="space-y-4 px-3 md:space-y-6">
-        <img
-          src="/logo-icon.svg"
-          alt="icon logo"
-          class="w-[48px] md:w-[96px]"
-        />
+        <img src="/logo-icon.svg" alt="icon logo" class="w-12 md:w-24" />
         <h2 class="text-t5-sm md:text-t5">
           他們已經踏上職旅<br />聽聽他們的故事
         </h2>
