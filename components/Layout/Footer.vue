@@ -47,6 +47,15 @@
               >用戶條款</NuxtLink
             >
           </li>
+          <!-- 專案 repo 連結 -->
+          <li>
+            <a
+              href="https://github.com/happyloa/Hex2025-f2e-live-week5and6"
+              target="_blank"
+              class="block rounded-xl px-4 py-2 transition duration-300 hover:bg-neutral-200 md:rounded-2xl md:px-6"
+              >GitHub</a
+            >
+          </li>
         </ul>
       </nav>
       <p class="text-center text-body-sm text-neutral-600">
