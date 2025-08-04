@@ -11,13 +11,19 @@ useSeoMeta({
     class="bg-[url('/images/banner-bg.webp')] bg-center px-3 py-12 md:py-20 lg:bg-[url('/images/banner-bg-pc.webp')] lg:bg-cover lg:bg-no-repeat"
   >
     <div class="relative mx-auto max-w-container text-center">
-      <h1 class="mb-6 text-t5-sm md:mb-12 md:text-t5">服務方案</h1>
+      <h1 data-aos="fade-up" class="mb-6 text-t5-sm md:mb-12 md:text-t5">
+        服務方案
+      </h1>
       <p
+        data-aos="fade-up"
+        data-aos-delay="100"
         class="mx-auto max-w-[800px] text-body-lg-sm text-neutral-600 md:text-body-lg"
       >
         我們最全面的服務方案，為您提供從評估、規劃到實踐的完整支持。不再擔心轉型過程中的各種挑戰，我們的專家團隊將全程陪伴，確保您順利實現職業自由。
       </p>
       <img
+        data-aos="flip-left"
+        data-aos-delay="600"
         src="/images/banner-person.svg"
         alt="裝飾人物"
         class="absolute -bottom-[88px] right-32 z-10 hidden lg:block"
@@ -29,16 +35,32 @@ useSeoMeta({
     <main class="mx-auto max-w-container">
       <!-- 標題文字 -->
       <div class="mb-6 justify-items-center text-center md:mb-12">
-        <img src="/icons/plans/plans.svg" alt="職涯轉型全程計畫" class="mb-1" />
-        <h2 class="mb-4 text-t4-sm md:mb-6 md:text-t4">職涯轉型全程計畫</h2>
-        <p class="text-body-lg-sm text-neutral-600 md:text-body-lg">
+        <img
+          data-aos="fade-down"
+          data-aos-delay="400"
+          src="/icons/plans/plans.svg"
+          alt="職涯轉型全程計畫"
+          class="mb-1"
+        />
+        <h2
+          data-aos="fade-down"
+          data-aos-delay="600"
+          class="mb-4 text-t4-sm md:mb-6 md:text-t4"
+        >
+          職涯轉型全程計畫
+        </h2>
+        <p
+          data-aos="fade-down"
+          data-aos-delay="800"
+          class="text-body-lg-sm text-neutral-600 md:text-body-lg"
+        >
           從企業到自由，無縫轉型之旅
         </p>
       </div>
       <!-- 計畫卡片 -->
       <ul class="space-y-4 md:space-y-6">
         <!-- 全面方案 -->
-        <li class="relative">
+        <li data-aos="zoom-in-right" data-aos-delay="800" class="relative">
           <!-- HOT 標籤 -->
           <span
             class="inter | absolute left-0 top-0 rounded-br-2xl rounded-tl-2xl bg-secondary px-4 py-2 text-body-sm font-bold md:rounded-br-3xl md:rounded-tl-3xl"
@@ -93,7 +115,7 @@ useSeoMeta({
                 </p>
                 <p>
                   優惠價格：<span
-                    class="inter | md:text-t text-t-sm text-primary"
+                    class="inter | text-t-sm text-primary md:text-t"
                     >NT$ 120,000
                   </span>
                 </p>
@@ -108,7 +130,7 @@ useSeoMeta({
           </article>
         </li>
         <!-- 加速方案 -->
-        <li>
+        <li data-aos="zoom-in-right" data-aos-delay="800">
           <article
             class="flex items-start gap-6 rounded-2xl p-6 shadow-shadow md:rounded-3xl md:p-12"
           >
@@ -158,7 +180,7 @@ useSeoMeta({
                 </p>
                 <p>
                   優惠價格：<span
-                    class="inter | md:text-t text-t-sm text-primary"
+                    class="inter | text-t-sm text-primary md:text-t"
                     >NT$ 80,000
                   </span>
                 </p>
@@ -173,7 +195,7 @@ useSeoMeta({
           </article>
         </li>
         <!-- 遊牧方案 -->
-        <li>
+        <li data-aos="zoom-in-right" data-aos-delay="800">
           <article
             class="flex items-start gap-6 rounded-2xl p-6 shadow-shadow md:rounded-3xl md:p-12"
           >
@@ -223,7 +245,7 @@ useSeoMeta({
                 </p>
                 <p>
                   優惠價格：<span
-                    class="inter | md:text-t text-t-sm text-primary"
+                    class="inter | text-t-sm text-primary md:text-t"
                     >NT$ 60,000
                   </span>
                 </p>
@@ -245,16 +267,32 @@ useSeoMeta({
     <div class="mx-auto max-w-container">
       <!-- 標題文字 -->
       <div class="mb-6 justify-items-center text-center md:mb-12">
-        <img src="/icons/plans/basics.svg" alt="基礎諮詢服務" class="mb-1" />
-        <h2 class="mb-4 text-t4-sm md:mb-6 md:text-t4">基礎諮詢服務</h2>
-        <p class="text-body-lg-sm text-neutral-600 md:text-body-lg">
+        <img
+          data-aos="fade-down"
+          data-aos-delay="400"
+          src="/icons/plans/basics.svg"
+          alt="基礎諮詢服務"
+          class="mb-1"
+        />
+        <h2
+          data-aos="fade-down"
+          data-aos-delay="600"
+          class="mb-4 text-t4-sm md:mb-6 md:text-t4"
+        >
+          基礎諮詢服務
+        </h2>
+        <p
+          data-aos="fade-down"
+          data-aos-delay="800"
+          class="text-body-lg-sm text-neutral-600 md:text-body-lg"
+        >
           我們提供第一次免費諮詢，一起建立信任的橋樑
         </p>
       </div>
       <!-- 服務卡片 -->
       <ul class="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-6">
         <!-- 職涯探索評估 -->
-        <li>
+        <li data-aos="fade-up" data-aos-delay="800">
           <article
             class="justify-items-center space-y-4 rounded-2xl bg-white p-6 shadow-shadow md:space-y-6 md:rounded-3xl"
           >
@@ -266,13 +304,13 @@ useSeoMeta({
             <div class="space-y-2 text-center">
               <h3 class="text-t2-sm md:text-t2">職涯探索評估</h3>
               <p class="text-neutral-600">3 次一對一諮詢，了解可能性和適配性</p>
-              <p class="inter | md:text-t text-t-sm text-primary">NT$ 3,800</p>
+              <p class="inter | text-t-sm text-primary md:text-t">NT$ 3,800</p>
             </div>
             <AtomButton text="我有興趣" hasIcon />
           </article>
         </li>
         <!-- 職涯轉型規劃 -->
-        <li class="relative">
+        <li data-aos="fade-up" data-aos-delay="1000" class="relative">
           <!-- HOT 標籤 -->
           <span
             class="inter | absolute left-0 top-0 rounded-br-2xl rounded-tl-2xl bg-secondary px-4 py-2 text-body-sm font-bold md:rounded-br-3xl md:rounded-tl-3xl"
@@ -289,13 +327,13 @@ useSeoMeta({
             <div class="space-y-2 text-center">
               <h3 class="text-t2-sm md:text-t2">職涯轉型規劃</h3>
               <p class="text-neutral-600">6 次深度諮詢，建立完整轉型藍圖</p>
-              <p class="inter | md:text-t text-t-sm text-primary">NT$ 12,000</p>
+              <p class="inter | text-t-sm text-primary md:text-t">NT$ 12,000</p>
             </div>
             <AtomButton text="我有興趣" hasIcon />
           </article>
         </li>
         <!-- 專業定位與品牌建立 -->
-        <li>
+        <li data-aos="fade-up" data-aos-delay="1200">
           <article
             class="justify-items-center space-y-4 rounded-2xl bg-white p-6 shadow-shadow md:space-y-6 md:rounded-3xl"
           >
@@ -309,7 +347,7 @@ useSeoMeta({
               <p class="text-neutral-600">
                 4 次專業諮詢，確立市場定位與差異化策略
               </p>
-              <p class="inter | md:text-t text-t-sm text-primary">NT$ 8,800</p>
+              <p class="inter | text-t-sm text-primary md:text-t">NT$ 8,800</p>
             </div>
             <AtomButton text="我有興趣" hasIcon />
           </article>
@@ -318,16 +356,30 @@ useSeoMeta({
     </div>
   </section>
   <!-- 持續支持方案 -->
-  <section class="relative bg-neutral-100 px-3 py-12 md:py-20">
+  <section class="relative overflow-hidden bg-neutral-100 px-3 py-12 md:py-20">
     <!-- 內容區塊 -->
     <div class="relative z-10 mx-auto max-w-container-sm">
       <!-- 標題文字 -->
       <div class="mb-6 justify-items-center text-center md:mb-12">
-        <img src="/icons/plans/support.svg" alt="持續支持方案" class="mb-1" />
-        <h2 class="mb-4 text-t4-sm md:mb-6 md:text-t4">持續支持方案</h2>
+        <img
+          data-aos="fade-down"
+          data-aos-delay="400"
+          src="/icons/plans/support.svg"
+          alt="持續支持方案"
+          class="mb-1"
+        />
+        <h2
+          data-aos="fade-down"
+          data-aos-delay="600"
+          class="mb-4 text-t4-sm md:mb-6 md:text-t4"
+        >
+          持續支持方案
+        </h2>
       </div>
       <!-- 內容 -->
       <div
+        data-aos="zoom-out-up"
+        data-aos-delay="800"
         class="relative justify-items-center rounded-2xl border-2 border-secondary bg-secondary-100 p-6 text-center shadow-shadow md:rounded-3xl md:p-12"
       >
         <div class="relative z-10 mb-12">
@@ -335,7 +387,7 @@ useSeoMeta({
           <p>享有長期社群支持與資源服務</p>
         </div>
         <div class="relative z-10 mb-12 flex items-center gap-2">
-          <span class="inter | md:text-t text-t-sm text-primary"
+          <span class="inter | text-t-sm text-primary md:text-t"
             >NT$ 9,800
           </span>
           /年

@@ -1,6 +1,10 @@
 <template>
   <!-- 邁向你真正想過的生活，從這裡開始 -->
-  <section class="px-3 py-10">
+  <section
+    data-aos="zoom-in-up"
+    data-aos-delay="700"
+    class="overflow-x-hidden px-3 py-10"
+  >
     <div
       class="mx-auto max-w-container rounded-2xl bg-primary px-6 py-4 text-white md:rounded-3xl md:px-12 md:py-6"
     >
@@ -14,7 +18,7 @@
       <hr class="mb-4 border-dashed md:mb-6" />
       <footer class="flex flex-col justify-between gap-6 md:flex-row">
         <ul class="flex flex-col gap-4 md:flex-row md:gap-6">
-          <li class="inter | md:text-t text-t-sm !font-medium">
+          <li class="inter | text-t-sm !font-medium md:text-t">
             <a href="tel:0800-123-123" class="flex items-center gap-2">
               <svg
                 width="24"
@@ -31,7 +35,7 @@
               0800-123-123
             </a>
           </li>
-          <li class="inter | md:text-t text-t-sm !font-medium">
+          <li class="inter | text-t-sm !font-medium md:text-t">
             <a href="mailto:Sample@mail.com" class="flex items-center gap-2">
               <svg
                 width="24"

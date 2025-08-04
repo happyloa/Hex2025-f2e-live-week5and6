@@ -1000,6 +1000,8 @@ const professionalTrainings = ref("");
         </section>
         <!-- 按鈕 -->
         <div
+          data-aos="fade-up"
+          data-aos-delay="400"
           class="flex flex-col-reverse justify-center gap-4 md:flex-row md:gap-6"
         >
           <AtomButton

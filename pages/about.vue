@@ -13,19 +13,27 @@ useSeoMeta({
     class="bg-[url('/images/banner-bg.webp')] bg-center px-3 py-12 md:py-20 lg:bg-[url('/images/banner-bg-pc.webp')] lg:bg-cover lg:bg-no-repeat"
   >
     <div class="relative mx-auto max-w-container text-center">
-      <h1 class="mb-6 text-t5-sm md:mb-12 md:text-t5">關於職旅</h1>
+      <h1 data-aos="fade-up" class="mb-6 text-t5-sm md:mb-12 md:text-t5">
+        關於職旅
+      </h1>
       <p
+        data-aos="fade-up"
+        data-aos-delay="100"
         class="mx-auto max-w-[800px] text-body-lg-sm text-neutral-600 md:text-body-lg"
       >
         職旅 WorkWay
         匯集了來自不同領域、擁有豐富實戰經驗的自由工作者與數位遊牧專家。根據你的需求和階段，我們提供一對一諮詢。
       </p>
       <p
+        data-aos="fade-up"
+        data-aos-delay="200"
         class="mx-auto max-w-[800px] text-body-lg-sm text-neutral-600 md:text-body-lg"
       >
         無論你是剛開始探索期，還是已在轉型路上遇到瓶頸，我們都能提供適合你的專業指導。
       </p>
       <img
+        data-aos="flip-left"
+        data-aos-delay="600"
         src="/images/banner-person.svg"
         alt="裝飾人物"
         class="absolute -bottom-[88px] right-32 z-10 hidden lg:block"
@@ -37,14 +45,22 @@ useSeoMeta({
     <main class="mx-auto max-w-container space-y-6 text-center md:space-y-12">
       <!-- 標題 -->
       <div class="px-3">
-        <h2 class="mb-4 text-t4-sm md:mb-6 md:text-t4">精實的職旅夥伴</h2>
-        <p class="text-body-lg-sm text-neutral-600 md:text-body-lg">
+        <h2 data-aos="fade-down" data-aos-delay="400" class="mb-4 text-t4-sm md:mb-6 md:text-t4">
+          精實的職旅夥伴
+        </h2>
+        <p
+          data-aos="fade-down"
+          data-aos-delay="600"
+          class="text-body-lg-sm text-neutral-600 md:text-body-lg"
+        >
           我們相信，最好的指導來自於那些已經走過你想走的路，並願意伸出手拉你一把的人。
         </p>
       </div>
       <!-- 夥伴輪播 -->
       <ClientOnly>
         <swiper-container
+          data-aos="fade-up"
+          data-aos-delay="400"
           class="xl:w-screen"
           :breakpoints="{
             1536: {
@@ -131,7 +147,7 @@ useSeoMeta({
         </swiper-container>
       </ClientOnly>
       <!-- 團隊承諾 -->
-      <article class="px-3">
+      <article data-aos="flip-left" data-aos-delay="400" class="px-3">
         <div
           class="justify-items-center rounded-2xl bg-primary px-6 pb-6 pt-4 text-white shadow-shadow md:rounded-3xl md:px-12 md:pb-12 md:pt-6"
         >
@@ -166,8 +182,16 @@ useSeoMeta({
   <section class="relative bg-neutral-100 px-3 py-12 md:py-20">
     <!-- 內容區塊 -->
     <div class="mx-auto max-w-container">
-      <h2 class="mb-6 text-center text-t4-sm md:mb-12 md:text-t4">公司資訊</h2>
+      <h2
+        data-aos="fade-up"
+        data-aos-delay="100"
+        class="mb-6 text-center text-t4-sm md:mb-12 md:text-t4"
+      >
+        公司資訊
+      </h2>
       <div
+        data-aos="fade-up"
+        data-aos-delay="300"
         class="relative z-10 rounded-2xl bg-white p-6 shadow-shadow md:rounded-3xl md:p-12"
       >
         <ul class="mb-6 md:mb-12">

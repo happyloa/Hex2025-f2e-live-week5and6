@@ -63,12 +63,17 @@ onMounted(async () => {
       <main
         class="rounded-2xl bg-white p-6 shadow-shadow md:rounded-3xl md:p-12"
       >
-        <h1 class="mb-4 text-t2-sm !font-medium md:mb-6 md:text-t2">
+        <h1
+          data-aos="fade-right"
+          class="mb-4 text-t2-sm !font-medium md:mb-6 md:text-t2"
+        >
           預約紀錄
         </h1>
         <ul class="mb-6 grid gap-6 md:mb-12 md:grid-cols-3">
           <!-- 卡片1 -->
           <li
+            data-aos="fade-right"
+            data-aos-delay="100"
             class="hidden justify-items-center rounded-2xl border border-neutral-300 p-6 text-center md:block md:rounded-3xl"
           >
             <p class="inter | mb-2 text-t4-sm text-primary md:text-t4">3</p>
@@ -78,6 +83,8 @@ onMounted(async () => {
           </li>
           <!-- 卡片2 -->
           <li
+            data-aos="fade-right"
+            data-aos-delay="300"
             class="justify-items-center rounded-2xl border border-neutral-300 p-4 text-center md:rounded-3xl md:p-6"
           >
             <p class="inter | mb-2 text-t4-sm text-primary md:text-t4">
@@ -89,6 +96,8 @@ onMounted(async () => {
           </li>
           <!-- 卡片3 -->
           <li
+            data-aos="fade-right"
+            data-aos-delay="500"
             class="hidden justify-items-center rounded-2xl border border-neutral-300 p-6 text-center md:block md:rounded-3xl"
           >
             <p class="inter | mb-2 text-t4-sm text-primary md:text-t4">3/6</p>
@@ -98,7 +107,7 @@ onMounted(async () => {
           </li>
         </ul>
         <div class="mb-4 flex items-center justify-between gap-3 md:mb-6">
-          <div class="flex gap-2">
+          <div data-aos="fade-down" data-aos-delay="700" class="flex gap-2">
             <AtomButton
               v-for="option in statusOptions"
               :key="option.value"
@@ -132,10 +141,10 @@ onMounted(async () => {
             </button>
             <!-- 透明 backdrop -->
             <div
-                v-if="showDropdown"
-                @click="showDropdown = false"
-                class="fixed inset-0 z-20 bg-transparent"
-              ></div>
+              v-if="showDropdown"
+              @click="showDropdown = false"
+              class="fixed inset-0 z-20 bg-transparent"
+            ></div>
             <div
               v-if="showDropdown"
               class="absolute right-0 top-14 z-30 w-[160px] rounded-xl bg-white py-2 shadow-shadow"
@@ -166,6 +175,8 @@ onMounted(async () => {
         <template v-else>
           <!-- 電腦版表格 -->
           <table
+            data-aos="fade-up"
+            data-aos-delay="900"
             class="hidden w-full whitespace-nowrap md:table"
             v-if="filteredAppointments.length"
           >
@@ -209,7 +220,7 @@ onMounted(async () => {
             目前沒有相關預約紀錄
           </p>
           <!-- 手機版卡片 -->
-          <div class="block md:hidden">
+          <div data-aos="fade-up" data-aos-delay="900" class="block md:hidden">
             <h3
               class="border-b border-neutral-300 px-2 py-[11.5px] text-body-sm !font-medium"
             >

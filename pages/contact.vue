@@ -150,8 +150,14 @@ function handleKnowUsChange() {
     <div class="mx-auto max-w-container-md">
       <!-- 標題區塊 -->
       <section class="mb-6 text-center md:mb-12">
-        <h1 class="mb-4 text-t4-sm md:mb-6 md:text-t4">聯絡我們</h1>
-        <p class="text-body-lg-sm text-neutral-600 md:text-body-lg">
+        <h1 data-aos="fade-up" class="mb-4 text-t4-sm md:mb-6 md:text-t4">
+          聯絡我們
+        </h1>
+        <p
+          data-aos="fade-up"
+          data-aos-delay="100"
+          class="text-body-lg-sm text-neutral-600 md:text-body-lg"
+        >
           每一封郵件，我們都會親自回覆。每一通電話，都是新可能的開始。
         </p>
       </section>
@@ -160,6 +166,8 @@ function handleKnowUsChange() {
         class="relative rounded-2xl bg-white p-6 shadow-shadow md:rounded-3xl md:p-12"
       >
         <img
+          data-aos="flip-left"
+          data-aos-delay="600"
           src="/images/contact/form-top.svg"
           alt="表單裝飾圖片"
           class="absolute -top-[137px] right-10 z-10 hidden lg:block"
@@ -780,6 +788,8 @@ function handleKnowUsChange() {
         </section>
         <!-- 按鈕 -->
         <div
+          data-aos="fade-up"
+          data-aos-delay="400"
           class="flex flex-col-reverse justify-center gap-4 md:flex-row md:gap-6"
         >
           <AtomButton

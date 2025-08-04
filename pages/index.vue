@@ -46,31 +46,60 @@ function handleToggle(idx) {
   <section class="relative overflow-hidden px-3 py-12 md:py-20">
     <!-- 標題 -->
     <div class="relative z-10 mx-auto mb-10 max-w-[815px]">
-      <h1 class="mb-6 text-center text-t5-sm md:text-display">
+      <h1
+        data-aos="fade-down"
+        class="mb-6 text-center text-t5-sm md:text-display"
+      >
         一起陪伴、探索<br />還有你那些未完成的夢
       </h1>
       <div class="flex flex-col items-center justify-between gap-6 md:flex-row">
         <p
+          data-aos="fade-up"
+          data-aos-delay="100"
           class="text-center text-body-lg-sm text-neutral-600 md:text-start md:text-body-lg"
         >
           自由工作很美，也很難。<br />我們用 1 對 1
           陪伴，陪你從第一步開始，直到夢想變成日常
         </p>
-        <AtomButton to="/plans" size="lg" text="開始你的職旅" hasIcon />
+        <AtomButton
+          data-aos="fade-up"
+          data-aos-delay="200"
+          to="/plans"
+          size="lg"
+          text="開始你的職旅"
+          hasIcon
+        />
       </div>
     </div>
     <!-- 圖片 -->
     <div class="relative z-10 grid grid-cols-1 gap-6 md:grid-cols-3 md:px-3">
       <img
+        data-aos="flip-left"
+        data-aos-delay="500"
         src="/images/home/hero-1.webp"
         alt="hero圖片1"
         class="hidden md:block"
       />
       <div class="hidden space-y-6 md:block">
-        <img src="/images/home/hero-2.webp" alt="hero圖片2" />
-        <img src="/images/home/hero-3.webp" alt="hero圖片3" />
+        <img
+          data-aos="flip-up"
+          data-aos-delay="600"
+          src="/images/home/hero-2.webp"
+          alt="hero圖片2"
+        />
+        <img
+          data-aos="flip-up"
+          data-aos-delay="600"
+          src="/images/home/hero-3.webp"
+          alt="hero圖片3"
+        />
       </div>
-      <img src="/images/home/hero-4.webp" alt="hero圖片4" />
+      <img
+        data-aos="flip-right"
+        data-aos-delay="700"
+        src="/images/home/hero-4.webp"
+        alt="hero圖片4"
+      />
     </div>
     <!-- 裝飾球球 -->
     <img
@@ -80,13 +109,13 @@ function handleToggle(idx) {
     />
   </section>
   <!-- 他們已經踏上職旅 -->
-  <section class="relative overflow-x-hidden py-12 md:py-20">
+  <section class="relative overflow-hidden py-12 md:py-20">
     <!-- 內容區塊 -->
     <div
       class="mx-auto grid max-w-container grid-cols-1 items-center gap-y-6 md:gap-6 xl:grid-cols-3"
     >
       <!-- 標題 -->
-      <div class="space-y-4 px-3 md:space-y-6">
+      <div data-aos="zoom-in-right" class="space-y-4 px-3 md:space-y-6">
         <img src="/logo-icon.svg" alt="icon logo" class="w-12 md:w-24" />
         <h2 class="text-t5-sm md:text-t5">
           他們已經踏上職旅<br />聽聽他們的故事
@@ -99,6 +128,8 @@ function handleToggle(idx) {
       <div class="col-span-2">
         <ClientOnly
           ><swiper-container
+            data-aos="fade-up"
+            data-aos-delay="250"
             class="xl:w-screen"
             :breakpoints="{
               1280: {
@@ -192,19 +223,35 @@ function handleToggle(idx) {
     <div class="mx-auto max-w-container space-y-6 md:space-y-12">
       <!-- 標題 -->
       <div class="justify-items-center text-center">
-        <img src="/images/home/why-workway.svg" alt="為什麼？" class="mb-1" />
-        <h2 class="text-t5-sm md:text-t5">選擇職旅 WorkWay</h2>
+        <img
+          data-aos="fade-down"
+          data-aos-delay="200"
+          src="/images/home/why-workway.svg"
+          alt="為什麼？"
+          class="mb-1"
+        />
+        <h2
+          data-aos="fade-down"
+          data-aos-delay="400"
+          class="text-t5-sm md:text-t5"
+        >
+          選擇職旅 WorkWay
+        </h2>
       </div>
       <!-- 卡片 -->
       <div class="relative">
         <!-- 裝飾圖片 -->
         <img
+          data-aos="flip-right"
+          data-aos-delay="1500"
           src="/images/home/adv-deco.svg"
           alt="裝飾圖片"
           class="absolute -top-[174px] right-0 hidden lg:block"
         />
         <ul class="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-6">
           <li
+            data-aos="fade-up"
+            data-aos-delay="400"
             class="group relative overflow-y-hidden rounded-2xl md:rounded-3xl"
           >
             <!-- 覆蓋文字 -->
@@ -238,6 +285,8 @@ function handleToggle(idx) {
             </span>
           </li>
           <li
+            data-aos="fade-up"
+            data-aos-delay="600"
             class="group relative overflow-y-hidden rounded-2xl md:rounded-3xl"
           >
             <!-- 覆蓋文字 -->
@@ -271,6 +320,8 @@ function handleToggle(idx) {
             </span>
           </li>
           <li
+            data-aos="fade-up"
+            data-aos-delay="800"
             class="group relative overflow-y-hidden rounded-2xl md:rounded-3xl"
           >
             <!-- 覆蓋文字 -->
@@ -306,7 +357,11 @@ function handleToggle(idx) {
         </ul>
       </div>
       <!-- 底下文字 -->
-      <div class="flex items-center gap-4 md:gap-6">
+      <div
+        data-aos="fade-up"
+        data-aos-delay="1000"
+        class="flex items-center gap-4 md:gap-6"
+      >
         <p class="shrink-0 font-medium text-neutral-600">
           不是套模板的建議，而是為你量身打造的陪伴！
         </p>
@@ -327,41 +382,87 @@ function handleToggle(idx) {
       class="relative z-10 mx-auto flex max-w-container flex-col items-start gap-6 lg:flex-row"
     >
       <img
+        data-aos="fade-right"
+        data-aos-delay="200"
         src="/images/home/team.webp"
         alt="職涯夥伴"
         class="rounded-xl lg:max-w-[636px]"
       />
       <div class="flex-1 space-y-4 lg:max-w-[636px] lg:space-y-6 lg:px-3">
-        <h2 class="text-t5-sm lg:text-t5">遇見你的職涯夥伴</h2>
-        <p class="text-body-lg-sm text-neutral-600 lg:text-body-lg">
+        <h2
+          data-aos="fade-left"
+          data-aos-delay="400"
+          class="text-t5-sm lg:text-t5"
+        >
+          遇見你的職涯夥伴
+        </h2>
+        <p
+          data-aos="fade-left"
+          data-aos-delay="500"
+          class="text-body-lg-sm text-neutral-600 lg:text-body-lg"
+        >
           每位顧問都有獨特專長，更重要的是：
         </p>
-        <blockquote class="inline-block bg-neutral-100 p-2">
+        <blockquote
+          data-aos="fade-left"
+          data-aos-delay="600"
+          class="inline-block bg-neutral-100 p-2"
+        >
           <p class="text-t2-sm text-primary lg:text-t2">
             “ 他們都曾面對你正在經歷的挑戰 ”
           </p>
         </blockquote>
-        <p class="text-body-lg-sm text-neutral-600 lg:text-body-lg">
+        <p
+          data-aos="fade-left"
+          data-aos-delay="700"
+          class="text-body-lg-sm text-neutral-600 lg:text-body-lg"
+        >
           職旅 WorkWay
           匯集了來自不同領域、擁有豐富實戰經驗的自由工作者與數位遊牧專家。我們的顧問不只教授理論，更分享親身經歷的挑戰與解決之道。
         </p>
-        <p class="text-body-lg-sm text-neutral-600 lg:text-body-lg">
+        <p
+          data-aos="fade-left"
+          data-aos-delay="800"
+          class="text-body-lg-sm text-neutral-600 lg:text-body-lg"
+        >
           我們相信，最好的指導來自於那些已經走過你想走的路，並願意伸出手拉你一把的人。
         </p>
-        <AtomButton to="/about" text="了解更多職旅夥伴" hasIcon />
+        <AtomButton
+          data-aos="fade-up"
+          data-aos-delay="900"
+          to="/about"
+          text="了解更多職旅夥伴"
+          hasIcon
+        />
       </div>
     </div>
   </section>
   <!-- 服務流程 -->
-  <section class="bg-primary px-3 py-12 md:py-20">
+  <section class="overflow-x-hidden bg-primary px-3 py-12 md:py-20">
     <div class="mx-auto max-w-container text-center">
       <!-- 標題 -->
       <div class="mb-6 text-white md:mb-12">
-        <h2 class="mb-4 text-t5-sm md:mb-6 md:text-t5">服務流程</h2>
-        <p class="text-body-lg-sm md:text-body-lg">簡單四步，踏上你的職旅</p>
+        <h2
+          data-aos="flip-left"
+          data-aos-delay="200"
+          class="mb-4 text-t5-sm md:mb-6 md:text-t5"
+        >
+          服務流程
+        </h2>
+        <p
+          data-aos="flip-left"
+          data-aos-delay="400"
+          class="text-body-lg-sm md:text-body-lg"
+        >
+          簡單四步，踏上你的職旅
+        </p>
       </div>
       <!-- 電腦版 -->
-      <ol class="hidden gap-6 md:grid md:grid-cols-2 lg:grid-cols-4">
+      <ol
+        data-aos="flip-up"
+        data-aos-delay="800"
+        class="hidden gap-6 md:grid md:grid-cols-2 lg:grid-cols-4"
+      >
         <li>
           <CommonHomeServiceCard
             img="/images/home/service-1.svg"
@@ -398,6 +499,8 @@ function handleToggle(idx) {
       <!-- 手機版 -->
       <ClientOnly>
         <swiper-container
+          data-aos="flip-up"
+          data-aos-delay="800"
           class="block md:hidden"
           slides-per-view="1.2"
           space-between="16"
@@ -442,19 +545,44 @@ function handleToggle(idx) {
     </div>
   </section>
   <!-- 你可能有些困惑... -->
-  <section class="bg-[url('/images/home/bg-grid.webp')] px-3 py-12 md:py-20">
+  <section
+    class="overflow-x-hidden bg-[url('/images/home/bg-grid.webp')] px-3 py-12 md:py-20"
+  >
     <div class="mx-auto max-w-container">
       <!-- 標題 -->
       <div class="mb-6 justify-items-center text-center md:mb-12">
-        <img src="/images/home/qa-title.svg" alt="\ Q&A /" class="mb-1" />
-        <h2 class="text-t5-sm md:text-t5">你可能有些困惑...</h2>
+        <img
+          data-aos="fade-down"
+          data-aos-delay="200"
+          src="/images/home/qa-title.svg"
+          alt="\ Q&A /"
+          class="mb-1"
+        />
+        <h2
+          data-aos="fade-down"
+          data-aos-delay="400"
+          class="text-t5-sm md:text-t5"
+        >
+          你可能有些困惑...
+        </h2>
       </div>
       <!-- QA 內容 -->
       <div class="flex items-end justify-between gap-6">
-        <img src="/images/home/qa.svg" alt="裝飾圖片" class="hidden md:block" />
+        <img
+          data-aos="fade-right"
+          data-aos-delay="600"
+          src="/images/home/qa.svg"
+          alt="裝飾圖片"
+          class="hidden md:block"
+        />
         <!-- QA 手風琴 -->
         <ul class="max-w-[746px] flex-1 space-y-4 md:space-y-6">
-          <li v-for="(qa, idx) in qaList" :key="qa.title">
+          <li
+            data-aos="fade-left"
+            :data-aos-delay="800 + idx * 150"
+            v-for="(qa, idx) in qaList"
+            :key="qa.title"
+          >
             <CommonHomeAccordion
               :title="qa.title"
               :content="qa.content"
