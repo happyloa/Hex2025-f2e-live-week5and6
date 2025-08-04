@@ -106,6 +106,7 @@ public
 - [Nuxt Tailwind](https://tailwindcss.nuxtjs.org/)
 - [Nuxt Swiper](https://nuxt.com/modules/swiper/)
 - [VeeValidate](https://vee-validate.logaretm.com/)
+- [Nuxt AOS](https://nuxt.com/modules/aos)
 - [Yup](https://www.npmjs.com/package/yup)
 - [TinyPNG](https://tinypng.com/)
 - [SVG Viewer](https://www.svgviewer.dev/)
@@ -116,4 +117,5 @@ public
 為了模擬未登入跟已登入狀態，每次進到網站時會登錄一個帶著 false 值的 isLoggedIn 鍵到 sessionStorage 內，只要進到會員頁面（/my-account、/my-account/appointments、/my-account/plans），這個值就會變成 true，導覽列上的元件也會換成已登入狀態（從按鈕改為使用者頭像&名稱）。
 
 ## 2025/07/29 助教修改建議
+
 ![](https://raw.githubusercontent.com/happyloa/Hex2025-f2e-live-week5and6/refs/heads/main/public/ta-advise.webp)
