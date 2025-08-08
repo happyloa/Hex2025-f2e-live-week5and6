@@ -119,3 +119,7 @@ public
 ## 2025/07/29 助教修改建議
 
 ![](https://raw.githubusercontent.com/happyloa/Hex2025-f2e-live-week5and6/refs/heads/main/public/ta-advise.webp)
+
+## 2025/08/08 助教修改建議
+
+![](https://raw.githubusercontent.com/happyloa/Hex2025-f2e-live-week5and6/refs/heads/main/public/ta-advise2.webp)
