@@ -392,7 +392,7 @@ function handleToggle(idx) {
         <h2
           data-aos="fade-left"
           data-aos-delay="400"
-          class="text-t5-sm lg:text-t5"
+          class="text-center text-t5-sm lg:text-start lg:text-t5"
         >
           遇見你的職涯夥伴
         </h2>
@@ -433,6 +433,7 @@ function handleToggle(idx) {
           to="/about"
           text="了解更多職旅夥伴"
           hasIcon
+          class="mx-auto lg:mx-0"
         />
       </div>
     </div>
