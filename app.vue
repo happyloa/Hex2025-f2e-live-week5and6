@@ -1,10 +1,9 @@
 <script setup>
+// 透過共享的 composable 在入口就初始化登入狀態，避免各頁面重複寫入 sessionStorage。
+const { initializeSessionFlag } = useSessionAuth();
+
 onMounted(() => {
-  // 檢查 sessionStorage 裡是否有 isLoggedIn
-  if (sessionStorage.getItem("isLoggedIn") === null) {
-    // 沒有就初始化為 'false'
-    sessionStorage.setItem("isLoggedIn", "false");
-  }
+  initializeSessionFlag();
 });
 </script>
 
