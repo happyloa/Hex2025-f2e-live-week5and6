@@ -1,7 +1,13 @@
-<script setup>
-const router = useRouter();
+<script setup lang="ts">
+import type { NavigationItem } from "~/constants/navigation";
+import { primaryNavigation } from "~/constants/navigation";
 
-const isLoggedIn = ref(false);
+// Nuxt Router 與 Route 便於導向與檢查目前路徑。
+const router = useRouter();
+const route = useRoute();
+
+// 集中管理登入狀態，避免各元件各自讀寫 sessionStorage。
+const { isLoggedIn, initializeSessionFlag, updateLoginState } = useSessionAuth();
 
 // 控制手機版導覽選單開關
 const showMobileNav = ref(false);
@@ -16,11 +22,21 @@ function closeRegisterModal() {
   isRegisterModalOpen.value = false;
 }
 
-// 登入或註冊成功後，導向會員中心
+/**
+ * 根據 NavigationItem 計算是否為當前路徑，用於桌面與手機版導覽的 active 樣式。
+ */
+const isActiveNav = (item: NavigationItem) => {
+  const activeTarget = item.activeMatch ?? item.path;
+  return item.exact ? route.path === activeTarget : route.path.includes(activeTarget);
+};
+
+// 登入或註冊成功後，寫回登入狀態並導向會員中心
 function handleLoginSuccess() {
+  updateLoginState(true);
   router.push("/my-account");
 }
 function handleRegisterSuccess() {
+  updateLoginState(true);
   router.push("/my-account");
 }
 
@@ -36,8 +52,8 @@ function handleShowLogin() {
 
 onMounted(async () => {
   await nextTick();
-  // 取 sessionStorage isLoggedIn 值
-  isLoggedIn.value = sessionStorage.getItem("isLoggedIn") === "true";
+  // 初始化與同步 sessionStorage 的登入狀態，避免刷新後 UI 與狀態不一致。
+  initializeSessionFlag();
 });
 </script>
 
@@ -51,28 +67,12 @@ onMounted(async () => {
       /></NuxtLink>
       <nav class="hidden md:block">
         <ul class="flex gap-3">
-          <li>
+          <li v-for="item in primaryNavigation" :key="item.path">
             <NuxtLink
-              to="/plans"
+              :to="item.path"
               class="block px-6 py-2 transition duration-300 hover:text-primary"
-              :class="$route.path === '/plans' ? 'text-primary' : ''"
-              >服務方案</NuxtLink
-            >
-          </li>
-          <li>
-            <NuxtLink
-              to="/about"
-              class="block px-6 py-2 transition duration-300 hover:text-primary"
-              :class="$route.path === '/about' ? 'text-primary' : ''"
-              >關於職旅</NuxtLink
-            >
-          </li>
-          <li>
-            <NuxtLink
-              to="/contact"
-              class="block px-6 py-2 transition duration-300 hover:text-primary"
-              :class="$route.path === '/contact' ? 'text-primary' : ''"
-              >聯絡我們</NuxtLink
+              :class="isActiveNav(item) ? 'text-primary' : ''"
+              >{{ item.label }}</NuxtLink
             >
           </li>
         </ul>
@@ -129,28 +129,12 @@ onMounted(async () => {
   <!-- 手機版 Modal 導覽選單 -->
   <LayoutMobileNav v-model:show="showMobileNav">
     <ul class="space-y-6 text-center">
-      <li>
+      <li v-for="item in primaryNavigation" :key="item.path">
         <NuxtLink
-          to="/plans"
+          :to="item.path"
           class="block p-4"
-          :class="$route.path === '/plans' ? 'bg-neutral-200' : ''"
-          >服務方案</NuxtLink
-        >
-      </li>
-      <li>
-        <NuxtLink
-          to="/about"
-          class="block p-4"
-          :class="$route.path === '/about' ? 'bg-neutral-200' : ''"
-          >關於職旅</NuxtLink
-        >
-      </li>
-      <li>
-        <NuxtLink
-          to="/contact"
-          class="block p-4"
-          :class="$route.path === '/contact' ? 'bg-neutral-200' : ''"
-          >聯絡我們</NuxtLink
+          :class="isActiveNav(item) ? 'bg-neutral-200' : ''"
+          >{{ item.label }}</NuxtLink
         >
       </li>
     </ul>

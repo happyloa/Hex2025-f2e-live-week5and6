@@ -1,8 +1,10 @@
 <script setup>
-// 進到使用這個 layout 的頁面時，自動把 sessionStorage.isLoggedIn 設成 'true'
-// 這樣做是為了模擬已登入狀態，因為只有登入以後才可能進到會員專屬頁面（個人資料、預約紀錄、職旅計畫）
+// 使用共享登入狀態，讓所有會員頁面進場時都保持「已登入」的模擬狀態。
+const { updateLoginState } = useSessionAuth();
+
 onMounted(() => {
-  sessionStorage.setItem("isLoggedIn", "true");
+  // 會員頁面才能被看見，因此直接同步為 true 方便切版展示。
+  updateLoginState(true);
 });
 </script>
 

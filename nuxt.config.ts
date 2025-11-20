@@ -50,7 +50,8 @@ export default defineNuxtConfig({
       "Noto+Sans+TC": [400, 500, 700],
       Inter: [400, 500, 700],
     },
-    download: true,
+    // CI/離線環境易因下載失敗而中斷建置，因此改為動態載入雲端字型。
+    download: false,
     inject: true,
     display: "swap",
   },
